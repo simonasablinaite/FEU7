@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cat project</title>
+</head>
+
+<style>
+   body,
+   body * {
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+      box-sizing: border-box;
+      font-family: "Oswald", sans-serif;
+   }
+
+   header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+   }
+
+   .logo {
+      margin-right: 450px;
+   }
+
+   nav>a {
+      margin: 15px;
+   }
+
+   main {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+   }
+
+   h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 100px;
+      font-weight: 100;
+   }
+
+   h2 {
+      font-size: 100px;
+      margin-bottom: 20px;
+   }
+
+   p {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      width: 70%;
+      font-size: 20px;
+      margin-bottom: 40px;
+   }
+
+   a {
+      text-decoration: none;
+   }
+
+   .text-elements-group a {
+      background-color: darkturquoise;
+      padding: 10px 30px;
+      border-radius: 15px;
+   }
+
+   .text-elements-group a:last-child {
+      background-color: #fff;
+      cursor: pointer;
+      border: 1px solid darkturquoise;
+   }
+</style>
+
+<body>
+   <div class="container">
+      <header>
+         <img class="logo" src="./img/Logo.png" alt="logo">
+         <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+         </nav>
+      </header>
+
+      <main>
+         <div class="text-elements-group">
+            <h1>404</h1>
+            <h2>Oops!</h2>
+            <div class="line"></div>
+            <p>Ok this is awkward, but I don't think you should be here</p>
+            <a href="#">Home</a>
+            <a href="#">Back</a>
+         </div>
+         <img src="./img/Cat.png" alt="cat">
+      </main>
+   </div>
+</body>
+
+</html>
