@@ -1,0 +1,200 @@
+<!-- Taisyklių aprašas kaip reikia interpretuoti žemiau pateiktą kodą  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- Apibrėžia naudojamų simbolių rinkinį - kompiuterinę abėcėlę -->
+   <meta charset="UTF-8">
+   <!-- Suderinamumas. Kad internet explorer'is galėtų atvaizduoti modernesnius tinklalapius. -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Peržiūros srities nustatymai, kad puslapis gerai atrodytų visuose įrenginiuose. Visa balta dalis-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>HTML intro</title>
+
+   <style>
+      table,
+      td,
+      th {
+         border: 1px solid black;
+         border-collapse: collapse;
+         padding: 5px 10px;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- ANTRAŠTĖS: antraštės skirstomos nuo didžiausios (h1) iki mažiausios (h6) -->
+   <div>
+      <h1>CONTENT1</h1>
+      <h2>CONTENT2</h2>
+      <h3>CONTENT3</h3>
+      <h4>CONTENT4</h4>
+      <h5>CONTENT5</h5>
+      <h6>CONTENT6</h6>
+   </div>
+
+   <!-- Pastraipa apibrėžiama <p> elementu -->
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae veniam voluptas eveniet, nostrum nobis? Sed,
+      recusandae deleniti odit sapiente hic excepturi porro illum iste quae perspiciatis. Iusto saepe voluptatibus
+      dolorum quia ad? Ullam modi adipisci placeat minima quae fugiat vero vitae accusamus repellendus quia eveniet, sit
+      ducimus eligendi doloremque!</p>
+
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sapiente quas aliquid maiores quis nemo, nulla
+      similique rerum excepturi officiis facilis. Dicta sint molestias quo! Hic, magni. Maxime, reprehenderit nesciunt.
+      Pariatur dicta tempore eum dolore quisquam, voluptatem architecto molestias repellat omnis voluptas vitae
+      consequatur in, culpa obcaecati modi aut iusto.</p>
+
+   <!-- Sąrašai skirstomi į tvarkingus - ordered list (<ol>) ir netvarkingus - unordered list (<ul>). Sąrašo elementą apibrėžia (<li>) elementas.-->
+
+   <ul>
+      <li>Vienas</li>
+      <li>Du</li>
+      <li>Trys</li>
+   </ul>
+
+   <ol>
+      <li>Vienas</li>
+      <li>Du</li>
+      <li>Trys</li>
+   </ol>
+
+   <!-- Lentelės: jas apibrėžia elementas <table>. 
+      - Lentelės eilutes apibrėžia <tr> elementas,
+      - Stulpelius - <td> elementas. 
+      - Lentelės langelių antraštės atvaizuoojamos <th> elementais
+   -->
+
+   <table>
+      <th>Name</th>
+      <th>Job</th>
+      <th>Salar</th>
+      <tr>
+         <td>Jonas</td>
+         <td>Driver</td>
+         <td>24000</td>
+      </tr>
+      <tr>
+         <td>Petras</td>
+         <td>Developer</td>
+         <td>48000</td>
+      </tr>
+      <tr>
+         <td>Maryte</td>
+         <td>Makeup artist</td>
+         <td>30000</td>
+      </tr>
+   </table>
+
+   <hr>
+   <br>
+   <br>
+
+   <!-- Mygtuko elementas <button> -->
+   <button>Click Me</button> <br>
+
+
+   <!-- NUORODOS: -->
+   <!-- Nuoroda vedanti į kitą puslapį -->
+   <a href="https://www.google.com/">Google</a> <br>
+
+   <!-- Tuščia nuoroda -->
+   <a href="#">Home</a> <br>
+
+   <!-- Nuoroda paveikslėlis -->
+   <a href="https://www.google.com/">
+      <img src="./img/intro/5-53481_med-boukrima-specialist-webmaster-php-e-commerce-web.png"
+         style="width: 50px; height: 50px;" alt="dev">
+   </a> <br>
+
+   <!-- target atributas nuorodose nustato, kur atidaryti susietą dokumentą -->
+   <a href="https://www.google.com/" target="_blank">blank</a> <!-- nuoroda atidaroma kitame lange-->
+   <a href="https://www.google.com/" target="_parent">parent</a>
+   <!-- nuoroda atidaroma tame pačiame lange, skirtuke, kažkokiame rėmelyje-->
+   <a href="https://www.google.com/" target="_self">self</a>
+   <!--nuoroda atidaroma tame pačiame naršyklės lange kaip ir dabartinis puslapis -->
+   <a href="https://www.google.com/" target="_top">top</a>
+   <!-- nuoroda atidaroma viršutiniame rėmelyje, tai yra visos naršyklės langas-->
+
+   <!-- IVESTIES LAUKAI - <input> -->
+
+</body>
+
+</html>
+
+<!-- 
+   KAS YRA HTML?
+   HTML standartinė, struktūrizuota žymėjimo kalba, skirta tinklalapiams kurti. Aprašo tinklalapio struktūrą, kuri susideda iš daugybės elementų. Elementai nurodo naršyklei, kaip rodyti turinį, sudaryta iš tam tikrų dalių, pvz antraštė, pastraipa, nuoroda, paveiksliukas ir t.t.;
+
+   HTML STRUKTŪRA HTML, HEAD, BODY TAGAI:
+   - Deklaracija <!DOCTYPE html> apibrėžia, kad šis dokumentas yra HTML5 dokumentas (versija). Nurodo kaip interpretuoti žemiau pateiktą kodą.
+
+   - Elementas <html> yra pagrindinis HTML puslapio elementas;
+   - Elementas <head> yra metainformacija apie HTML puslapį, tai yra kokiais metodais informacija apdorojama ir iš kokių šaltinių ji gaunama;
+   - Elementas <title> nurodo HTML puslapio pavadinimą esantį naršyklės juostoje;
+   - Elementas <body> apibrėžia dokumento turinį ir yra viso matomo turinio talpykla;
+   
+   Elementą apibrėžia pradžios žyma (atidarantysis tagas) ir pabaigos žyma (uždarantysis tagas), pvz <h1>CONTENT</h1>;
+
+   Kai kurie elementai neturi turinio. Jie vadinami tuščiais elementais. Tušti elementai neturi pabaigos žymos, pvz <br>, <img>;
+   
+   KOMENTARAI: CTRL + / 
+
+   PSEUDO TEKSTO GENERAVIMAS: lorem;
+   Priklausomai kokio dydžio teksto reikia (kiek žodžių), galima nurodyti skaičiais, pvz lorem30 sugeneruos 30-ties žodžių tekstą.
+
+
+   PAGRINDINIAI TURINIO KŪRIMO TAGAI:
+
+   <div> -> yra neutralus ir tinka talpinti bet kokį turinį. Naudojamas kaip kitų elementų konteineris;
+   
+   <span> -> apibrėžia skyrių dokumente tik šis elementas nuo div skiriasi tuo, kad yra inline tipo, o div - block tipo;
+   
+   <p> -> pastraipa;
+
+   <h1><h6> -> antraštė nuo didžiausios (<h1>) iki mažiausios (<h2>);
+
+   <ol> -> surūšiuotas sąrašas (skaičiai);
+
+   <ul> -> nerūšiuotas sąrašas (burbuliukai);
+
+   <li> -> sąrašo elementas;
+
+   <img> -> paveiksliukas. Elementas turi atributus src ir alt. Src - nurodo kelią į vaizdą. Alt - alternatyvus vaizdo tekstas;
+
+   <audio> -> garso turinio įterpimas. Elementas turi vieną ar daugiau <source> žymų su skirtingais garso šaltiniais. Audio elementas palaiko keletą atributų, skirtų garso moderavimui;
+
+   <video> - vaizdo turinio įterpimas. Savyje turi vieną ar daugiau <source> elementų. Naudoja vaizdo moderavimo atributus;
+
+   <iframe> -> inline tipo rėmelis. Naudojamas kitam dokumentui įterpti į dabartinį HTML dokumentą. Elementas turi atributus src ir title. Taip pat naudojami iframe moderavimo atributai, pvz width, height ir pan.
+   
+   <a> -> žyma apibrėžia hipersaitą (nuorodą iš vieno puslapio/dokumento į kitą). Nuoroda gali būti ne tik tekstas, bet ir img ar kitas html elementas. 
+   Svarbiausias šio elemento atributas yra href, nurodantis nuorodos paskirties vietą. 
+   Pagal numatytuosius parametrus, nuorodos rodomos taip:
+      * nelankyta nuoroda - pabraukta ir mėlyna;
+      * aplankyta nuoroda - pabraukta ir violetinė;
+      * aktyvi nuoroda - pabraukta ir raudona
+
+   BLOCK ir INLINE tipo elementų skirtumas:
+   Block tipo elementai visada prasideda naujoje eilutėje ir užima visą turimą plotį. Dažniausiai naudojami block lygio elementai: 
+   <h1>-<h6>, <header>, <p>, <section>, <div>, <footer> <form> ir pan..
+
+   Inline tipo elementai - NEprasideda naujoje eilutėje. Jis užima tik tiek pločio, kiek reikia. Dažniausiai naudojami elementai:
+    <a>, <button>, <input>, <label>, <span>, <img>
+   
+   Block tipo elementuose galima įterpti inline tipo elementus, o į inline - blokiniai neįterpiami.
+
+BUTTON:
+   <button> - žyma, kuri apibrėžia mygtuką. Jo viduje galima įdėti tekstą (ir kai kurias žymas, pvz <img>, <i> ir pan). Mygtukas visada turėtų turėti atributą "type", nurodantį kokio tipo mygtukas naudojamas. Mygtuko atributai:
+      * button - galimas paspausti mygtukas
+      * submit - pateikimo mygtukas, dažniausiai naudojamas formose (pateikia formos duomenis)
+      * reset - atstatymo mygtukas (iš naujo nustato formos duomenis į pradines reikšmes);
+
+Pastaba:
+papildomi (semantiniai, turintys reikšmę) turinio tagai - 
+<article> -> (straipsniui), 
+<main> 
+<nav> 
+<aside> -> (naudojamas kaip šoninė dokumento juosta) ir t.t.
+archainiai (retai benaudojami) stiliaus tagai - i, b, strong ir t.t.
+-->
