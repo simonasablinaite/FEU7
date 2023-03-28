@@ -94,13 +94,13 @@ a.link-outline {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  transition: 0.5s;
+  transition-property: background-color, color;
+  transition-duration: 1s;
 }
 
 .references:hover {
   background-color: transparent;
   color: purple;
-  transition: 0.3s;
 }
 
 .outline {
@@ -110,12 +110,13 @@ a.link-outline {
   border: 2px solid purple;
   margin-bottom: 5px;
   text-align: center;
+  transition-property: background-color, color;
+  transition-duration: 1s;
 }
 
 .outline:hover {
   background-color: purple;
   color: white;
-  transition: 0.3s;
 }
 
 /* 
@@ -149,5 +150,10 @@ Transition-duration: Xms/s;                ->          nurodo per kiek milisekun
 
 Galima nurodyti abi savybes: tiek transition-property, tiek transition-duration nurodant savybes per ",", pvz.:
 transition: margin-left, 4s //property-name, duration
+
+Kai norime nurodyti tranziciją į abi puses, tai yra užvedus pelės žymeklį ir atitraukus pelės žymeklį keitųsi hoveris tam tikrą laiką, tai transition-property ir transition duration nurodomas ant mygtuko/nuorodos, bet ne ant jo hoverio. Hover dalyje tik keiciamos savybes;
+
+
+
 
 */
