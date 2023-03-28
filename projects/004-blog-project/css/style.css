@@ -1,111 +1,13 @@
-.page-title {
+.main-title {
   color: purple;
 }
 
 .post {
-  width: 50%;
+  background-color: greenyellow;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-}
-
-div.post {
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  transition: background-color 0.5s ease, box-shadow 0.5s ease;
-}
-
-.post:hover,
-h2:hover {
-  color: red;
-  box-shadow: 2px 2px 2px 2px;
-  text-shadow: 0px 1px 1px grey;
-}
-
-h2:hover {
-  color: red;
 }
 
 h2 {
-  background-color: burlywood;
+  background-color: yellow;
 }
-
-button {
-  /*This is for uzsisakyk naujienlaiski button*/
-  background-color: purple;
-  color: white;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px 15px;
-  border-radius: 10px;
-  margin: 3px 0px;
-  cursor: pointer;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-width: 0px;
-}
-
-.button-outline:hover {
-  background-color: red;
-}
-
-a {
-  /*this is for a button skaityti daugiau*/
-  background-color: purple;
-  color: white;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px 15px;
-  border-radius: 10px;
-  /* border: none; */
-  /*here is text allign for centering buttons*/
-  text-align: center;
-  display: inline;
-  text-decoration: none;
-  font-family: Arial, sans-serif;
-}
-
-.button1:hover {
-  font-family: Verdana, Tahoma, sans-serif;
-  background: aquamarine;
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 2s;
-}
-
-.linka:hover {
-  background-color: rgb(97, 149, 178);
-  transition: 0.3s;
-}
-
-button.button-outline {
-  background-color: transparent;
-  color: purple;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px 15px;
-  border-radius: 10px;
-  /* border: none; */
-}
-/*Questions I have:
-
-what is block and inline element - when and how to use it?
-More about how padding works on other elements and itself?
-parent - child element fundamentals?
-how margin works with stuff around it?
-
-Googlint - 
-css margin
-css padding
-css display (kur su inline ir block)
-
-
-
-*/

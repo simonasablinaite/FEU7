@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: lightgrey;
+  height: 500px;
+  width: 500px;
+}
+.child {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: greenyellow;
+}
+.red {
+  background-color: red;
+}
