@@ -3,11 +3,55 @@
 }
 
 .post {
-  background-color: greenyellow;
   text-align: center;
   width: 50%;
+  padding: 15px;
+  /* centravimas */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2 {
-  background-color: yellow;
+  background-color: #add8e6;
 }
+
+button,
+a {
+  display: inline-block;
+  background-color: purple;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border: 2px solid purple;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.btn-outline,
+.link-outline {
+  display: inline-block;
+  background-color: transparent;
+  color: purple;
+  border: 2px solid purple;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* 
+PASTABOS:
+Elementams aukštis nėra taikomas, nebent tai būtų nuotrauka. Visais kitais atvejais, elemento aukštis tiek, kiek užima turinys;
+
+Pločiui galima nurodyti du ar net tris parametrus: width: Xpx; ir max/min-width: Xpx; vienu metu. Tai reiškia, kad ekrano plotas yra fiksuotas Xpx (width), bet negali būtii didesnis/mažesnis nei X pikselių (max/min-width);
+
+Kai skirtingų elementų stilius yra analogiškas, galima nurodyti kelis elementus, atskiriant juos ",";
+
+Kai užhoverintam elementui, atsiranda rėmelis, kurio ankščiau (ne)buvo, vertėtų dar prieš hoverinimą jį užsidėti, kad elementai vėliau nesistumdytų ir nekeistų puslapio išdėstymo.
+
+
+*/
