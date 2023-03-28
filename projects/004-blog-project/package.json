@@ -12,5 +12,8 @@
   "license": "MIT",
   "devDependencies": {
     "dead-server": "^1.0.9"
+  },
+  "dependencies": {
+    "scss": "^0.2.4"
   }
 }
