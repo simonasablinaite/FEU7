@@ -1,0 +1,189 @@
+/* BASIC STYLE */
+.container {
+  background-color: rgb(233, 233, 233);
+  width: 600px;
+  height: 600px;
+  margin-bottom: 50px;
+}
+
+.green {
+  background-color: rgb(25, 216, 25);
+}
+.blue {
+  background-color: rgb(22, 160, 240);
+}
+.pink {
+  background-color: rgb(246, 130, 150);
+}
+.grey {
+  background-color: rgb(117, 115, 115);
+}
+.red {
+  background-color: rgb(190, 14, 14);
+}
+.yellow {
+  background-color: rgb(253, 253, 41);
+}
+
+.container-1 .child,
+.container-2 .child,
+.container-3 .child {
+  width: 200px;
+  height: 200px;
+}
+
+.container-1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* PIRMAS KONTEINERIS */
+.container-1 .child:nth-child(1),
+.container-1 .child:nth-child(5) {
+  width: 200px;
+}
+
+.container-1 .child:nth-child(2),
+.container-1 .child:nth-child(3),
+.container-1 .child:nth-child(6) {
+  width: 400px;
+}
+
+/* ANTRAS KONTEINERIS */
+.container-2 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.container-2 .child:nth-child(1),
+.container-2 .child:nth-child(4),
+.container-2 .child:nth-child(5) {
+  width: 200px;
+}
+
+.container-2 .child:nth-child(2),
+.container-2 .child:nth-child(3),
+.container-2 .child:nth-child(6) {
+  height: 400px;
+}
+
+/* TRECIAS KONTEINERIS */
+.container-3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-3 .child:nth-child(1) {
+  width: 400px;
+  height: 400px;
+}
+
+.container-3 .inner-container .inner-child {
+  width: 200px;
+  height: 200px;
+}
+
+/* KETVIRTAS KONTEINERIS */
+
+/* .container-4 .top-line,
+.container-4 .bottom-line {
+  display: flex;
+  flex-flow: row;
+  width: 600px;
+  height: 150px;
+  background-color: green;
+}
+
+.container-4 .center-line {
+  display: flex;
+  flex-flow: row;
+  width: 600px;
+  height: 300px;
+  background-color: green;
+}
+
+.container-4 .top-line .first,
+.container-4 .bottom-line .first {
+  width: 240px;
+  height: 150px;
+  background-color: yellow;
+}
+
+.container-4 .top-line .second,
+.container-4 .bottom-line .second {
+  width: 120px;
+  height: 150px;
+  background-color: blue;
+}
+
+.container-4 .top-line .third,
+.container-4 .bottom-line .third {
+  width: 240px;
+  height: 150px;
+  background-color: yellow;
+}
+
+.container-4 .center-line > .first {
+  flex-direction: column;
+  background-color: aquamarine;
+  height: 100px;
+  width: 50px;
+  display: flex;
+}
+
+.container-4 .center-line > .first > .first,
+.container-4 .center-line > .third > .first {
+  background-color: aquamarine;
+  height: 150px;
+  width: 150px;
+}
+
+.container-4 .center-line > .first > .second,
+.container-4 .center-line > .third > .second {
+  background-color: rgb(255, 127, 127);
+  height: 150px;
+  width: 150px;
+}
+
+.container-4 .center-line > .second {
+  background-color: rgb(65, 73, 70);
+  height: 300px;
+  width: 300px;
+} */
+
+/* DVYLIKTAS KONTEINERIS */
+.container-12 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-12 .child:nth-child(1),
+.container-12 .child:nth-child(2),
+.container-12 .child:nth-child(3),
+.container-12 .child:nth-child(4),
+.container-12 .child:nth-child(5) {
+  width: 120px;
+}
+
+/* DVIDEŠIMTAS KONTEINERIS */
+
+.container-20 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-20 .child:nth-child(1),
+.container-20 .child:nth-child(2),
+.container-20 .child:nth-child(3),
+.container-20 .child:nth-child(4),
+.container-20 .child:nth-child(5),
+.container-20 .child:nth-child(6),
+.container-20 .child:nth-child(7),
+.container-20 .child:nth-child(8),
+.container-20 .child:nth-child(9),
+.container-20 .child:nth-child(10),
+.container-20 .child:nth-child(11),
+.container-20 .child:nth-child(12) {
+  width: 150px;
+  height: 200px;
+}
