@@ -85,7 +85,7 @@
 
 /* KETVIRTAS KONTEINERIS */
 
-/* .container-4 .top-line,
+.container-4 .top-line,
 .container-4 .bottom-line {
   display: flex;
   flex-flow: row;
@@ -126,8 +126,8 @@
 .container-4 .center-line > .first {
   flex-direction: column;
   background-color: aquamarine;
-  height: 100px;
-  width: 50px;
+  height: 300px;
+  width: 150px;
   display: flex;
 }
 
@@ -149,7 +149,7 @@
   background-color: rgb(65, 73, 70);
   height: 300px;
   width: 300px;
-} */
+}
 
 /* DVYLIKTAS KONTEINERIS */
 .container-12 {
@@ -165,8 +165,89 @@
   width: 120px;
 }
 
-/* DVIDEŠIMTAS KONTEINERIS */
+/* ŠEŠIOLIKTAS KONTEINERIS */
+.container-16 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 
+.container-16 .col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.container-16 .child:nth-child(1),
+.container-16 .child:nth-child(2) {
+  width: 600px;
+  height: 200px;
+}
+
+.container-16 .child:nth-child(3),
+.container-16 .child:nth-child(5) {
+  width: 150px;
+  height: 200px;
+}
+
+.container-16 > .col > .child:nth-child(1),
+.container-16 > .col > .child:nth-child(2) {
+  width: 150px;
+  height: 100px;
+}
+
+/* SEPTYNIOLIKTAS KONTEINERIS */
+.container-17 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.container-17 .row,
+.container-17 .two-sq {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.container-17 .child:nth-child(1) {
+  width: 300px;
+  height: 600px;
+}
+
+.container-17 > .row > .child:nth-child(1) {
+  width: 300px;
+  height: 150px;
+}
+
+.container-17 > .two-sq > .child:nth-child(1),
+.container-17 > .two-sq > .child:nth-child(2) {
+  width: 150px;
+  height: 150px;
+}
+
+/* AŠTUONIOLIKTAS KONTEINERIS */
+.container-18 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.container-18 .child:nth-child(1),
+.container-18 .child:nth-child(2),
+.container-18 .child:nth-child(3),
+.container-18 .child:nth-child(6),
+.container-18 .child:nth-child(7),
+.container-18 .child:nth-child(8) {
+  width: 200px;
+  height: 200px;
+}
+
+.container-18 .child:nth-child(4),
+.container-18 .child:nth-child(5) {
+  width: 200px;
+  height: 300px;
+}
+
+/* DVIDEŠIMTAS KONTEINERIS */
 .container-20 {
   display: flex;
   flex-wrap: wrap;
