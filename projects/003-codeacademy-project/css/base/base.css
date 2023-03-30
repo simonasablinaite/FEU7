@@ -1,0 +1,10 @@
+.container {
+  width: 100%;
+  /* background-color: burlywood; */
+}
+
+.row {
+  /* background-color: greenyellow; */
+  width: 80%;
+  padding: 40px;
+}

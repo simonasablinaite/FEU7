@@ -1,0 +1,70 @@
+.hero {
+  background-color: black;
+  background-image: url(../../img/hero/decoration-arrows.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: absolute;
+}
+
+.hero-section {
+  display: flex;
+  position: relative;
+  color: white;
+  height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.hero-section h1 {
+  font-size: 100px;
+  margin-left: 25%;
+  line-height: 70px;
+  margin-top: 150px;
+}
+
+.hero-section p {
+  font-size: 17px;
+  margin-left: 25%;
+  margin-top: 50px;
+  line-height: 30px;
+  width: 35%;
+}
+
+.info {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.hero-section .info .col {
+  width: 50%;
+  margin-left: 15%;
+  color: #fff;
+}
+.hero-section > .info > .col > h2 {
+  margin-bottom: 20px;
+}
+.hero-section .info .col > p {
+  margin-bottom: 20px;
+  width: 50%;
+}
+.hero-section .info .vertical-line {
+  border-left: 2px solid black;
+  height: 50px;
+}
+
+.hero-section .info .col > a {
+  color: #fff;
+  text-decoration: none;
+  background-color: blue;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+}
