@@ -3,6 +3,7 @@
   background-image: url(../../img/hero/decoration-arrows.svg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: right;
   height: 100vh;
   position: absolute;
 }
@@ -15,49 +16,52 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 70%;
 }
 
 .hero-section h1 {
   font-size: 100px;
-  margin-left: 25%;
+  margin-left: 10%;
   line-height: 70px;
   margin-top: 150px;
+  width: 50%;
 }
 
 .hero-section p {
   font-size: 17px;
-  margin-left: 25%;
+  margin-left: 10%;
   margin-top: 50px;
   line-height: 30px;
-  width: 35%;
+  width: 30%;
 }
 
 .info {
   display: flex;
   position: relative;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
+  margin-left: 10%;
 }
 
-.hero-section .info .col {
+.info .col {
   width: 50%;
-  margin-left: 15%;
+  margin-left: 13%;
   color: #fff;
 }
-.hero-section > .info > .col > h2 {
+
+.info .col:first-child {
+  border-right: 2px solid white;
+}
+.info > .col > h2 {
   margin-bottom: 20px;
 }
 .hero-section .info .col > p {
   margin-bottom: 20px;
-  width: 50%;
+  width: 60%;
+  margin-left: -10px;
 }
 .hero-section .info .vertical-line {
   border-left: 2px solid black;
-  height: 50px;
+  height: 150px;
+  background-color: #fff;
 }
 
 .hero-section .info .col > a {
