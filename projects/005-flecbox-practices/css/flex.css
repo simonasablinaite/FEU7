@@ -151,6 +151,117 @@
   width: 300px;
 }
 
+/* SEPTINTAS KONTEINERIS */
+.container-7,
+.container-7 > .first {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.container-7 > .first > .col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.container-7 > .first > .child:nth-child(1),
+.container-7 > .first > .child:nth-child(2) {
+  width: 450px;
+  height: 300px;
+}
+
+.container-7 > .first > .col > .child:nth-child(1),
+.container-7 > .first > .col > .child:nth-child(2) {
+  width: 150px;
+  height: 150px;
+}
+
+/* AŠTUNTAS KONTEINERIS */
+.container-8 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.container-8 > .col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.container-8 .child:nth-child(1) {
+  width: 600px;
+  height: 300px;
+}
+
+.container-8 > .col > .child:nth-child(1),
+.container-8 > .col > .child:nth-child(2) {
+  width: 200px;
+  height: 150px;
+}
+
+.container-8 > .child:nth-child(3) {
+  width: 200px;
+  height: 300px;
+}
+
+/* DEŠIMTAS KONTEINERIS */
+.container-10,
+.container-10 > .first,
+.container-10 > .second {
+  display: flex;
+  flex-flow: row;
+}
+
+.container-10,
+.container-10 > .first > .col,
+.container-10 > .second > .col {
+  display: flex;
+  flex-flow: column;
+}
+
+.container-10 > .first > .child:nth-child(1),
+.container-10 > .second > .child:nth-child(3) {
+  width: 300px;
+  height: 200px;
+}
+.container-10 > .first > .col > .child:nth-child(1),
+.container-10 > .first > .col > .child:nth-child(2),
+.container-10 > .second > .col > .child:nth-child(2),
+.container-10 > .second > .col > .child:nth-child(1) {
+  width: 100px;
+  height: 100px;
+}
+
+.container-10 > .first > .child:nth-child(3),
+.container-10 > .second > .child:nth-child(1) {
+  width: 200px;
+  height: 200px;
+}
+
+/* VIENUOLIKTAS KONTEINERIS */
+.container-11,
+.container-11 .bottom {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.container-11 .child:nth-child(1) {
+  width: 600px;
+  height: 450px;
+}
+
+.container-11 > .bottom > .child:nth-child(1),
+.container-11 > .bottom > .child:nth-child(2),
+.container-11 > .bottom > .child:nth-child(3),
+.container-11 > .bottom > .child:nth-child(4),
+.container-11 > .bottom > .child:nth-child(5) {
+  width: 120px;
+  height: 150px;
+}
+
 /* DVYLIKTAS KONTEINERIS */
 .container-12 {
   display: flex;
@@ -163,6 +274,29 @@
 .container-12 .child:nth-child(4),
 .container-12 .child:nth-child(5) {
   width: 120px;
+}
+
+/* PENKIOLIKTAS KONTEINERIS */
+.container-15 .first,
+.container-15 .second {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.container-15 > .first > .child:nth-child(1),
+.container-15 > .first > .child:nth-child(2),
+.container-15 > .first > .child:nth-child(3) {
+  width: 200px;
+  height: 150px;
+}
+
+.container-15 > .second > .child:nth-child(1),
+.container-15 > .second > .child:nth-child(2),
+.container-15 > .second > .child:nth-child(3),
+.container-15 > .second > .child:nth-child(4) {
+  width: 150px;
+  height: 150px;
 }
 
 /* ŠEŠIOLIKTAS KONTEINERIS */
