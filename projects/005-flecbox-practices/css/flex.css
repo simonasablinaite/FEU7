@@ -38,6 +38,7 @@
 }
 
 /* PIRMAS KONTEINERIS */
+/* -------------------------------------- */
 .container-1 .child:nth-child(1),
 .container-1 .child:nth-child(5) {
   width: 200px;
@@ -50,6 +51,7 @@
 }
 
 /* ANTRAS KONTEINERIS */
+/* -------------------------------------- */
 .container-2 {
   display: flex;
   flex-wrap: wrap;
@@ -68,6 +70,7 @@
 }
 
 /* TRECIAS KONTEINERIS */
+/* -------------------------------------- */
 .container-3 {
   display: flex;
   flex-wrap: wrap;
@@ -84,7 +87,7 @@
 }
 
 /* KETVIRTAS KONTEINERIS */
-
+/* -------------------------------------- */
 .container-4 .top-line,
 .container-4 .bottom-line {
   display: flex;
@@ -151,7 +154,41 @@
   width: 300px;
 }
 
+/* PENKTAS KONTEINERIS */
+/* -------------------------------------- */
+.container-5,
+.container-5 .center,
+.container-5 .center .center-sq > .first,
+.container-5 .center .center-sq > .second {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.container-5 .child:nth-child(1),
+.center .child:nth-child(1),
+.center .child:nth-child(3),
+.container-5 .child:nth-child(5) {
+  width: 200px;
+  height: 200px;
+}
+
+.center-sq > .first .child:nth-child(1),
+.center-sq > .first .child:nth-child(2),
+.center-sq > .second .child:nth-child(1),
+.center-sq > .second .child:nth-child(2) {
+  width: 100px;
+  height: 100px;
+}
+
+.container-5 .child:nth-child(2),
+.container-5 .child:nth-child(4) {
+  width: 400px;
+  height: 200px;
+}
+
 /* ŠEŠTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-6,
 .container-6 > .bottom > div > .row,
 .container-6 > .bottom {
@@ -189,6 +226,7 @@
 }
 
 /* SEPTINTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-7,
 .container-7 > .first {
   display: flex;
@@ -215,6 +253,7 @@
 }
 
 /* AŠTUNTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-8 {
   display: flex;
   flex-wrap: wrap;
@@ -243,7 +282,46 @@
   height: 300px;
 }
 
+/* DEVINTAS KONTEINERIS */
+/* -------------------------------------- */
+.container-9 .first {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.container-9,
+.first .center,
+.container-9 .second {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.first .child:nth-child(1) {
+  width: 150px;
+  height: 300px;
+}
+
+.first .center .child:nth-child(1),
+.first .center .child:nth-child(2) {
+  width: 75px;
+  height: 100px;
+}
+
+.first .child:nth-child(3) {
+  width: 150px;
+  height: 200px;
+}
+
+.second .child:nth-child(1),
+.second .child:nth-child(2),
+.second .child:nth-child(3) {
+  width: 150px;
+  height: 100px;
+}
+
 /* DEŠIMTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-10,
 .container-10 > .first,
 .container-10 > .second {
@@ -278,6 +356,7 @@
 }
 
 /* VIENUOLIKTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-11,
 .container-11 .bottom {
   display: flex;
@@ -300,6 +379,7 @@
 }
 
 /* DVYLIKTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-12 {
   display: flex;
   flex-wrap: wrap;
@@ -314,6 +394,7 @@
 }
 
 /* TRYLIKTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-13 {
   display: flex;
   flex-wrap: wrap;
@@ -329,6 +410,7 @@
 }
 
 /* PENKIOLIKTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-15 .first,
 .container-15 .second {
   display: flex;
@@ -352,6 +434,7 @@
 }
 
 /* ŠEŠIOLIKTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-16 {
   display: flex;
   flex-wrap: wrap;
@@ -383,6 +466,7 @@
 }
 
 /* SEPTYNIOLIKTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-17 {
   display: flex;
   flex-wrap: wrap;
@@ -411,6 +495,7 @@
 }
 
 /* AŠTUONIOLIKTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-18 {
   display: flex;
   flex-wrap: wrap;
@@ -434,6 +519,7 @@
 }
 
 /* DVIDEŠIMTAS KONTEINERIS */
+/* -------------------------------------- */
 .container-20 {
   display: flex;
   flex-wrap: wrap;
