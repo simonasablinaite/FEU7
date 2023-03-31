@@ -518,6 +518,35 @@
   height: 300px;
 }
 
+/* DEVYNIOLIKTAS KONTEINERIS */
+/* -------------------------------------- */
+.container-19 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.container-19 .first {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.container-19 .child:nth-child(1) {
+  width: 400px;
+  height: 400px;
+}
+
+.container-19 .child:nth-child(2) {
+  width: 200px;
+  height: 200px;
+}
+
+.first .child:nth-child(1),
+.first .child:nth-child(2) {
+  width: 100px;
+  height: 100px;
+}
+
 /* DVIDEŠIMTAS KONTEINERIS */
 /* -------------------------------------- */
 .container-20 {
