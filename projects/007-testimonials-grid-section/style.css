@@ -1,0 +1,88 @@
+.content {
+  display: flex;
+  background-color: greenyellow;
+}
+
+.first {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content .first .item {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.content .first .top-container,
+.content .first .bottom-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.content .first .top-container .item:nth-child(1) {
+  width: 75%;
+  background-color: blueviolet;
+  border-radius: 15px;
+}
+
+.content .first .bottom-container .item:nth-child(2) {
+  width: 75%;
+  background-color: black;
+  color: white;
+}
+
+.content .first .top-container .item:nth-child(2) {
+  width: 25%;
+  background-color: darkgrey;
+}
+
+.content .first .bottom-container .item:nth-child(1) {
+  width: 25%;
+  background-color: mintcream;
+}
+
+.content .first .top-container,
+.item:nth-child(2) {
+  width: 100%;
+}
+
+.second {
+  display: flex;
+  grid-template-columns: 10px;
+  background-color: lightslategray;
+  width: 25%;
+}
+
+/* KONTEINERIU VIDAUS TURINYS */
+.person {
+  padding: 5px;
+  display: inline;
+  flex-direction: row;
+}
+
+.person > .info {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.violet .title {
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 0 15px 15px 15px;
+}
+
+.violet .description {
+  color: white;
+  padding: 0 15px 15px 15px;
+}
+
+.person img {
+  border-radius: 50%;
+}
