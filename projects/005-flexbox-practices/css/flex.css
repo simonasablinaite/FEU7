@@ -284,14 +284,17 @@
 
 /* DEVINTAS KONTEINERIS */
 /* -------------------------------------- */
-.container-9 .first {
+.container-9 .first,
+.container-9 .second,
+.second .bottom-line div .container-9 .second .bottom-line .first {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 .container-9,
 .first .center,
-.container-9 .second {
+.second .bottom-line,
+.container-9 .second .first-line {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -313,10 +316,25 @@
   height: 200px;
 }
 
-.second .child:nth-child(1),
-.second .child:nth-child(2),
-.second .child:nth-child(3) {
+.second .first-line .child:nth-child(1),
+.second .first-line .child:nth-child(2),
+.second .first-line .child:nth-child(3) {
   width: 150px;
+  height: 100px;
+}
+
+.second .child:nth-child(2) {
+  width: 450px;
+  height: 300px;
+}
+
+.second .bottom-line .first .child:nth-child(1) {
+  width: 300px;
+  height: 200px;
+}
+
+.second .bottom-line div .child:nth-child(1),
+.second .bottom-line div .child:nth-child(2) {
   height: 100px;
 }
 
@@ -408,6 +426,58 @@
   width: 600px;
   height: 120px;
 }
+
+/* KETURIOLIKTAS KONTEINERIS */
+/* -------------------------------------- */
+.container-14,
+.container-14 .first .right div,
+.container-14 .second div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.container-14,
+.first,
+.second,
+.container-14 .first .left div,
+.container-14 .first .right {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.first .left div .child:nth-child(1),
+.first .left div .child:nth-child(2),
+.first .right div .child:nth-child(1),
+.first .right div .child:nth-child(2),
+.first .right div .child:nth-child(3),
+.second div .child:nth-child(1),
+.second div .child:nth-child(2),
+.second div .child:nth-child(3) {
+  width: 150px;
+  height: 100px;
+}
+
+.first .left .child:nth-child(2) {
+  width: 300px;
+  height: 200px;
+}
+
+.first .right .child:nth-child(1),
+.second .child:nth-child(1) {
+  width: 150px;
+  height: 300px;
+}
+
+.second .child:nth-child(3) {
+  width: 300px;
+  height: 300px;
+}
+
+.first .right div .child:nth-child(1),
+.first .right div .child:nth-child(2),
+.first .right div .child:nth-child(3) 
 
 /* PENKIOLIKTAS KONTEINERIS */
 /* -------------------------------------- */
@@ -520,29 +590,39 @@
 
 /* DEVYNIOLIKTAS KONTEINERIS */
 /* -------------------------------------- */
-.container-19 {
+.container-19,
+.container-19 .right {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
-
-.container-19 .first {
+.container-19,
+.left .left-bottom .second,
+.container-19 .right .center .top,
+.container-19 .right .center .bottom {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
-.container-19 .child:nth-child(1) {
+
+.left .child:nth-child(1) {
   width: 400px;
   height: 400px;
 }
 
-.container-19 .child:nth-child(2) {
+.left .left-bottom .first .child:nth-child(1),
+.right .child:nth-child(1),
+.right .child:nth-child(3) {
   width: 200px;
   height: 200px;
 }
 
-.first .child:nth-child(1),
-.first .child:nth-child(2) {
+.container-19 .first .child:nth-child(1),
+.container-19 .first .child:nth-child(2),
+.right .center .top .child:nth-child(1),
+.right .center .top .child:nth-child(2),
+.right .center .bottom .child:nth-child(1),
+.right .center .bottom .child:nth-child(2) {
   width: 100px;
   height: 100px;
 }
