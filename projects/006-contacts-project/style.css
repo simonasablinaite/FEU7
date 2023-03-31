@@ -1,0 +1,52 @@
+main {
+  display: flex;
+  flex-flow: row;
+  margin-top: 20px;
+}
+
+.title h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+.contacts-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc((100% - 15px) / 2);
+  flex-direction: column;
+}
+.contacts-blocks {
+  display: flex;
+  /* width: calc((100% - 15px) / 2); */
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.contact-box {
+  display: flex;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+  width: calc((100% - 10px) / 3);
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.contact-box h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.contact-box p {
+  color: blue;
+}
+
+/* .contact-box span p:first-of-type {
+  color: black;
+  font-weight: 600;
+} */
+.contact-box p span {
+  color: black;
+  font-weight: 600;
+}
+.map {
+  display: inline-block;
+  width: 50%;
+  margin-top: 20px;
+}
