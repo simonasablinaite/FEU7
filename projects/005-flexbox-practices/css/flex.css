@@ -604,6 +604,16 @@
   flex-wrap: wrap;
   flex-direction: row;
 }
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  height: 200px;
+}
+#box {
+  width: 100px;
+  height: 100px;
+}
 
 .left .child:nth-child(1) {
   width: 400px;
@@ -617,8 +627,8 @@
   height: 200px;
 }
 
-.container-19 .first .child:nth-child(1),
-.container-19 .first .child:nth-child(2),
+/* .container-19 .first .child:nth-child(1),
+.container-19 .first .child:nth-child(2), */
 .right .center .top .child:nth-child(1),
 .right .center .top .child:nth-child(2),
 .right .center .bottom .child:nth-child(1),
