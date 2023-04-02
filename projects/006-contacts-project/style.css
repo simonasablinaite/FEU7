@@ -33,17 +33,12 @@ main {
   font-weight: 700;
 }
 
-.contact-box p {
-  color: blue;
+.contact-box p span {
+  font-weight: 600;
 }
 
-/* .contact-box span p:first-of-type {
-  color: black;
-  font-weight: 600;
-} */
-.contact-box p span {
-  color: black;
-  font-weight: 600;
+.contact-box a {
+  text-decoration: none;
 }
 .map {
   display: inline-block;
