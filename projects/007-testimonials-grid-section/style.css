@@ -9,7 +9,7 @@ body {
 }
 
 .first {
-  width: 75%;
+  width: calc(75% - 60px);
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -67,8 +67,12 @@ body {
 
 .second {
   display: flex;
-  gap: 10px;
   width: 20%;
+  gap: 30px;
+  background-color: mintcream;
+  border-radius: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 /* KONTEINERIU VIDAUS TURINYS */
