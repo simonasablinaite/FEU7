@@ -1,0 +1,41 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(https://raw.githubusercontent.com/frontendmentorio/huddle-landing-page-with-alternating-feature-blocks/e237b033855d1689eac689bd8d93650782b9b6c7/images/bg-hero-desktop.svg);
+  background-size: contain;
+  margin-top: 70px;
+}
+
+.left-side {
+  width: 40%;
+}
+
+.right-side {
+  width: 50%;
+}
+
+.left-side h1 {
+  font-family: var(--main-text-family);
+  font-size: 40px;
+  color: var(--main-text-color);
+}
+
+.hero .left-side p {
+  margin: 40px 0 50px 0;
+  font-size: 18px;
+  font-family: var(--second-text-family);
+  line-height: 30px;
+}
+
+.left-side .btn-pink {
+  color: #fff;
+  background-color: var(--main-button-color);
+}
+.btn-pink:hover {
+  background-color: var(--hover-button-color);
+}
+
+.right-side img {
+  width: 100%;
+}

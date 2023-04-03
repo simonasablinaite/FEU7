@@ -1,0 +1,30 @@
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content-container {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 40px 80px;
+}
+
+.btn {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 18px 60px;
+  border-radius: 40px;
+  text-align: center;
+}
+
+section {
+  width: 1232px;
+}
+
+.sections {
+  margin: 50px auto 100px auto;
+}

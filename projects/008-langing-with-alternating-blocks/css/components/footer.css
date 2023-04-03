@@ -1,0 +1,20 @@
+footer {
+  /* background-color: var(--main-text-color); */
+  width: 1232px;
+  height: 50vh;
+  padding: 15px 10px 15px 40px;
+}
+
+.socials-and-contacts {
+  display: flex;
+  margin-top: 45px;
+  width: 30px;
+}
+.socials-and-contacts .contact-icons {
+  display: flex;
+}
+
+.contact-icons i {
+  margin: 8px 0;
+  font-size: 20px;
+}
