@@ -9,7 +9,7 @@
   background-color: rgb(6, 138, 232);
 }
 .yellow {
-  background-color: rgb(255, 251, 7);
+  background-color: rgb(234, 255, 7);
 }
 .green {
   background-color: rgb(11, 194, 14);
@@ -22,6 +22,13 @@
 }
 .red {
   background-color: rgb(254, 6, 6);
+}
+.orange {
+  background-color: rgb(255, 98, 0);
+}
+
+.purple {
+  background-color: purple;
 }
 
 /* Nusipiesiamas gridas */
@@ -132,7 +139,6 @@
   grid-row: 2 / 4;
 }
 /* *********************************************************************** */
-
 /* KONTEINERIS: 7 */
 .container-7 {
   display: grid;
@@ -150,12 +156,50 @@
   grid-row: 3 / 5;
 }
 
+/* *********************************************************************** */
+/* KONTEINERIS: 14 */
+.container-14 {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(6, 100px);
+}
+
+.container-14 .child:nth-child(3) {
+  grid-column: 3 / 4;
+  grid-row: span 3;
+}
+
+.container-14 .child:nth-child(5) {
+  grid-column: span 2/3;
+  grid-row: 2/4;
+}
+
+.container-14 .child:nth-child(8) {
+  grid-column: 1/2;
+  grid-row: span 3;
+}
+
+.container-14 .child:nth-child(10) {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+/* *********************************************************************** */
+/* KONTEINERIS: 18 */
+.container-18 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* *********************************************************************** */
 /* KONTEINERIS: 19 */
 .container-19 {
   display: grid;
   grid-template-columns: repeat(6, 100px);
   grid-template-rows: repeat(6, 100px);
 }
+
 .container-19 .child:nth-child(1) {
   grid-column-end: span 4;
   grid-row-end: span 4;
