@@ -1,0 +1,44 @@
+.main-news-cards {
+  display: flex;
+  gap: 30px;
+  width: calc(100% - 30px - 40px) / 2;
+}
+
+.news-card {
+  width: 50%;
+  background-color: #fff;
+}
+
+.news-card a {
+  text-decoration: none;
+  color: #4644ff;
+  cursor: pointer;
+}
+
+.news-post-card img {
+  width: 100%;
+}
+
+.text-elements-group {
+  padding: 20px;
+}
+
+.text-elements-group p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+.text-elements-group h2 {
+  font-family: "Mina", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.text-elements-group .post-date {
+  font-family: "Mina", sans-serif;
+  font-weight: none;
+  font-size: 12px;
+  color: #8c8a8c;
+}

@@ -1,0 +1,25 @@
+/* 
+font-family: 'Mina', sans-serif;
+font-family: 'Ramabhadra', sans-serif;
+*/
+
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 890px;
+  background-color: #f2f2f2;
+}
+.left-side {
+  width: 70%;
+  padding: 20px;
+}
+
+.left-side .title {
+  font-family: "Mina", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+}
