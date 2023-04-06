@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Codeacademy students</title>
+
+   <!-- FONTS -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Mina:wght@400;700&family=Ramabhadra&display=swap"
+      rel="stylesheet">
+   <!--  -->
+
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+   <div class="container">
+      <main class="main-wrapper">
+
+         <div class="top-wrapper">
+            <h1 class="main-title">Programos</h1>
+            <div class="banner-wrapper">
+               <a href="" class="button-large">
+                  <img class="first-img"
+                     src="https://codeacademy.lt/wp-content/uploads/2021/05/Desktop_banner-2048x140.jpg"
+                     alt="banner-foto">
+                  <img class="secondary-img"
+                     src="https://codeacademy.lt/wp-content/themes/codeacademy/dist/images/arrow-right-blue.svg"
+                     alt="arrow">
+               </a>
+            </div>
+         </div>
+
+         <div class="main-programs-wrapper">
+            <aside class="programs-filter-wrapper">
+               <div class="card-content">
+                  <h2 class="section-title">Rastos 48 programos</h2>
+
+                  <div class="form-wrapper">
+                     <form action="select">
+                        <div class="inputs">
+                           <div class="input">
+                              <label for="text" class="input-name">Tema</label>
+                              <select name="programs-list" id="programs">
+                                 <option class="option" value="visos">visos</option>
+                                 <option class="option" value="testavimas">testavimas</option>
+                                 <option class="option" value="programavimas">programavimas</option>
+                                 <option class="option" value="dizainas">dizainas</option>
+                                 <option class="option" value="duomenys">duomenys</option>
+                                 <option class="option" value="rinkodara">rinkodara</option>
+                              </select>
+                           </div>
+                           <div class="input">
+                              <label for="text" class="input-name">Vieta</label>
+                              <select name="programs-list" id="programs">
+                                 <option class="option" value="visos">visos</option>
+                                 <option class="option" value="online">online</option>
+                                 <option class="option" value="vilnius">vilnius</option>
+                                 <option class="option" value="kaunas">kaunas</option>
+                                 <option class="option" value="klaipėda">klaipėda</option>
+                              </select>
+                           </div>
+                           <div class="input">
+                              <label for="text" class="input-name">Tipas</label>
+                              <select name="programs-list" id="programs">
+                                 <option class="option" value="visos">visi</option>
+                                 <option class="option" value="courses-in-english">courses in english</option>
+                                 <option class="option" value="pradedanciu-kursai">pradedančių kursai</option>
+                                 <option class="option" value="pazengusiu-studijos">pažengusių studijos</option>
+                                 <option class="option" value="1+2-lygis">1 + 2 lygis</option>
+                                 <option class="option" value="studijos-101">studijos 101</option>
+                                 <option class="option" value="finansuojama-uzt-nedirbantiems">finansuojama užt
+                                    nedirbantiems
+                                 </option>
+                                 <option class="option" value="finansuojama-uzt-dirbantiems">finansuojama užt
+                                    dirbantiems
+                                 </option>
+                              </select>
+                           </div>
+                           <div class="check-box">
+                              <span class="secondary-title">Laikas</span>
+                              <div class="check">
+                                 <input type="checkbox" name="days" value="Dienomis">
+                                 <label for="days">Dienomis</label>
+                              </div>
+                              <div class="check">
+                                 <input type="checkbox" name="nights" value="Vakarais">
+                                 <label for="days">Vakarais</label>
+                              </div>
+                           </div>
+                           <button class="reset-button" type="reset">Išvalyti</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </aside>
+
+            <div class="main-content">
+               <div class="programs-wrapper">
+                  <div class="all-programs">
+
+                     <div class="program-card">
+                        <div class="card-content">
+                           <a href="#">
+                              <span class="label">Naujas</span>
+                              <div class="image-wrapper">
+                                 <img src="https://codeacademy.lt/wp-content/uploads/2022/08/Black-18.svg" alt="image">
+                              </div>
+                              <div class="description">
+                                 <h2 class="program-title">„Salesforce“ CRM – pradedančių</h2>
+                                 <p class="program-description">„Salesforce“ – įmonės operacinė sistema, leidžianti
+                                    skirtingiems padaliniams sklandžiai
+                                    dalintis
+                                    informacija, sėkmingiau aptarnauti klientus, didinti produktyvumą, o svarbiausia –
+                                    efektyviau
+                                    išnaudoti sukauptus duomenis.</p>
+                              </div>
+                              <div class="features">
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>1 lygis</span>
+                                 </div>
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Vakarais</span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+
+                     <div class="program-card">
+                        <div class="card-content">
+                           <a href="#">
+                              <span class="label">Finansuojama užt</span>
+                              <div class="image-wrapper">
+                                 <img src="https://codeacademy.lt/wp-content/uploads//2021/03/Python_dark-1.svg"
+                                    alt="python">
+                              </div>
+                              <div class="description">
+                                 <h2 class="program-title">Python – pradedantiesiems užimtiems asmenims (223002626)</h2>
+                                 <p class="program-description">„Salesforce“ – įmonės operacinė sistema, leidžianti
+                                    skirtingiems padaliniams sklandžiai
+                                    dalintis
+                                    informacija, sėkmingiau aptarnauti klientus, didinti produktyvumą, o svarbiausia –
+                                    efektyviau
+                                    išnaudoti sukauptus duomenis.</p>
+                              </div>
+                              <div class="features">
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Finansuojama užt - dirbantiems</span>
+                                 </div>
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Vakarais</span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+
+                     <div class="program-card">
+                        <div class="card-content">
+                           <a href="#">
+                              <span class="label">Finansuojama užt</span>
+                              <div class="image-wrapper">
+                                 <img src="	https://codeacademy.lt/wp-content/uploads//2021/03/Fron-End_dark-1.svg"
+                                    alt="Frontend">
+                              </div>
+                              <div class="description">
+                                 <h2 class="program-title">Frontend Serverless (223002583)</h2>
+                                 <p class="program-description">Front-End programuotojas, pasitelkdamas HTML, CSS ir
+                                    JavaScript, kuria vartotojui matomą sąsają. Todėl jo darbas yra ne tik techninio,
+                                    bet ir kūrybinio pobūdžio.</p>
+                              </div>
+                              <div class="features">
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Dienomis</span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+
+                     <div class="program-card">
+                        <div class="card-content">
+                           <a href="#">
+                              <span class="label">Finansuojama užt</span>
+                              <div class="image-wrapper">
+                                 <img src="	https://codeacademy.lt/wp-content/uploads//2021/03/Fron-End_dark-1.svg"
+                                    alt="Typescript">
+                              </div>
+                              <div class="description">
+                                 <h2 class="program-title">Frontend pradedantiesiems užimtiems asmenims (223002622)</h2>
+                                 <p class="program-description">Front-End programuotojas, pasitelkdamas HTML, CSS ir
+                                    JavaScript, kuria vartotojui matomą sąsają. Todėl jo darbas yra ne tik techninio,
+                                    bet ir kūrybinio pobūdžio ir, suprantama, pakankamai glaudžiai susijęs su web
+                                    dizainu.</p>
+                              </div>
+                              <div class="features">
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Finansuojama užt - dirbantiems</span>
+                                 </div>
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Vakarais</span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+
+                     <div class="program-card">
+                        <div class="card-content">
+                           <a href="#">
+                              <span class="label">Finansuojama užt</span>
+                              <div class="image-wrapper">
+                                 <img src="https://codeacademy.lt/wp-content/uploads//2021/05/UI_dark.svg" alt="Design">
+                              </div>
+                              <div class="description">
+                                 <h2 class="program-title">Web dizainas UX/UI (223002606)</h2>
+                                 <p class="program-description">Web dizaineris privalo užtikrinti ne tik patrauklų
+                                    svetainės vaizdą, informatyvumą, bet ir patogumą – suderinti pateikiamą informaciją,
+                                    vaizdus bei navigaciją: kitaip tariant, įlįsti į vartotojo kailį.</p>
+                              </div>
+                              <div class="features">
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Dienomis</span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+
+                     <div class="program-card">
+                        <div class="card-content">
+                           <a href="#">
+                              <span class="label">Finansuojama užt</span>
+                              <div class="image-wrapper">
+                                 <img src="https://codeacademy.lt/wp-content/uploads/2021/04/TS_w.svg" alt="typescript">
+                              </div>
+                              <div class="description">
+                                 <h2 class="program-title">TypeScript programa (223002404)</h2>
+                                 <p class="program-description">Front-End programuotojas – tikra būtinybė moderniam
+                                    verslui, todėl ši sritis yra paklausiausia darbo rinkoje.</p>
+                              </div>
+                              <div class="features">
+                                 <div class="feature">
+                                    <icon></icon>
+                                    <span>Dienomis</span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+   </div>
+
+</body>
+
+</html>

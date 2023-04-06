@@ -1,0 +1,149 @@
+/* font-family: 'Mina', sans-serif;
+font-family: 'Ramabhadra', sans-serif; */
+body {
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 890px;
+  box-sizing: border-box;
+}
+
+.main-title {
+  font-family: "Mina", sans-serif;
+  font-size: 40px;
+  margin: 0;
+}
+.main-programs-wrapper {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+.banner-wrapper {
+  display: flex;
+  margin-top: 20px;
+}
+
+.button-large .first-img {
+  width: 100%;
+  position: relative;
+}
+
+.button-large .secondary-img {
+  position: absolute;
+}
+
+.programs-filter-wrapper {
+  width: 35%;
+}
+
+.section-title {
+  font-size: 16px;
+  font-family: "Mina", sans-serif;
+}
+
+.programs-filter-wrapper .card-content {
+  padding: 30px;
+  background-color: #fff;
+  position: sticky;
+  top: 10px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.input label,
+.secondary-title {
+  font-size: 12px;
+  font-family: "Ramabhadra", sans-serif;
+  margin-bottom: 2px;
+}
+
+.input select {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  border: none;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.check-box {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.check label {
+  font-family: "Mina", sans-serif;
+  font-size: 12px;
+}
+
+.reset-button {
+  width: 100%;
+  border: 1px solid #1200ff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  background-color: #fff;
+  color: blue;
+  font-size: 12px;
+}
+
+.main-content a {
+  text-decoration: none;
+}
+
+.all-programs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.program-card {
+  background-color: #fff;
+  width: calc(50% - 20px);
+}
+
+.label {
+  background-color: #ff00e9;
+  color: #fff;
+  font-family: "Mina", sans-serif;
+  font-size: 8px;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-left: 150px;
+  position: absolute;
+  margin-top: 20px;
+}
+
+.program-card .image-wrapper img {
+  width: 97px;
+  height: 97px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.program-title {
+  font-family: "Mina", sans-serif;
+  line-height: 30px;
+  color: black;
+  font-size: 24px;
+}
+
+.program-description {
+  color: black;
+  font-family: "Mina", sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.program-card .card-content {
+  padding: 30px;
+  background-color: #fff;
+}
