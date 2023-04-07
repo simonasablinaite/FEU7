@@ -1,47 +1,165 @@
-main {
+.container {
   display: flex;
-  flex-flow: row;
-  margin-top: 20px;
+  flex-direction: column-reverse;
+  width: calc(100% - 20px);
 }
-
-.title h1 {
-  font-size: 50px;
-  font-weight: 700;
+.shops-container {
+  width: calc(100% - 20px);
+  padding: 20px;
 }
-.contacts-container {
+.shops-list {
   display: flex;
-  flex-wrap: wrap;
-  width: calc((100% - 15px) / 2);
   flex-direction: column;
+  gap: 20px;
 }
-.contacts-blocks {
+
+.shop-card {
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+.shop-content {
+  padding: 20px;
+}
+
+.references a {
   display: flex;
-  /* width: calc((100% - 15px) / 2); */
-  gap: 15px;
-  flex-wrap: wrap;
-}
-.contact-box {
-  display: flex;
-  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
-  width: calc((100% - 10px) / 3);
-  padding: 15px;
-  flex-wrap: wrap;
-}
-
-.contact-box h2 {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.contact-box p span {
-  font-weight: 600;
-}
-
-.contact-box a {
+  margin-bottom: 10px;
   text-decoration: none;
+  color: blue;
 }
-.map {
-  display: inline-block;
-  width: 50%;
-  margin-top: 20px;
+.references .contacts {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.map-container {
+  padding: 20px;
+}
+
+@media (max-width: 300px) {
+  .container {
+    width: 100%;
+  }
+  .shop-content .references a {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .shop-content .references .contacts {
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+
+  .shop-content .references a {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  .shop-content .references .contacts {
+    margin-bottom: 5px;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shop-card {
+    width: calc(50% - 20px);
+  }
+
+  .main-title {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shop-card {
+    width: calc(50% - 20px);
+  }
+
+  .main-title {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-title {
+    font-size: 25px;
+  }
+  .shop-card {
+    width: calc(100% - 20px);
+  }
+  .map-container {
+    width: 50%;
+
+    margin-top: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .main-title {
+    font-size: 30px;
+  }
+  .shop-card {
+    width: calc(50% - 20px);
+  }
+  .map-container {
+    width: 80%;
+    height: 100%;
+    margin-top: 0;
+  }
 }

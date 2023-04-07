@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  max-width: 890px;
+  max-width: 1200px;
   box-sizing: border-box;
 }
 
@@ -14,25 +14,57 @@ body {
   font-size: 40px;
   margin: 0;
 }
+
 .main-programs-wrapper {
   display: flex;
   gap: 20px;
-  margin-top: 20px;
-}
-.banner-wrapper {
-  display: flex;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
-.button-large .first-img {
-  width: 100%;
+.banner-wrapper {
+  width: 98%;
+  background-image: url(./img/codeacemy-banner.png);
+  background-size: contain;
+  background-position: right 35% bottom 45%;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  top: 12px;
   position: relative;
+  background-color: #fff;
+  padding: 20px 0;
+}
+
+.banner-wrapper a {
+  text-decoration: none;
+}
+.first-text {
+  font-family: "Mina", sans-serif;
+  font-size: 30px;
+  margin-left: 50px;
+  color: #ff00e9;
+  font-weight: 700;
+}
+.secondary-text {
+  color: black;
+}
+
+/* .button-large .first-img {
+  width: 98%;
 }
 
 .button-large .secondary-img {
+  right: 17px;
   position: absolute;
-}
+  top: 23px;
+  right: 50px;
+} */
 
+.button-large .secondary-img {
+  position: absolute;
+  top: 55px;
+  right: 59px;
+  size: 20px;
+}
 .programs-filter-wrapper {
   width: 35%;
 }
@@ -106,6 +138,7 @@ body {
 .program-card {
   background-color: #fff;
   width: calc(50% - 20px);
+  position: relative;
 }
 
 .label {
@@ -117,9 +150,9 @@ body {
   border: none;
   border-radius: 20px;
   text-transform: uppercase;
-  margin-left: 150px;
   position: absolute;
-  margin-top: 20px;
+  top: 10px;
+  right: -15px;
 }
 
 .program-card .image-wrapper img {

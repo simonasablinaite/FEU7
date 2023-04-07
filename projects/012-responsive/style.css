@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: green;
+  color: white;
+  padding: 20px;
+  width: 70%;
+}
+
+@media (min-width: 799px) {
+  .container {
+    background-color: blue;
+    width: 100%;
+  }
+}
