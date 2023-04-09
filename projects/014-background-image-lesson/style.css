@@ -1,0 +1,20 @@
+.container {
+  padding: 170px 20px;
+  background-image: url(https://images4.alphacoders.com/903/903637.jpg);
+  background-repeat: no-repeat;
+  background-color: rgb(92, 5, 111);
+  background-position: center;
+  background-size: cover;
+  text-align: right;
+  color: white;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+p {
+  width: 40%;
+  position: relative;
+  left: 60%;
+}
