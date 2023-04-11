@@ -20,9 +20,28 @@ body {
   gap: 20px;
   margin-top: 30px;
 }
+.filter-button-container {
+  padding: 20px;
+  align-items: center;
+  position: sticky;
+  top: 10px;
+  z-index: 1;
+}
+.filter-button {
+  width: 100%;
+  border: 1px solid #1200ff;
+  padding: 12px 50px;
+  border-radius: 25px;
+  background-color: #1200ff;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
 
 .banner-wrapper {
-  width: 98%;
+  width: 100%;
   background-image: url(./img/codeacemy-banner.png);
   background-size: contain;
   background-position: right 35% bottom 45%;
@@ -179,4 +198,73 @@ body {
 .program-card .card-content {
   padding: 30px;
   background-color: #fff;
+}
+
+.rotating-link {
+  width: 50px;
+  border-radius: 50%;
+  background-color: #1200ff;
+  padding: 50px;
+  -webkit-animation: rotating-link 5s normal linear infinite;
+  animation: rotating-link 5s normal linear infinite;
+}
+
+.rotating-link a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  text-align: top;
+}
+
+/* .circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: #1200ff;
+  border-radius: 50%;
+}
+
+.circle-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50px, -50px);
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+} */
+
+/* MEDIA */
+
+@media (max-width: 918px) {
+  .container {
+    padding: 20px;
+  }
+  .programs-filter-wrapper {
+    display: none;
+  }
+  .banner-wrapper {
+    background-size: 60%;
+  }
+  .banner-wrapper .button-large .first-text {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.program-card {
+  width: 100%;
+}
+
+@media (min-width: 919px) {
+  .container {
+    padding: 20px;
+  }
+  .programs-filter-wrapper {
+    display: flex;
+  }
+  .filter-button {
+    display: none;
+  }
 }
