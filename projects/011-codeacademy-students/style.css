@@ -44,13 +44,13 @@ body {
   width: 100%;
   background-image: url(./img/codeacemy-banner.png);
   background-size: contain;
-  background-position: right 35% bottom 45%;
+  background-position: right 25% bottom 45%;
   background-repeat: no-repeat;
   margin-top: 20px;
-  top: 12px;
+  top: 10px;
   position: relative;
   background-color: #fff;
-  padding: 20px 0;
+  padding: 80px 0;
 }
 
 .banner-wrapper a {
@@ -58,10 +58,12 @@ body {
 }
 .first-text {
   font-family: "Mina", sans-serif;
-  font-size: 30px;
+  font-size: 14px;
   margin-left: 50px;
   color: #ff00e9;
   font-weight: 700;
+  position: absolute;
+  top: 10px;
 }
 .secondary-text {
   color: black;
@@ -80,9 +82,8 @@ body {
 
 .button-large .secondary-img {
   position: absolute;
-  top: 55px;
+  top: 20px;
   right: 59px;
-  size: 20px;
 }
 .programs-filter-wrapper {
   width: 35%;
@@ -239,6 +240,7 @@ body {
 
 @media (max-width: 918px) {
   .container {
+    width: calc(100% - 40px);
     padding: 20px;
   }
   .programs-filter-wrapper {
@@ -248,7 +250,6 @@ body {
     background-size: 60%;
   }
   .banner-wrapper .button-large .first-text {
-    font-size: 16px;
     display: flex;
     flex-direction: column;
   }
@@ -259,6 +260,7 @@ body {
 
 @media (min-width: 919px) {
   .container {
+    width: calc(100% - 40px);
     padding: 20px;
   }
   .programs-filter-wrapper {
@@ -266,5 +268,11 @@ body {
   }
   .filter-button {
     display: none;
+  }
+  .button-large .secondary-img {
+    top: 55px;
+  }
+  .first-text {
+    font-size: 30px;
   }
 }
