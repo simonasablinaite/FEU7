@@ -1,0 +1,18 @@
+$color-main: green;
+$color-second: purple;
+$color-text:white;
+
+$space-s: 10px;
+$space-l: 25px;
+$space-xl: 40px;
+
+.container {
+   background-color: $color-main;
+   padding: $space-l;
+   margin: $space-xl;
+   color: $color-text;
+   .first {
+      background-color: $color-second;
+   }
+}
+

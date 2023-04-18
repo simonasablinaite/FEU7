@@ -1,0 +1,9 @@
+.container {
+  background-color: green;
+  padding: 25px;
+  margin: 40px;
+  color: white;
+}
+.container .first {
+  background-color: purple;
+}/*# sourceMappingURL=style.css.map */
