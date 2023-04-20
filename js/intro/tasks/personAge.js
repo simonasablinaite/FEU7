@@ -31,7 +31,7 @@ if (personAge < 18) {
 }
 
 console.log('******************************')
-personAge = 16;
+personAge = 15;
 // Papildyti salyga: jei asmens amzius nuo 16 iki 18 - "bilietus gali pirkti su tevu sutikimu":
 
 console.log('***pirmas variantas***');
@@ -50,6 +50,26 @@ if (personAge < 16) {
    console.log('bilietus gali pirkti su tevu sutikimu');
 } else {
    console.log('loterijos bilietu pirkti gali');
+}
+
+console.log('***trecias variantas***');
+if (personAge >= 18) {
+   console.log('loterijos bilietus pirkti gali');
+} else if (personAge >= 16 && personAge < 18) {
+   console.log('bilietus gali pirkti su tevu sutikimu');
+} else {
+   console.log('loterijos bilietu pirkti negali');
+}
+
+console.log('***ketvirtas variantas***');
+if (personAge < 18) {
+   if (personAge >= 16) {
+      console.log('bilietus gali pirkti su tevu sutikimu');
+   } else {
+      console.log('loterijos bilietu pirkti negali');
+   }
+} else {
+   console.log('loterijos bilietus pirkti gali');
 }
 
 
