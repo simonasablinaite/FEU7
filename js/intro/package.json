@@ -4,6 +4,7 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
+    "personAge": "nodemon ./tasks/personAge.js",
     "sentences": "nodemon ./tasks/sentences.js",
     "intro": "nodemon ./intro.js",
     "test": "echo \"Error: no test specified\" && exit 1"
