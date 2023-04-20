@@ -4,6 +4,7 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
+    "password": "nodemon ./tasks/password.js",
     "personAge": "nodemon ./tasks/personAge.js",
     "sentences": "nodemon ./tasks/sentences.js",
     "intro": "nodemon ./intro.js",
