@@ -4,9 +4,8 @@ console.clear();
 // Jei nurodytas ne skaicius grazinti zinute - amzius privalo buti skaicius:
 // let childAge = 5
 
-let childAge = prompt("Įveskite amžių", "");
-
-console.log(childAge);
+// let childAge = prompt("Įveskite amžių", "");
+let childAge = 5;
 
 if (isNaN(childAge)) {
    console.log('Netinkamai nurodytas amžius, amžius privalo būti skaičius.');
