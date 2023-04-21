@@ -4,7 +4,7 @@
 2.2. Jeigu jis nėra ilgesnis už 20 simbolių, tai parašyti jog: „Slaptažodis yra tinkamas. Tačiau rekomenduojama jog jis būtų bent 21 simbolio ilgumo."
 */
 
-const password = '   542 8hyt4i 4l2po557  2553   ';
+let password = '   542 8hyt4i 4l2po557  2553   ';
 const passwordLength = password.length;
 
 if (passwordLength < 16) {
@@ -47,3 +47,20 @@ if (passwordRegexpLength < 16) {
    }
 }
 console.log(passwordRegexpLength);
+
+console.clear();
+console.log('***INCLUDES***');
+// Slaptazodyje turi buti bent vienas #:
+const passwordWithHash = password.includes('#');
+
+if (passwordWithHash == false) {
+   console.log('Grotazines yra privalomos');
+} else if (lengthWithTrim < 16) {
+   console.log('Slaptažodis yra per trumpas.');
+} else if (lengthWithTrim > 15) {
+   if (lengthWithTrim > 20) {
+      console.log('Slaptažodis tinkamas.');
+   } else {
+      console.log('Slaptažodis yra tinkamas. Tačiau rekomenduojama jog jis būtų bent 21 simbolio ilgumo.');
+   }
+}
