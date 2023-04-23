@@ -12,7 +12,7 @@ Pasisveikinimas
 console.clear();
 const userName = 'Luk';
 const isLoggedIn = true;
-let time = 22;
+let time = 23;
 const isBirthday = true;
 
 const morning = time > 4 && time < 13;
@@ -21,19 +21,19 @@ const evening = time < 5 && time > 0 || time > 18 && time < 24;
 
 if (isLoggedIn && morning) {
    if (isBirthday) {
-      console.log(`„Good Morning, ${userName} and have a great birthday!"`);
+      console.log(`„Good Morning, ${userName} and have a great birthday! 🥳"`);
    } else {
       console.log(`„Good Morning, ${userName}."`);
    }
 } else if (isLoggedIn && afternoon) {
    if (isBirthday) {
-      console.log(`„Good Afternoon, ${userName} and have a great birthday!"`);
+      console.log(`„Good Afternoon, ${userName} and have a great birthday!🥳"`);
    } else {
       console.log(`„Good Afternoon, ${userName}"`);
    }
 } else if (isLoggedIn && evening) {
    if (isBirthday) {
-      console.log(`„Good Evening, ${userName} and have a great birthday!"`);
+      console.log(`„Good Evening, ${userName} and have a great birthday!🥳"`);
    } else {
       console.log(`„Good Evening, ${userName}"`);
    }
