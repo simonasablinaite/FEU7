@@ -64,19 +64,19 @@ helloWithName('Jonai', 'Jonaiti');
 helloWithName('Petrai', 'Petraiti');
 helloWithName('Maryte', 'Melnikaite');
 
-function perimetras(ilgis, plotis) {
-   console.log(`Perimetras: ${ilgis} + ${plotis} * 2 cm. = ${(ilgis + plotis) * 2}`);
+function perimetras(ilgis, plotis, matas) {
+   console.log(`Perimetras: ${ilgis} + ${plotis} * 2 ${matas}. = ${(ilgis + plotis) * 2} ${matas}`);
 }
 
-perimetras(10, 10);
-perimetras(10, 25);
-perimetras(10, 30);
-perimetras(10, 35);
-perimetras(10, 40);
-perimetras(10, 45);
-perimetras(10, 50);
-perimetras(10, 55);
-perimetras(10, 60);
-perimetras(10, 120);
+perimetras(10, 10, 'cm');
+perimetras(10, 25, 'cm');
+perimetras(10, 30, 'cm');
+perimetras(10, 35, 'cm');
+perimetras(10, 40, 'cm');
+perimetras(10, 45, 'cm');
+perimetras(10, 50, 'cm');
+perimetras(10, 55, 'cm');
+perimetras(10, 60, 'cm');
+perimetras(10, 120, 'cm');
 
 
