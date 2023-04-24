@@ -8,8 +8,6 @@ Užduotis 1:
 4. Į konsolę išvesti šios funkcijos rezultatą.
 */
 
-
-
 function rectangle(length, width, measurement) {
    console.log(`Staciakampio plotas yra: ${length * width} ${measurement}`);
 }
