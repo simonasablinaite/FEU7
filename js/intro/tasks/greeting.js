@@ -12,7 +12,7 @@ Pasisveikinimas
 console.clear();
 const userName = 'Luk';
 const isLoggedIn = true;
-let time = 23;
+let time = 'la';
 const isBirthday = true;
 
 const morning = time > 4 && time < 13;
@@ -39,4 +39,12 @@ if (isLoggedIn && morning) {
    }
 } else {
    console.log('Hello..');
+}
+
+
+// truthy/falsy values
+if (' ') {
+   console.log('true');
+} else {
+   console.log('false');
 }
