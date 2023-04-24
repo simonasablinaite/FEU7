@@ -64,8 +64,9 @@ helloWithName('Jonai', 'Jonaiti');
 helloWithName('Petrai', 'Petraiti');
 helloWithName('Maryte', 'Melnikaite');
 
-function perimetras(ilgis, plotis, matas) {
-   console.log(`Perimetras: ${ilgis} + ${plotis} * 2 ${matas}. = ${(ilgis + plotis) * 2} ${matas}`);
+function perimetras(ilgis, plotis, units) {
+
+   console.log(`Perimetras: ${ilgis} + ${plotis} * 2 ${units}. = ${(ilgis + plotis) * 2} ${units}`);
 }
 
 perimetras(10, 10, 'cm');

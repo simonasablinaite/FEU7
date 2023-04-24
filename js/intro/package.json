@@ -4,7 +4,8 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
-    "rectangle": "nodemon ./tasks/area-of-rectangle.js",
+    "turnInto": "nodemon ./tasks/turn-into.js",
+    "figures": "nodemon ./tasks/area-of-figures.js",
     "function": "nodemon ./function.js",
     "greeting": "nodemon ./tasks/greeting.js",
     "puzzleGame": "nodemon ./tasks/puzzle-game.js",
