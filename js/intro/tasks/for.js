@@ -12,24 +12,23 @@ for (let i = 1; i <= 100; i++) {
    console.log(`${i} * 2 = ${i * 2}`)
 }*/
 
-function task1() {
+function task1(start, end, number) {
    let num = 2;
-   for (let i = 0; i <= 100; i++) {
+   for (let i = start; i <= end; i += number) {
       console.log(`${i} * ${num} = ${i * num}`)
    }
 }
-
-task1();
+task1(0, 5, 2);
 console.log('end...');
 
 console.log('***********************');
-function task2() {
+function task2(start, end, number) {
    let num = 5;
-   for (let i = 1; i <= 100; i++) {
+   for (let i = start; i <= end; i += number) {
       console.log(`${i} * ${num} = ${i * num}`)
    }
 }
-task2();
+task2(0, 5, 2);
 console.log('end...');
 
 console.log('******3 ir 4********');
@@ -39,23 +38,23 @@ console.log('******3 ir 4********');
 4. Atima iš skaičiaus 2.
 */
 
-function task3() {
+function task3(start, end, number) {
    let num = 5;
-   for (let i = 1; i <= 100; i++) {
+   for (let i = start; i <= end; i += number) {
       console.log(`${i} + ${num} = ${i + num}`)
    }
 }
-task3();
+task3(0, 5, 2);
 console.log('end...');
 
 console.log('***********************');
-function task4() {
+function task4(start, end, number) {
    let num = 2;
-   for (let i = 1; i <= 100; i++) {
+   for (let i = start; i <= end; i += number) {
       console.log(`${i} - ${num} = ${i - num}`)
    }
 }
-task4();
+task4(0, 5, 1);
 console.log('end...');
 
 console.log('***********************');
@@ -64,23 +63,23 @@ console.log('***********************');
 6. Pakelia skaičių kūbu.
 */
 
-function task5() {
+function task5(start, end, number) {
    let num = 2;
-   for (let i = 1; i <= 100; i++) {
+   for (let i = start; i <= end; i += number) {
       console.log(`${i} ** ${num} = ${i ** num}`)
    }
 }
-task5();
+task5(0, 5, 1);
 console.log('end...');
 
 console.log('***********************');
-function task6() {
+function task6(start, end, number) {
    let num = 3;
-   for (let i = 1; i <= 100; i++) {
+   for (let i = start; i <= end; i += number) {
       console.log(`${i} ** ${num} = ${i ** num}`)
    }
 }
-task6();
+task6(0, 5, 1);
 console.log('end...');
 
 console.log('***********************');
@@ -89,11 +88,12 @@ console.log('***********************');
 7. Sukurti analogiškas funkcijas pirmoms užduotims, tačiau padaryti, jog ciklai skaičiuotųsi nuo 100 iki 1.
 */
 
-function task7_1() {
+function task7_1(start, end, number) {
    let num = 2;
-   for (let i = 100; i > 0; i--) {
+   for (let i = end; i > start; i -= number) {
       console.log(`${i} * ${num} = ${i * num}`)
    }
+   0, 5, 1
 }
 
 task7_1();
@@ -101,53 +101,53 @@ console.log('end...');
 
 
 console.log('***********************');
-function task7_2() {
+function task7_2(start, end, number) {
    let num = 5;
-   for (let i = 100; i > 0; i--) {
+   for (let i = end; i > start; i -= number) {
       console.log(`${i} * ${num} = ${i * num}`)
    }
 }
-task7_2();
+task7_2(0, 5, 1);
 console.log('end...');
 
 console.log('***********************');
-function task7_3() {
+function task7_3(start, end, number) {
    let num = 5;
-   for (let i = 100; i > 0; i--) {
+   for (let i = end; i > start; i -= number) {
       console.log(`${i} + ${num} = ${i + num}`)
    }
 }
-task7_3();
+task7_3(0, 5, 1);
 console.log('end...');
 
 console.log('***********************');
-function task7_4() {
+function task7_4(start, end, number) {
    let num = 2;
-   for (let i = 100; i > 0; i--) {
+   for (let i = end; i > start; i -= number) {
       console.log(`${i} - ${num} = ${i - num}`)
    }
 }
-task7_4();
+task7_4(0, 5, 1);
 console.log('end...');
 
 console.log('***********************');
-function task7_5() {
+function task7_5(start, end, number) {
    let num = 2;
-   for (let i = 100; i > 0; i--) {
+   for (let i = end; i > start; i -= number) {
       console.log(`${i} ** ${num} = ${i ** num}`)
    }
 }
-task7_5();
+task7_5(0, 5, 1);
 console.log('end...');
 
 console.log('***********************');
-function task7_6() {
+function task7_6(start, end, number) {
    let num = 3;
-   for (let i = 100; i > 0; i--) {
+   for (let i = end; i > start; i -= number) {
       console.log(`${i} ** ${num} = ${i ** num}`)
    }
 }
-task7_6();
+task7_6(0, 5, 1);
 console.log('end...');
 
 /*
