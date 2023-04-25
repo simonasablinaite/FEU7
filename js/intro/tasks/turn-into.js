@@ -82,3 +82,94 @@ function monthsToMinutes(months) {
 }
 
 monthsToMinutes(2);
+
+console.log('*************************');
+/*
+8. Funkciją, kuri konvertuoja dienas į pasirinktą formatą (minutes, valandas, savaites, mėnesius arba metus):
+8.1. Funkcija priima du argumentus: 
+  8.1.1. Dienų skaičių.
+  8.1.2. Formatą. Galimos formato reikšmės yra:
+    8.1.2.1. minutes
+    8.1.2.2. hours
+    8.1.2.3. weeks
+    8.1.2.4. months
+    8.1.2.5. years
+8.2. Funkcija konvertuoja dienas į pasirinktą formatą ir grąžina atsakymą tokiu formatu: 5 days - 7200 minutes.
+*/
+
+function convertedDays(days, format = '') {
+   const minutes = days * 24 * 60;
+   const hours = days * 24;
+   const weeks = days / 7;
+   const months = days / 30.42;
+   const years = days / 365;
+
+   if (format == 'minutes') {
+      return `Days to minutes: ${days} days - ${minutes} minutes`;
+   } else if (format == 'hours') {
+      return `Days to hours: ${days} days - ${hours} minutes`;
+   } else if (format == 'week') {
+      return `Days to week: ${days} days - ${weeks} minutes`;
+   } else if (format == 'months') {
+      return `Days to months: ${days} days - ${months} minutes`;
+   } else if (format == 'years') {
+      return `Days to years: ${days} days - ${years} minutes`;
+   }
+}
+
+console.log(convertedDays(5, 'minutes'));
+
+/*
+9. Funkciją, kuri patikrina ar skaičius dalinasi iš kito skaičiaus:
+9.1. Funkcija priima du argumentus: 
+  9.1.1. Skaičių, kuris bus dalinamas (dalinys).
+  9.1.2. Skaičių, iš kurio bus dalinama (daliklis).
+9.2. Funkcija grąžina atsakymą tokiu formatu:
+  9.2.1. Jeigu dalinasi: 10 dalinasi iš 5.
+  9.2.2. Skaičius 11 nesidalina iš 5. Liekana yra 1.
+*/
+
+function isDivisible(dalinys, daliklis) {
+   if (dalinys % daliklis == 0) {
+      return `${dalinys} dalijasi is ${daliklis}`;
+   } else {
+      return `skaicius ${dalinys} nesidalina is ${daliklis}. Liekana yra ${dalinys % daliklis}`;
+   }
+}
+
+console.log(isDivisible(11, 5));
+/*
+10. Funkciją, kuri patikrina ar įvestas tekstas turi porini raidžių skaičių ar neporinį.
+*/
+
+function oddOrEven(str) {
+   let input = str.toUpperCase().replace(/ /, '');
+
+   if (input.length % 2 == 0) {
+      return `'${input}' turi porini raidziu skaiciu`;
+   } else {
+      return `'${input}' turi neporini raidziu skaiciu`
+   }
+}
+
+console.log(oddOrEven('Labas rytas'));
+
+/*
+11. Funkciją, kuri paima nurodytą simbolį iš žodžio ar sakinio. 
+11.1. Funkcija priima du argumentus: tekstą ir kelintą simbolį reikia grąžinti.
+11.2. Funkcija grąžina atsakymą tokiu formatu: Teksto "Labas" 3 raidė yra "b".
+11.3. Jeigu nurodytas skaičius yra didesnis nei tekstas turi simbolių, tai reikia grąžinti error'ą tokiu formatu: Tekstas "Labas" turi 5 simbolius, o jūs nurodėte grąžinti 8.
+11.4. Patobulinti funkciją, kad būtų galima įrašyti neigiamą skaičių, jeigu norima gauti teksto simbolį skaičiuojant nuo jo galo, o ne nuo priekio.
+*/
+
+function isWhichSymbol(str, symbol = '') {
+   if (symbol > str.length) {
+      return `Tekstas "${str}" turi ${str.length} simbolius, o Jus nurodete grazinti ${symbol}`
+   }
+
+   if (str) {
+      return `Teksto "${str}" ${symbol} raide yra "${str.charAt(symbol - 1) || str.at(symbol)}"`
+   }
+}
+console.log(isWhichSymbol('Labas', -1));
+
