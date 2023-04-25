@@ -12,14 +12,14 @@ for (let i = 1; i <= 100; i++) {
    console.log(`${i} * 2 = ${i * 2}`)
 }*/
 
-function task1(start, end, numb) {
+function task1() {
    let num = 2;
-   for (let i = start; i <= end; i++) {
-      console.log(`${start} * ${end} = ${start * end}`)
+   for (let i = 0; i <= 100; i++) {
+      console.log(`${i} * ${num} = ${i * num}`)
    }
 }
 
-task1(0, 5);
+task1();
 console.log('end...');
 
 console.log('***********************');
