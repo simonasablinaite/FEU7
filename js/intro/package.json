@@ -4,10 +4,11 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
-    "cycles": "nodemon ./cycles.js",
+    "loops": "nodemon ./loops.js",
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",
 
+    "for": "nodemon ./tasks/for.js",
     "turnInto": "nodemon ./tasks/turn-into.js",
     "figures": "nodemon ./tasks/area-of-figures.js",
     "greeting": "nodemon ./tasks/greeting.js",
