@@ -8,6 +8,7 @@
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",
 
+    "fizzBuzz": "nodemon ./tasks/fizz-buzz-game.js",
     "for": "nodemon ./tasks/for.js",
     "turnInto": "nodemon ./tasks/turn-into.js",
     "figures": "nodemon ./tasks/area-of-figures.js",
