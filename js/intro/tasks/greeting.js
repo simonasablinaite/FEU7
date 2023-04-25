@@ -8,43 +8,46 @@ Pasisveikinimas
 3.3. 19-4 val. „Good Evening"
 4. Jeigu vartotojas yra ir prisijungęs, ir šiandien yra jo gimtadienis, tai prie pasisveikinimo dar turi būti parašytas ir pasveikinimas, pvz.: „Good Morning, Tom and have a great birthday!"
 */
+function greeting() {
+   const userName = 'Luk';
+   const isLoggedIn = true;
+   let time = 14;
+   const isBirthday = true;
 
-console.clear();
-const userName = 'Luk';
-const isLoggedIn = true;
-let time = 'la';
-const isBirthday = true;
+   const morning = time > 4 && time < 13;
+   const afternoon = time > 12 && time < 19;
+   const evening = time < 5 && time > 0 || time > 18 && time < 24;
 
-const morning = time > 4 && time < 13;
-const afternoon = time > 12 && time < 19;
-const evening = time < 5 && time > 0 || time > 18 && time < 24;
-
-if (isLoggedIn && morning) {
-   if (isBirthday) {
-      console.log(`„Good Morning, ${userName} and have a great birthday! 🥳"`);
+   if (isLoggedIn && morning) {
+      if (isBirthday) {
+         return `„Good Morning, ${userName} and have a great birthday! 🥳"`;
+      } else {
+         return `„Good Morning, ${userName}."`;
+      }
+   } else if (isLoggedIn && afternoon) {
+      if (isBirthday) {
+         return `„Good Afternoon, ${userName} and have a great birthday!🥳"`;
+      } else {
+         return `„Good Afternoon, ${userName}"`;
+      }
+   } else if (isLoggedIn && evening) {
+      if (isBirthday) {
+         return `„Good Evening, ${userName} and have a great birthday!🥳"`;
+      } else {
+         return `„Good Evening, ${userName}"`;
+      }
    } else {
-      console.log(`„Good Morning, ${userName}."`);
+      return 'Hello..';
    }
-} else if (isLoggedIn && afternoon) {
-   if (isBirthday) {
-      console.log(`„Good Afternoon, ${userName} and have a great birthday!🥳"`);
-   } else {
-      console.log(`„Good Afternoon, ${userName}"`);
-   }
-} else if (isLoggedIn && evening) {
-   if (isBirthday) {
-      console.log(`„Good Evening, ${userName} and have a great birthday!🥳"`);
-   } else {
-      console.log(`„Good Evening, ${userName}"`);
-   }
-} else {
-   console.log('Hello..');
 }
 
+console.log(greeting());
 
+/*
 // truthy/falsy values
 if (' ') {
    console.log('true');
 } else {
    console.log('false');
 }
+*/

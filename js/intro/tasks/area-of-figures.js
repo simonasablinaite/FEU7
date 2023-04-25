@@ -8,13 +8,12 @@ Užduotis 1:
 4. Į konsolę išvesti šios funkcijos rezultatą.
 */
 
-function rectangle(height, width, units = 'vnt') {
-   // console.log(`Staciakampio plotas yra: ${length * width} ${units}`);
+function rectangle(height, width, units) {
    const answer = width * height;
-   console.log(`Staciakampio plotas yra: ${answer} kv. ${units}.`);
+   return `Staciakampio plotas yra: ${answer} kv. ${units}.`;
 }
 
-rectangle(2, 5, '');
+console.log(rectangle(2, 5, 'm'));
 
 /*
 Užduotis 2:
@@ -22,17 +21,19 @@ Atlikti tą patį kaip ir pirmoje užduotyje, tačiau apskaičiuoti stačiojo tr
 */
 
 function triangle(width, height, units) {
-   console.log(`Staciojo trikampio plotas yra: ${(width * height) / 2} ${units}`);
+   return `Staciojo trikampio plotas yra: ${(width * height) / 2} ${units}`;
 }
 
-triangle(10, 35, 'cm');
+console.log(triangle(10, 35, 'cm'));
 
 /*
 Užduotis 3:
 Sukurti naują funkciją, kuri apjungtų šias dvi užduotis ir išvestų abu rezultatus.
 */
 function allData(width, height, units) {
-   rectangle(width, height, units);
-   triangle(width.height, units);
+   const rectgl = rectangle(width, height, units);
+   const tringl = triangle(width, height, units);
+
+   return `${rectgl}, o ${tringl}`;
 }
-allData(10, 15, 'cm')
+console.log(allData(15, 255, 'cm')); 

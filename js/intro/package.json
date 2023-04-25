@@ -4,16 +4,18 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
+    "cycles": "nodemon ./cycles.js",
+    "function": "nodemon ./function.js",
+    "intro": "nodemon ./intro.js",
+
     "turnInto": "nodemon ./tasks/turn-into.js",
     "figures": "nodemon ./tasks/area-of-figures.js",
-    "function": "nodemon ./function.js",
     "greeting": "nodemon ./tasks/greeting.js",
     "puzzleGame": "nodemon ./tasks/puzzle-game.js",
     "students": "nodemon ./tasks/students.js",
     "password": "nodemon ./tasks/password.js",
     "personAge": "nodemon ./tasks/personAge.js",
     "sentences": "nodemon ./tasks/sentences.js",
-    "intro": "nodemon ./intro.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

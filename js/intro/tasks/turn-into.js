@@ -100,24 +100,24 @@ console.log('*************************');
 function convertedDays(days, format = '') {
    const minutes = days * 24 * 60;
    const hours = days * 24;
-   const weeks = days / 7;
+   const weeks = (days / 7).toFixed(1);
    const months = days / 30.42;
    const years = days / 365;
 
    if (format == 'minutes') {
       return `Days to minutes: ${days} days - ${minutes} minutes`;
    } else if (format == 'hours') {
-      return `Days to hours: ${days} days - ${hours} minutes`;
-   } else if (format == 'week') {
-      return `Days to week: ${days} days - ${weeks} minutes`;
+      return `Days to hours: ${days} days - ${hours} hours`;
+   } else if (format == 'weeks') {
+      return `Days to week: ${days} days - ${weeks} weeks`;
    } else if (format == 'months') {
-      return `Days to months: ${days} days - ${months} minutes`;
+      return `Days to months: ${days} days - ${months} months`;
    } else if (format == 'years') {
-      return `Days to years: ${days} days - ${years} minutes`;
+      return `Days to years: ${days} days - ${years} years`;
    }
 }
 
-console.log(convertedDays(5, 'minutes'));
+console.log(convertedDays(5, 'weeks'));
 
 /*
 9. Funkciją, kuri patikrina ar skaičius dalinasi iš kito skaičiaus:
@@ -132,9 +132,8 @@ console.log(convertedDays(5, 'minutes'));
 function isDivisible(dalinys, daliklis) {
    if (dalinys % daliklis == 0) {
       return `${dalinys} dalijasi is ${daliklis}`;
-   } else {
-      return `skaicius ${dalinys} nesidalina is ${daliklis}. Liekana yra ${dalinys % daliklis}`;
    }
+   return `skaicius ${dalinys} nesidalina is ${daliklis}. Liekana yra ${dalinys % daliklis}`;
 }
 
 console.log(isDivisible(11, 5));
@@ -162,7 +161,7 @@ console.log(oddOrEven('Labas rytas'));
 11.4. Patobulinti funkciją, kad būtų galima įrašyti neigiamą skaičių, jeigu norima gauti teksto simbolį skaičiuojant nuo jo galo, o ne nuo priekio.
 */
 
-function isWhichSymbol(str, symbol = '') {
+function isWhichSymbol(str, symbol) {
    if (symbol > str.length) {
       return `Tekstas "${str}" turi ${str.length} simbolius, o Jus nurodete grazinti ${symbol}`
    }
