@@ -4,6 +4,7 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
+    "array": "nodemon ./array.js",
     "loops": "nodemon ./loops.js",
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",

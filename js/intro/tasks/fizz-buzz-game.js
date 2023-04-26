@@ -18,15 +18,18 @@ FIZZ BUZZ
 7. Skaičiai, kurie dalinasi iš 11, turi būti pakeisti į žodį „Bizz".
 */
 
+var startDate = new Date();
+// Do your operations
+
 function fizzBuzz() {
    for (let i = 1; i <= 100; i++) {
-      if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
+      if (i % 7 == 0 && i % 5 == 0 && i % 3 == 0) {
          console.log('FizzBuzzBiff');
-      } else if (i % 3 == 0 && i % 5 == 0) {
+      } else if (i % 5 == 0 && i % 3 == 0) {
          console.log('FizzBuzz');
-      } else if (i % 5 == 0 && i % 7 == 0) {
+      } else if (i % 7 == 0 && i % 5 == 0) {
          console.log('BuzzBiff');
-      } else if (i % 3 == 0 && i % 7 == 0) {
+      } else if (i % 7 == 0 && i % 3 == 0) {
          console.log('FizzBiff');
       } else if (i % 11 == 0) {
          console.log('Bizz');
@@ -46,3 +49,63 @@ function fizzBuzz() {
 }
 
 fizzBuzz();
+
+var endDate = new Date();
+var seconds = (endDate.getTime() - startDate.getTime()) / 1000;
+
+console.log(seconds);
+
+
+var startDate = new Date();
+// Optimizavimas NR.1 
+function fizzBuzz2() {
+   for (let i = 0; i <= 100; i++) {
+      let output = '';
+      if (i % 11 === 0) {
+         output += 'Bizz';
+      }
+      if (i % 9 === 0) {
+         output += 'Fuzz';
+      }
+      if (i % 7 === 0) {
+         output += 'Biff';
+      }
+      if (i % 5 === 0) {
+         output += 'Buzz';
+      }
+      if (i % 3 === 0) {
+         output += 'F1zz';
+      }
+      if (!output) {
+         output = i;
+      }
+      console.log(output);
+   }
+}
+fizzBuzz2();
+var endDate = new Date();
+var seconds = (endDate.getTime() - startDate.getTime()) / 1000;
+console.log(seconds);
+
+// Optimizavimas NR.2
+var startDate = new Date();
+function fizzBuzz3() {
+   for (let i = 1; i <= 100; i++) {
+      let sum = '';
+      sum += i % 3 === 0 ? "Fizz" : "";
+      sum += i % 5 === 0 ? "Buzz" : "";
+      sum += i % 7 === 0 ? "Biff" : "";
+      sum += i % 9 === 0 ? "Fuzz" : "";
+      sum += i % 11 === 0 ? "Bizz" : "";
+      sum += sum ? "" : i;
+      console.log(sum);
+   }
+}
+
+fizzBuzz3();
+
+var endDate = new Date();
+var seconds = (endDate.getTime() - startDate.getTime()) / 1000;
+console.log(seconds);
+
+
