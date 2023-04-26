@@ -53,5 +53,20 @@ for (let i = 1; i <= 20; ++i) {
    return `- i!`;
 };
 
+// While / do... while
+// Is principo, tai while yra tas pats kas for ciklas. Jo veikimas toks pat, tik skiriasi sintakses uzrasymas (iskastruotas for'as);
+
+let i = 0;
+while (i < 3) {
+   ++i;
+   console.log(i);
+}
+
+console.log('******do-while*****');
+let doI = 0;
+do {
+   console.log(doI);
+   doI++;
+} while (doI < 0)
 
 

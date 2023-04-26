@@ -4,11 +4,13 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
+   
     "array": "nodemon ./array.js",
     "loops": "nodemon ./loops.js",
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",
 
+    "while": "nodemon ./tasks/while.js",
     "fizzBuzz": "nodemon ./tasks/fizz-buzz-game.js",
     "for": "nodemon ./tasks/for.js",
     "turnInto": "nodemon ./tasks/turn-into.js",
