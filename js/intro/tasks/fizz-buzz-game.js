@@ -90,15 +90,16 @@ console.log(seconds);
 // Optimizavimas NR.2
 var startDate = new Date();
 function fizzBuzz3() {
-   for (let i = 1; i <= 100; i++) {
-      let sum = '';
-      sum += i % 3 === 0 ? "Fizz" : "";
-      sum += i % 5 === 0 ? "Buzz" : "";
-      sum += i % 7 === 0 ? "Biff" : "";
-      sum += i % 9 === 0 ? "Fuzz" : "";
-      sum += i % 11 === 0 ? "Bizz" : "";
-      sum += sum ? "" : i;
-      console.log(sum);
+   for (let i = 0; i <= 100; i++) {
+      let output = '';
+      if (i % 11 === 0) output += 'Bizz';
+
+      if (i % 9 === 0) output += 'Fuzz';
+      if (i % 7 === 0) output += 'Biff';
+      if (i % 5 === 0) output += 'Buzz';
+      if (i % 3 === 0) output += 'F1zz';
+      if (!output) output = i;
+      console.log(output);
    }
 }
 
@@ -107,5 +108,14 @@ fizzBuzz3();
 var endDate = new Date();
 var seconds = (endDate.getTime() - startDate.getTime()) / 1000;
 console.log(seconds);
+
+/*
+fizzBuzz2() optimizavimo esme - prie turimos salygos (jei ji atitinka) prideti zodi; Veikimo principas:
+let str = 'labas';
+str += ' rytas';
+str += '.'
+console.log(str);
+*/
+
 
 
