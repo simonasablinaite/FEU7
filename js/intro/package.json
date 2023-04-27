@@ -4,12 +4,14 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
-   
+    "filter": "nodemon ./filter.js",
     "array": "nodemon ./array.js",
     "loops": "nodemon ./loops.js",
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",
 
+    "filterTasks": "nodemon ./tasks/filterTasks.js",
+    "arrayTasks": "nodemon ./tasks/arrayTasks.js",
     "while": "nodemon ./tasks/while.js",
     "fizzBuzz": "nodemon ./tasks/fizz-buzz-game.js",
     "for": "nodemon ./tasks/for.js",
