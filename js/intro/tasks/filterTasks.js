@@ -529,9 +529,13 @@ for (let i = 0; i < array.length; i++) {
 };
 
 // 4.13:
-for (let i = 0; i < array.length; i++) { //negrazina tik pirmo _
+for (let i = 0; i < array.length; i++) {
    if (isNaN(array[i])) {
-      console.log(array[i].replace(array[i][0], '_') && array[i].replace(array[i][2], '_'));
+      const newArr1 = array[i].split('');
+      newArr1[0] = '_';
+      newArr1[2] = '_';
+
+      console.log(newArr1.join(''));
    }
 };
 
@@ -548,3 +552,18 @@ for (let i = 0; i < array.length; i++) {
       console.log(`"Word ${array[i]} is between ${array[i - 1]} and ${array[i + 1]} in the array"`);
    }
 };
+
+/*
+6. Visoms prieš tai atliktoms užduotims sukurti funkcijas. Jeigu tą pačia funkciją galima panaudoti keletui užduočių - taip ir padaryti.
+6.1. Funkcija privalo priimti bent vieną parametrą, t.y. masyvą, su kuriuo dirbama.
+6.2. Jeigu įmanoma ir logiška, pridėti ir daugiau parametrų.
+*/
+
+
+// 6 - NEATLIKTA
+
+
+
+
+
+
