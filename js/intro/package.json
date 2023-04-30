@@ -10,6 +10,8 @@
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",
 
+    "domJs": "nodemon ./DOM.js",
+    "mapTasks": "nodemon ./tasks/mapTasks.js",
     "filterTasks": "nodemon ./tasks/filterTasks.js",
     "arrayTasks": "nodemon ./tasks/arrayTasks.js",
     "while": "nodemon ./tasks/while.js",
