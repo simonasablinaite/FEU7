@@ -166,7 +166,7 @@ function task413() {
 
 // task413();
 
-// 4.14. Tik tekstą (string tipo duomenis), tačiau žodį parašant atvirkščiai, pvz.: vietoje "start" parašyti "trats";
+// 4.14
 function task414() {
    array.map((e) => {
       if (isNaN(e)) {
