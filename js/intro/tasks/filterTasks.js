@@ -508,7 +508,7 @@ for (let i = 0; i < array.length; i++) {
 console.clear();
 
 // 4.10: 
-for (let i = 0; i < array.length; i++) { //grazina ir 155 ir 321 🤔
+for (let i = 0; i < array.length; i++) {
    if (!isNaN(array[i]) && array[i] * 5 > 350) {
       console.log(array[i]);
    }

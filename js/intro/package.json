@@ -4,6 +4,8 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
+    "map": "nodemon ./map-forEach.js",
+
     "filter": "nodemon ./filter.js",
     "array": "nodemon ./array.js",
     "loops": "nodemon ./loops.js",
