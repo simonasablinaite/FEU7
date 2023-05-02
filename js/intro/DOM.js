@@ -21,7 +21,7 @@ function task41() {
          ul1.innerHTML += `<li>${e}</li>`;
       }
    })
-};
+}
 
 // task41();
 
@@ -33,7 +33,7 @@ function task42() {
          ul2.innerHTML += `<li>${e}</li>`;
       }
    })
-};
+}
 // task42();
 
 // 4.3
@@ -44,7 +44,7 @@ function task43() {
          ul3.innerHTML += `<li>${e ** 4}</li>`;
       }
    })
-};
+}
 
 // task43();
 
@@ -56,7 +56,7 @@ function task44() {
          ul4.innerHTML += `<li>${e + 55}</li>`;
       }
    })
-};
+}
 
 // task44();
 
@@ -80,7 +80,7 @@ function task46() {
          ul6.innerHTML += `<li>Number: ${e}</li>`
       }
    })
-};
+}
 // task46();
 
 // 4.7;
@@ -103,7 +103,7 @@ function task48() {
          ul48.innerHTML += `<li>${numb * i}</li>`
       }
    })
-};
+}
 
 // task48();
 
@@ -115,7 +115,7 @@ function task49() {
          ul49.innerHTML += `<li>${e * (e - 1)}</li>`
       }
    })
-};
+}
 // task49();
 
 // 4.10
@@ -126,7 +126,7 @@ function task410() {
          ul410.innerHTML += `<li>${e}</li>`
       }
    })
-};
+}
 // task410();
 
 // 4.11
@@ -137,7 +137,7 @@ function task411() {
          ul411.innerHTML += `<li>"${e} has ${e.length} symbols"</li>`
       }
    })
-};
+}
 // task411();
 
 // 4.12
@@ -148,7 +148,7 @@ function task412() {
          ul412.innerHTML += `<li>${e.toUpperCase().split('').join('-')}</li>`
       }
    })
-};
+}
 // task412();
 
 // 4.13
@@ -162,7 +162,7 @@ function task413() {
          ul413.innerHTML += `<li>"${splitedArr.join('')}"</li>`
       }
    })
-};
+}
 
 // task413();
 
@@ -175,6 +175,56 @@ function task414() {
 
       }
    })
-};
+}
 
 task414();
+
+/*
+12. Filmų sąrašą išvesti į ekraną (ul - li elementuose). Prie filmo pavadinimo pridėti filmo eilės numerį.
+*/
+
+const filmai1 = ['Pjuklo ketera', 'Vakaru fronte nieko naujo', 'Simpsonu filmas', 'Avataras', 'Liuteris', 'Juodoji pantera. Vakanda', 'Zalioji mylia', 'Greiti ir isiute', 'Baltasis varnas']
+const filmai2 = ['The Shawshank Redemption', 'The Godfather', 'The Dark Knight', 'The Godfather Part II',];
+const filmai3 = ['12 Angry Men', "Schindler's List", 'The Lord of the Rings: The Return of the King', 'Pulp Fiction', 'The Lord of the Rings: The Fellowship of the Ring', 'The Good, the Bad and the Ugly',];
+
+function allList(listName) {
+   const ul416 = document.querySelector(`#task416`);
+   let moveIndex = 0;
+   listName.forEach(item => {
+      item.forEach(e => {
+         moveIndex++;
+         ul416.innerHTML += `<li>${moveIndex} ${e}</li>`
+      })
+   })
+}
+
+allList([filmai1, filmai2, filmai3]);
+
+/*
+12.2. Sukurti dar 2 naujus masyvus, kuriuose būtų po keletą filmų ir:
+12.3. Išvesti visuose 3 masyvuose esančius filmus į ekraną kaip vieną sąrašą.
+*/
+
+// filmai2.forEach((item, i) => {
+//    const ul416 = document.querySelector('#task416');
+//    ul416.innerHTML += `<li>${i + 1} ${item}</li>`
+// })
+
+// filmai3.forEach((item, i) => {
+//    const ul416 = document.querySelector('#task416');
+//    ul416.innerHTML += `<li>${i + 1} ${item}</li>`
+// })
+
+const movieYears = [2001, 2019, 2022, 2023, 2020, 2009, 2010, 2007, 2009, 2012]
+
+function listMoviesWithYears(movies, years) {
+   movies.map((element, index) => {
+      console.log(years[index]);
+
+      let year = years[index];
+
+      let liElement = `<li>${element} ${year}</li>`
+   })
+}
+
+listMoviesWithYears(moviesList, movieYears)
