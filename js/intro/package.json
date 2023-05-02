@@ -4,14 +4,15 @@
   "description": "",
   "main": "intro.js",
   "scripts": {
+    "object": "nodemon ./object.js",
     "map": "nodemon ./map-forEach.js",
-
     "filter": "nodemon ./filter.js",
     "array": "nodemon ./array.js",
     "loops": "nodemon ./loops.js",
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",
 
+    "objectTasks": "nodemon ./tasks/objectTasks.js",
     "domJs": "nodemon ./DOM.js",
     "mapTasks": "nodemon ./tasks/mapTasks.js",
     "filterTasks": "nodemon ./tasks/filterTasks.js",
