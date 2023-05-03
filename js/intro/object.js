@@ -42,13 +42,19 @@ const obj = {
    key: 'value', //key: value pora vadinama property
 }
 */
-
+console.clear();
 const student1Obj = {
    name: 'Jonas',
    'last Name': 'Petraitis',
    age: 25,
    city: 'Vilnius',
    group: 'FEU7',
+   getFullName: function () {
+      return `Full Name is ${this.name} ${this['last Name']}`
+   },
+   setStudentInActive: function () {
+      this.isActive = false;
+   }
 }
 
 console.log(student1Obj);
@@ -84,3 +90,48 @@ console.log(student1Obj);
 
 // Norint pasiekti objekto objekta reikia:
 console.log(student1Obj.contacts.email);
+console.clear();
+// OBJECTO METODAI:
+const student = {
+   name: 'Petras',
+   'last Name': 'Petraitis',
+   age: 25,
+   city: 'Kaunas',
+   group: 'FEU7',
+   address: {
+      city: 'Vilnius',
+      street: 'Ezero g',
+      number: 5,
+   },
+   getFullName: function () {
+      // return `${student.name} ${student['last Name']}`
+      return `${this.name} ${this['last Name']}`
+   },
+   setStudentInActive: function () {
+      this.isActive = false;
+   },
+   setStudentActive: function () {
+      this.isActive = true;
+      return this.isActive;
+   },
+}
+
+console.log(student.getFullName());
+console.log(student.getFullName());
+
+// isActive
+console.log(student.isActive);
+student.setStudentInActive();
+console.log(student.isActive);
+student.setStudentActive();
+console.log(student.isActive);
+
+// prisidedame hobiu masyva i objekta, panaudodami metoda:
+student.addHobby = function () {
+   console.log(student1Obj.hobbies);
+}
+
+student.addHobby();
+
+
+
