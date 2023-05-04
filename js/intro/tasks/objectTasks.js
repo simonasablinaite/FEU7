@@ -247,7 +247,6 @@ const cities = [
       touristAttractions: ['Gedimino pilis', 'Tv bokstas', 'Stiklo kvartalas'],
       isCapital: true,
    },
-
    {
       name: 'Nida',
       population: 3903,
@@ -258,7 +257,6 @@ const cities = [
       touristAttractions: ['Parnidzio kopa', 'Nidos svyturys', 'Benas'],
       isCapital: false,
    },
-
    {
       name: 'Roma',
       population: 4298,
@@ -269,7 +267,6 @@ const cities = [
       touristAttractions: ['Koliziejus', 'Panteonas', 'Trevi fontanas'],
       isCapital: true,
    },
-
    {
       name: 'Tokijas',
       population: 37339804,
@@ -280,7 +277,6 @@ const cities = [
       touristAttractions: ['Imperatoriskieji rumai', 'Sintoistu sventykla', 'Tokio Sky Tree'],
       isCapital: true,
    },
-
    {
       name: 'Venecija',
       population: 639000,
@@ -291,7 +287,6 @@ const cities = [
       touristAttractions: ['Rialto tiltas', 'Sv. Morkaus bazilika', 'Dozu rumai'],
       isCapital: false,
    },
-
    {
       name: 'Kairas',
       population: 21750020,
@@ -302,7 +297,6 @@ const cities = [
       touristAttractions: ['Gizos piramides', 'Sfinkso skulpturos', 'Kairo bokstas'],
       isCapital: true,
    },
-
    {
       name: 'Niujorkas',
       population: 23000000,
@@ -313,7 +307,6 @@ const cities = [
       touristAttractions: ['Centrinis parkas', 'Empire State Building', 'Laisves statula'],
       isCapital: false,
    },
-
    {
       name: 'San Paulas',
       population: 12330000,
@@ -324,30 +317,26 @@ const cities = [
       touristAttractions: ['Zoologijos sodas', 'Ibirapueros parkas', 'San Paulo meno muziejus'],
       isCapital: false,
    },
-
    {
-      name: '',
-      population: 1,
+      name: 'Havajai',
+      population: 1442000,
       location: {
-         continent: '',
-         country: '',
+         continent: 'Amerika',
+         country: 'JAV',
       },
-      touristAttractions: [],
-      isCapital: true / false,
+      touristAttractions: ['Havaju ugnikalniu nacionalinis parkas', 'Four Seasons Resort Hualalai', 'Iolani Palace'],
+      isCapital: false,
    },
-
    {
-      name: '',
-      population: 1,
+      name: 'Kreta',
+      population: 623065,
       location: {
-         continent: '',
-         country: '',
+         continent: 'Europa',
+         country: 'Graikija',
       },
-      touristAttractions: [],
-      isCapital: true / false,
+      touristAttractions: ['Elafonisi papludimys', 'Arkadijaus vienuolynas', 'Seitan Limania'],
+      isCapital: false,
    },
-
-
 ]
 
 
