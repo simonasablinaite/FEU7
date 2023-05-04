@@ -110,9 +110,10 @@ console.log(imone2);
 // Imone2: f-jos kuriamos objekto isoreje; 
 
 // 5. Sukurti funkciją, kuri sukuria adreso string'ą: „Vilniaus st. 15, Vilnius, Lithuania.".
+
 imone2.setAddress = function () {
-   return `${this.contacts.address.street}, ${this.contacts.address.city}, ${this.contacts.address.country}`
-};
+   return `${this.contacts.address.street}, ${this.contacts.address.city}, ${this.contacts.address.country}`;
+}
 
 /*6. Sukurti funkcijas, kurios:
 6.1. Pakeičia NVO statusą į true.
@@ -130,33 +131,34 @@ imone2.nvoFalse = function () {
 
 imone2.switchNVO = function () {
    return this.nvo = !this.nvo;
-
-};
+}
 
 /*
 7. Sukurti funkcijas, kurios grąžina:
       7.1. Šalis, kuriose veikia įmonė į vieną string'ą.
       7.2. Veiklos sritis, kuriose veikia įmonė į vieną string'ą.
 */
+
 imone2.setWorkingLocation = function () {
-   return this.workingLocation.join(', ')
-};
+   return this.workingLocation.join(', ');
+}
 
 imone2.setActivityAreas = function () {
-   return this.activityAreas.join(', ')
+   return this.activityAreas.join(', ');
 }
 
 /*8. Sukurti funkcijas, kurios prideda:
       8.1. Naują veiklos šalį prie šalių masyvo.
       8.2. Naują veiklos rūšį prie veiklų masyvo.
 */
+
 imone2.addedCountry = function (newCountry) {
-   return this.workingLocation.push(newCountry)
-};
+   return this.workingLocation.push(newCountry);
+}
 
 imone2.addedActivity = function (newActivity) {
-   return this.activityAreas.push(newActivity)
-};
+   return this.activityAreas.push(newActivity);
+}
 
 /*
 9. Sukurti funkcijas, kurios pašalina:
@@ -166,7 +168,7 @@ imone2.addedActivity = function (newActivity) {
 
 imone2.removeCountry = function (toRemove) {
    return this.workingLocation = this.workingLocation.filter(country => country !== toRemove);
-};
+}
 
 imone2.removeActivity = function (toRemove) {
    return this.activityAreas = this.activityAreas.filter(item => item !== toRemove);
