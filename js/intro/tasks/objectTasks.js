@@ -112,7 +112,15 @@ console.log(imone2);
 // 5. Sukurti funkciją, kuri sukuria adreso string'ą: „Vilniaus st. 15, Vilnius, Lithuania.".
 
 imone2.setAddress = function () {
-   return `${this.contacts.address.street}, ${this.contacts.address.city}, ${this.contacts.address.country}`;
+   // return `${this.contacts.address.street}, ${this.contacts.address.city}, ${this.contacts.address.country}`; // vienas variantas
+
+   // const street = this.contacts.address.street;
+   // const city = this.contacts.address.city;
+   // const country = this.contacts.address.country;
+   // return `${street}, ${city}, ${country}`; // antras variantas
+
+   const { street, city, country } = this.contacts.address;
+   return `${street}, ${city}, ${country}`; // trecias variantas - naudojant destrukturizavima/ekstraktinima
 }
 
 /*6. Sukurti funkcijas, kurios:
