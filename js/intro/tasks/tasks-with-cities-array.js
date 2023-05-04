@@ -113,7 +113,8 @@ const cities = [
    },
 ]
 
-
+console.log('*****1BUDAS*****');
+// Pirmas budas: visos isvestys rasomos atskirame cikle (daug ciklu - nepraktiska)
 // 1.6. Visus miestų masyvų narius išvesti į konsolę.
 for (let i = 0; i < cities.length; i++) {
    console.log(cities[i]);
@@ -143,6 +144,58 @@ for (let i = 0; i < cities.length; i++) {
 // 1.6.6. Į konsolę išvesti visas miesto lankytinas vietas.
 for (let i = 0; i < cities.length; i++) {
    console.log(`${cities[i].name} lankytinos vietos yra: ${cities[i].touristAttractions.join(', ')}`);
+   for (let j = 0; j < cities[i].touristAttractions.length; j++) {
+      console.log(cities[i].touristAttractions[j]);
+   }
+} //budas, kai isvedamos visos masyvo isvestys kartu
+
+console.log('*****2BUDAS*****');
+// Antras budas: Panaudoti viena cikla visiems logams issivesti:
+for (let i = 0; i < cities.length; i++) {
+   console.log(cities[i]);
+   console.log(cities[i].name);
+   console.log(`${cities[i].name} populiacija yra: ${cities[i].population}`);
+   console.log(`${cities[i].name} zemynas yra: ${cities[i].location.continent}`);
+   console.log(`${cities[i].name} salis yra: ${cities[i].location.country}`);
+   console.log(`Ar ${cities[i].name} yra sostine: ${cities[i].isCapital}`);
+   console.log(`${cities[i].name} lankytinos vietos yra: ${cities[i].touristAttractions.join(', ')}`);
+
+   for (let j = 0; j < cities[i].touristAttractions.length; j++) {
+      console.log(cities[i].touristAttractions[j]);
+   }
 }
+console.clear();
+console.log('*****3BUDAS*****');
+// Trecias budas: Panaudoti map visiems logams issivesti:
+cities.forEach(city => {
+   console.log(city);
+   console.log(city.name);
+   console.log(`${city.name} populiacija yra: ${city.population}`);
+   console.log(`${city.name} zemynas yra: ${city.location.continent}`);
+   console.log(`${city.name} salis yra: ${city.location.country}`);
+   console.log(`Ar ${city.name} yra sostine: ${city.isCapital}`);
+   console.log(`${city.name} lankytinos vietos yra: ${city.touristAttractions.join(', ')}`);
+
+   city.touristAttractions.forEach(attraction => console.log(attraction));
+})
+
+console.log('*****4BUDAS*****');
+// ketvirtas budas - map metodas su destrukturizavimu:
+console.log(cities);
+cities.forEach(city => {
+   let { name, population, isCapital, touristAttractions } = city;
+   let { continent, country } = city.location;
+
+   console.log(name);
+   console.log(`${name} populiacija yra: ${population}`);
+   console.log(`${name} zemynas yra: ${continent}`);
+   console.log(`${name} salis yra: ${country}`);
+   console.log(`Ar ${name} yra sostine: ${isCapital}`);
+   console.log(`${name} lankytinos vietos yra: ${touristAttractions.join(', ')}`);
+
+   city.touristAttractions.forEach(attraction => console.log(attraction));
+})
+
+// 5 budas - mapas analogioja forEachui. 
 
 
