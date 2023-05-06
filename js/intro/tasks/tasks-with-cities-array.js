@@ -195,7 +195,77 @@ cities.forEach(city => {
 
    city.touristAttractions.forEach(attraction => console.log(attraction));
 })
+console.clear();
+// 5 budas - mapas analogioja forEachui tik plius, sukurta kaip funkcijos:
 
-// 5 budas - mapas analogioja forEachui. 
+// Sestas budas - su funkcijomis:
+console.log('*****6BUDAS*****');
+
+const allCities = (cities) => cities.map(city => city);
+console.log(allCities(cities));
+
+const cityName1 = (cities) => cities.map(city => city.name);
+console.log(cityName1(cities));
+
+const population = (cities) => cities.map(city => city.population);
+console.log(population(cities));
+
+const continent = (cities) => cities.map(city => city.location.continent);
+console.log(continent(cities));
+
+const country = (cities) => cities.map(city => city.location.country);
+console.log(country(cities));
+
+const isCapital = (cities) => cities.map(city => city.isCapital);
+console.log(isCapital(cities));
+
+const tourustAttractions = (cities) => cities.map(city => city.touristAttractions);
+console.log(tourustAttractions(cities));
+
+function cityName2(cities) {
+   for (let i = 0; i < cities.length; i++) {
+      console.log(cities[i].name);
+   }
+}
+console.log(cityName2(cities)); // isspausdina kas nurodyta + viena undefined. Kas tas undefined is kur jis ateina ir kodel?
+
+/*
+2. HTML faile sukurti tuščią div elementą, kuriame bus atvaizduoti visi miestai.
+2.1. Panaudojant ciklą, atvaizduoti visus miestus ekrane pagal nurodytą stilių.
+*/
+
+/*
+3.1. Jeigu miestas yra sostinė, tai:
+3.1.1. Prie miesto pavadinimo pridėti žodį capital, pvz.: Vilnius (capital)
+3.1.2. Prie miesto aprašymo pridėti tekstą, kuris nusako jog tai šalies sostinė, pvz.: „Vilnius is the capital of Lithuania."
+3.1.3. Jeigu miestas yra sostinė, tai prie apgaubiančio elemento pridėti klasę „capital".
+*/
+
+function citiesList(cities) {
+   const citiesList = document.querySelector('#citiesList');
+
+   cities.map(city => {
+      const { name, population, isCapital, touristAttractions } = city;
+      const { continent, country } = city.location;
+
+      const isCapitalCity = () => city.isCapital ? `${name} (Capital)` : '';
+      const cityDescription = () => city.isCapital ? `${name} is the capital of ${country}.` : '';
+
+      const className = 'class="capital"';
+      const addClass = () => isCapital ? className : '';
+
+      citiesList.innerHTML += `<h2 ${addClass()}> ${isCapitalCity()}</h2>`
+      citiesList.innerHTML += `<p>${cityDescription()} ${name} city is located in ${continent}, ${country} and has population of ${population} people.</p>`;
+      citiesList.innerHTML += `<h3>Main Tourist attraction of ${name} is:</h3>`
+      touristAttractions.map(attraction => {
+         citiesList.innerHTML += `
+         <ul>
+            <li>${attraction}</li>
+         </ul>`
+      })
+   })
+}
+
+citiesList(cities);
 
 
