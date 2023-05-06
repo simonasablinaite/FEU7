@@ -78,7 +78,7 @@ const cities = [
          continent: 'Amerika',
          country: 'JAV',
       },
-      touristAttractions: ['Centrinis parkas', 'Empire State Building', 'Laisves statula'],
+      touristAttractions: ['Laisves statula'],
       isCapital: false,
    },
    {
@@ -241,6 +241,13 @@ console.log(cityName2(cities)); // isspausdina kas nurodyta + viena undefined. K
 3.1.3. Jeigu miestas yra sostinė, tai prie apgaubiančio elemento pridėti klasę „capital".
 */
 
+/*
+4. Priklausomai nuo miesto lankytinų objektų kiekio, tekstas turi skirtis:
+4.1. Jeigu lankytina vieta tik viena, tai turėtų būti naudojama vienaskaita, pvz.: „Main Tourist attraction of Vilnius is".
+4.2. Jeigu lankytinų vietų yra daugiau, nei viena, tai tekstas turėtų būti daugiskaitoje, pvz. „Main Tourist attractions of Kaunas are".
+4.3. Jeigu lankytinų vietų nėra, tai tekstas neturėtų būti atvaizduojamas.
+*/
+
 function citiesList(cities) {
    const citiesList = document.querySelector('#citiesList');
 
@@ -254,9 +261,19 @@ function citiesList(cities) {
       const className = 'class="capital"';
       const addClass = () => isCapital ? className : '';
 
+      const attractionsText = (text) => {
+         if (touristAttractions.length > 2) {
+            return text = `Main Tourist attractions of ${name} are:`;
+         } else if (touristAttractions.length = 1) {
+            return text = `Main Tourist attraction of ${name} is:`
+         } else {
+            return text = '';
+         }
+      }
+
       citiesList.innerHTML += `<h2 ${addClass()}> ${isCapitalCity()}</h2>`
       citiesList.innerHTML += `<p>${cityDescription()} ${name} city is located in ${continent}, ${country} and has population of ${population} people.</p>`;
-      citiesList.innerHTML += `<h3>Main Tourist attraction of ${name} is:</h3>`
+      citiesList.innerHTML += `<h3>${attractionsText()}</h3>`
       touristAttractions.map(attraction => {
          citiesList.innerHTML += `
          <ul>
