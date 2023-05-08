@@ -255,7 +255,7 @@ function citiesList(cities) {
       const { name, population, isCapital, touristAttractions } = city;
       const { continent, country } = city.location;
 
-      const isCapitalCity = () => city.isCapital ? `${name} (Capital)` : '';
+      const isCapitalCity = () => city.isCapital ? `${name} (Capital)` : `${name}`;
       const cityDescription = () => city.isCapital ? `${name} is the capital of ${country}.` : '';
       const className = 'class="capital"';
       const addClass = () => isCapital ? className : '';
@@ -295,10 +295,45 @@ console.clear();
 */
 
 function styleCities() {
-   let cityTitles = document.querySelectorAll('.capital');
-   cityTitles.style.color = 'red'
-   console.log(cityTitles.style.color);
+   const cityCapitalsTitles = document.querySelectorAll('.capital');
+   cityCapitalsTitles.forEach((title) => {
+      title.style.color = 'red'
+   })
+
+   const everySecondCitys = document.querySelectorAll('div');
+   everySecondCitys.forEach((title, index) => index % 2 !== 0 ? title.style.backgroundColor = 'grey' : title);
+
+   const allCities = document.querySelectorAll('.cityItem');
+   allCities.forEach(city => {
+      const singleElement = city.querySelectorAll('ul li');
+      singleElement.forEach((liElement, index) => {
+         if (index === 0) {
+            liElement.style.color = 'green';
+         } else if (index > 2) {
+            liElement.style.color = 'red';
+         } else {
+            liElement.style.color = 'orange';
+         }
+      })
+   })
+
+   /*
+   6. Miestų plotis turi būti 50%.
+   6.1. Jeigu miestų skaičius nėra porinis, tai paskutinio miesto plotis turi būti 100%.
+   */
+
+   const citiesListDOM = document.querySelector('#citiesList');
+   citiesListDOM.style.display = 'grid';
+   citiesListDOM.style.gridTemplateColumns = 'repeat(2, 1fr)';
+   citiesListDOM.style.gap = '20px';
+
+   for (let i = 0; i < citiesListDOM.length; i++) {
+      if (i === citiesListDOM.length - 1 && citiesListDOM.length % 2 !== 0) {
+         citiesListDOM[i].style.width = '100%';
+      } else {
+         citiesListDOM[i].style.width = 'calc((100% - 20px) / 2)';
+      }
+   }
 }
 
 styleCities();
-
