@@ -260,6 +260,8 @@ function citiesList(cities) {
       const className = 'class="capital"';
       const addClass = () => isCapital ? className : '';
 
+      let attractionsList = [];
+      touristAttractions.map(attraction => attractionsList.push(`<li>${(attraction)}</li>`))
 
       const attractionsText = (text) => {
          if (touristAttractions.length > 1) {
@@ -276,15 +278,8 @@ function citiesList(cities) {
                                <h2 ${addClass()}> ${isCapitalCity()}</h2>
                                <p>${cityDescription()} ${name} city is located in ${continent}, ${country} and has population of ${population} people.</p>
                                <h3>${attractionsText()}</h3>
+                               ${attraction}
                                </div>`
-      touristAttractions.map(attraction => {
-         citiesList.innerHTML += `
-                              <ul>
-                                 <li>${attraction}</li>
-                              </ul>`
-
-      })
-
    })
 }
 
