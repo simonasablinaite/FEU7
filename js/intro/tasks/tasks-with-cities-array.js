@@ -257,12 +257,12 @@ function citiesList(cities) {
 
       const isCapitalCity = () => city.isCapital ? `${name} (Capital)` : '';
       const cityDescription = () => city.isCapital ? `${name} is the capital of ${country}.` : '';
-
       const className = 'class="capital"';
       const addClass = () => isCapital ? className : '';
 
+
       const attractionsText = (text) => {
-         if (touristAttractions.length > 2) {
+         if (touristAttractions.length > 1) {
             return text = `Main Tourist attractions of ${name} are:`;
          } else if (touristAttractions.length = 1) {
             return text = `Main Tourist attraction of ${name} is:`
@@ -271,18 +271,39 @@ function citiesList(cities) {
          }
       }
 
-      citiesList.innerHTML += `<h2 ${addClass()}> ${isCapitalCity()}</h2>`
-      citiesList.innerHTML += `<p>${cityDescription()} ${name} city is located in ${continent}, ${country} and has population of ${population} people.</p>`;
-      citiesList.innerHTML += `<h3>${attractionsText()}</h3>`
+      citiesList.innerHTML += `
+                              <div class='cityItem'>
+                               <h2 ${addClass()}> ${isCapitalCity()}</h2>
+                               <p>${cityDescription()} ${name} city is located in ${continent}, ${country} and has population of ${population} people.</p>
+                               <h3>${attractionsText()}</h3>
+                               </div>`
       touristAttractions.map(attraction => {
          citiesList.innerHTML += `
-         <ul>
-            <li>${attraction}</li>
-         </ul>`
+                              <ul>
+                                 <li>${attraction}</li>
+                              </ul>`
+
       })
+
    })
 }
 
 citiesList(cities);
 
+console.clear();
+/*
+5. Naudojant tik JavaScript:
+5.1. Pakeisti visų sostinių teksto spalvą.
+5.2. Pakeisti kas antro miesto fono spalvą.
+5.3. Pakeisti visų lankytinų vietų sąrašo pirmo nario spalvą į žalią.
+5.4. Pakeisti visų lankytinų vietų sąrašo paskutinių narių spalvą į raudoną, jeigu narių (lankytinų vietų) yra daugiau nei 3.
+*/
+
+function styleCities() {
+   let cityTitles = document.querySelectorAll('.capital');
+   cityTitles.style.color = 'red'
+   console.log(cityTitles.style.color);
+}
+
+styleCities();
 
