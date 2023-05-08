@@ -259,4 +259,41 @@ function task721(postsData) {
 }
 task721(posts);
 
+/*
+7.22. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas prasideda raide "s".
+7.23. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas baigiasi "t" arba "m".
+7.24. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas turi daugiau simbolių nei 15.
+*/
 
+function task722(postsData) {
+   const ul722DOM = document.querySelector('.task722');
+   postsData.map(el => {
+      if (el.title.startsWith('s')) {
+         const liEl = `<li>Title: "${el.title}". Content: "${el.body}"</li>`
+         ul722DOM.innerHTML += liEl;
+      }
+   })
+}
+// task722(posts);
+
+function task723(postsData) {
+   const ul723DOM = document.querySelector('.task723');
+   postsData.map(el => {
+      if (el.title.endsWith('t') || el.title.endsWith('m')) {
+         const liEl = `<li>Title: "${el.title}". Content: "${el.body}"</li>`
+         ul723DOM.innerHTML += liEl;
+      }
+   })
+}
+// task723(posts);
+
+function task724(postsData) {
+   const ul723DOM = document.querySelector('.task723');
+   const filteredPosts = postsData.filter(post => {
+      if (post.title.length > 15) {
+         const filteredPosts = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
+         ul723DOM.innerHTML += filteredPosts;
+      }
+   })
+}
+task724(posts);
