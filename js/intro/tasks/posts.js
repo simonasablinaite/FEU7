@@ -234,7 +234,7 @@ function task719(postsData) {
    const lastSevenEl = postsData.slice(-7);
    lastSevenEl.map(element => console.log(`Title: "${element.title}". Content: "${element.body}".`));
 }
-task719(posts);
+// task719(posts);
 
 /*
 7.20. HTML faile sukurti ul elementą ir kiekvieną masyvo nario property "title" reikšmę, kaip li elementą, išvesti į ul elementą. 
@@ -257,7 +257,7 @@ function task721(postsData) {
       ul721DOM.innerHTML += liEl;
    })
 }
-task721(posts);
+// task721(posts);
 
 /*
 7.22. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas prasideda raide "s".
@@ -288,12 +288,97 @@ function task723(postsData) {
 // task723(posts);
 
 function task724(postsData) {
-   const ul723DOM = document.querySelector('.task723');
-   const filteredPosts = postsData.filter(post => {
-      if (post.title.length > 15) {
-         const filteredPosts = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
-         ul723DOM.innerHTML += filteredPosts;
+   const ul724DOM = document.querySelector('.task724');
+   postsData.filter(post => {
+      const liEl = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
+      post.title.length > 15 ? ul724DOM.innerHTML += liEl : '';
+   })
+}
+
+// task724(posts);
+
+/*
+7.25. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas turi mažiau simbolių nei 20 ir kurių "body" turi daugiau simbolių nei 50.
+7.26. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas turi tarp 20 ir 30 simbolių ir kurių "body" turi tarp 70 ir 100 simbolių.
+7.27. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas turi simbolių junginį "it", o "body" turi simbolių junginį "quo".
+7.28. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių "body" turi žodį "sit". Jeigu žodis turi šį simbolių junginį, tačiau tai nėra pilna jo reikšmė (pvz. žodžiai "sitto" ar "quasit"), jie neturėtų būti atvaizduojami.
+7.29. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti tik tuos masyvo narius, kurių pavadinimas turi daugiau nei 3 "a" raides, o "body" turi mažiau nei 5 "o" raides.
+*/
+function task725(postsData) {
+   const ul725DOM = document.querySelector('.task725');
+   postsData.filter(post => {
+      const liEl = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
+      post.title.length < 20 && post.body.length > 50 ? ul725DOM.innerHTML += liEl : '';
+   })
+}
+
+// task725(posts);
+
+function task726(postsData) {
+   const ul726DOM = document.querySelector('.task726');
+   postsData.filter(post => {
+      const liEl = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
+      if (20 < post.title.length < 30) {
+         if (70 < post.body.length < 100) {
+            ul726DOM.innerHTML += liEl;
+         }
       }
    })
 }
-task724(posts);
+
+// task726(posts);
+
+function task727(postsData) {
+   const ul727DOM = document.querySelector('.task727');
+   postsData.filter(post => {
+      const liEl = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
+      if (post.title.includes('it')) {
+         if (post.body.includes('quo'))
+            ul727DOM.innerHTML += liEl;
+      }
+   })
+}
+
+// task727(posts);
+
+function task728(postsData) {
+   const ul728DOM = document.querySelector('.task728');
+   postsData.filter(post => {
+      const liEl = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
+      if (post.title.includes('sit')) {
+         ul728DOM.innerHTML += liEl;
+      }
+   })
+}
+
+// task728(posts);
+
+function task729(postsData) {
+   const ul729DOM = document.querySelector('.task729');
+   postsData.filter(post => {
+      const splittedTitle = post.title.split('');
+      const splittedBody = post.body.split('');
+
+      const titleLetters = splittedTitle.filter(letter => letter === 'a');
+      const bodyLetters = splittedBody.filter(letter => letter === 'o');
+
+      const liEl = `<li>Title: "${post.title}". Content: "${post.body}"</li>`
+      if (titleLetters.length > 3 && bodyLetters.length < 7) {
+         ul729DOM.innerHTML += liEl;
+      }
+   })
+}
+
+// task729(posts);
+
+/*
+7.30. HTML faile sukurti ul elementą ir tokiu pačiu formatu, kaip ankstesnėje užduotyje, išvesti visų masyvo narių pavadinimus surūšiuotus nuo mažiausiai iki daugiausiai raidžių "body" property turinčių narių. Papildomai, prie išvesto teksto pridėti ir "body" raidžių skaičių.
+*/
+
+function task730(postsData) {
+
+}
+
+task730(posts); //pabaigti kai bus laiko
+
+
