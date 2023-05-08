@@ -12,6 +12,7 @@
     "function": "nodemon ./function.js",
     "intro": "nodemon ./intro.js",
 
+    "posts": "nodemon ./tasks/posts.js",
     "cities": "nodemon ./tasks/tasks-with-cities-array.js",
     "objectTasks": "nodemon ./tasks/objectTasks.js",
     "domJs": "nodemon ./DOM.js",
