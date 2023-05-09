@@ -1,90 +1,96 @@
-//  Užduotis:
-// 1. Sukurti HTML elementą, kurio id „numbers":
-const numbersDOM = document.querySelector('#numbers');
+/* Užduotis:
+1. Sukurti HTML elementą, kurio id „numbers":
+2. JavaScript pagalba šio elemento viduje sukurti: h3 elementą ir du mygtukų elementus:
+3. h3 elemento tekstas turėtų būti „5"
+4. Mygtukų tekstas turėtų būti „+" ir „-"
+5. Sukurti „click" (paspaudimo) event listener'ius abiems mygtukams.
+6. „-" mygtuko event listeneris turėtų iškviesti funkciją, kuri sumažina skaičių h3 elemente, o „+" mygtuko paspaudimas turėtų skaičių padidinti
+7. Jeigu skaitmuo h3 komponente yra mažesnis už du, tai „-" mygtukas turėtų patapti neveiksnus (disabled)- element.setAttribute('disabled', true) / element.removeAttribute('disabled'):
+8. Jeigu skaitmuo h3 komponente yra 10, tai „+" mygtukas turėtų patapti neveiksnus (disabled)
+9. Jeigu skaitmuo yra 5 arba daugiau, tai jo spalva turėtų būti žalia. Kitu atveju - raudona.
+10. Sukurti naują mygtuką „Reset". Jį paspaudus viskas atstatoma į pradinę padėtį.
+11. Sukurti input elementą (number tipo) ir jame įrašytą skaičių pridėti kaip h3 elemento tekstą.
+12. Sukurti du naujus mygtukus, kurie:
+12.1. Prideda dvejetą prie esamos h3 elemento reikšmės.
+12.2. Atima dvejetą iš esamos h3 elemento reikšmės.
+13. Sukurti naują elementą (h4) ir jį pridėti į „numbers" elemento pabaigą.
+13.1. Šio elemento tekstas turėtų būti „Balai:"
+14. Sukurti naują elementą (ul) ir jį pridėti į „numbers" elemento pabaigą.
+14.1. Sukurti naują mygtuką, kurio teksta būtų „Įrašyti balą".
+14.2. Paspaudus šį mygtuką, reikia paimti reikšmę iš h3 elemento ir sukurti naują li elementą bei jį prepend'inti prie ul elemento.
+*/
 
-// 2. JavaScript pagalba šio elemento viduje sukurti: h3 elementą ir du mygtukų elementus:
+// Sukurti kintamieji
+const numbersDOM = document.querySelector('#numbers');
 const number = document.createElement('h3');
 const buttonPlus = document.createElement('button');
 const buttonMinus = document.createElement('button');
 
-// 3. h3 elemento tekstas turėtų būti „5"
-number.textContent = 5;
-buttonColor();
+const resetBtn = document.createElement('button');
+const plus2 = document.createElement('button');
+const minus2 = document.createElement('button');
 
-// 4. Mygtukų tekstas turėtų būti „+" ir „-"
+// Kintamieji prideti i numbers elementa:
+numbersDOM.append(number, buttonPlus, buttonMinus, plus2, minus2);
+numbersDOM.after(resetBtn);
+
+// Prideti contentai kintamiesiems:
+// Sukuriamas kintamasis stringui pakeisti i skaiciu:
+let count = 5;
+checkedData(0);
+number.textContent = count;
+
+
 buttonPlus.textContent = '+';
 buttonMinus.textContent = '-';
+plus2.textContent = '+2';
+minus2.textContent = '-2';
 
-// 5. Sukurti „click" (paspaudimo) event listener'ius abiems mygtukams.
-// 6. „-" mygtuko event listeneris turėtų iškviesti funkciją, kuri sumažina skaičių h3 elemente, o „+" mygtuko paspaudimas turėtų skaičių padidinti
-buttonPlus.addEventListener('click', () => {
-   number.textContent = Number(number.textContent) + 1;
-});
+resetBtn.textContent = 'Reset';
 
-buttonMinus.addEventListener('click', () => {
-   number.textContent -= 1;
-});
+// EVENTAI ir FUKCIJOS:
+// Sukuriami keturi eventai keturiems mygtukams:
 
-numbersDOM.append(number, buttonPlus, buttonMinus);
+buttonPlus.addEventListener('click', checkedData(1));
+plus2.addEventListener('click', checkedData(2));
+buttonMinus.addEventListener('click', checkedData(-1));
+minus2.addEventListener('click', checkedData(-2));
 
-// 7. Jeigu skaitmuo h3 komponente yra mažesnis už du, tai „-" mygtukas turėtų patapti neveiksnus (disabled)- element.setAttribute('disabled', true) / element.removeAttribute('disabled'):
-buttonMinus.addEventListener('click', () => {
-   if (Number(number.textContent) <= 1) {
-      buttonMinus.setAttribute('disabled', true);
-   }
-   buttonPlus.removeAttribute('disabled')
-   buttonColor();
-});
-
-// 8. Jeigu skaitmuo h3 komponente yra 10, tai „+" mygtukas turėtų patapti neveiksnus (disabled)
-buttonPlus.addEventListener('click', () => {
-   if (Number(number.textContent) >= 10) {
-      buttonPlus.setAttribute('disabled', true)
-   }
-   buttonMinus.removeAttribute('disabled')
-   buttonColor();
-});
-
-// 9. Jeigu skaitmuo yra 5 arba daugiau, tai jo spalva turėtų būti žalia. Kitu atveju - raudona.
 function buttonColor() {
-   if (Number(number.textContent) >= 5) {
+   if (count >= 5) {
       number.style.color = 'green';
    } else {
       number.style.color = 'red';
    }
 }
 
-// 10. Sukurti naują mygtuką „Reset". Jį paspaudus viskas atstatoma į pradinę padėtį.
-const resetBtn = document.createElement('button');
-resetBtn.textContent = 'Reset';
-numbersDOM.after(resetBtn);
-
-resetBtn.addEventListener('click', () => {
-
-})
-// 12. Sukurti du naujus mygtukus, kurie:
-const plus2 = document.createElement('button');
-const minus2 = document.createElement('button');
-
-numbersDOM.append(plus2, minus2);
-
-// 12.1. Prideda dvejetą prie esamos h3 elemento reikšmės.
-plus2.textContent = '+2';
-
-function countMinus2() {
-   number.textContent = Number(number.textContent) + 2;
+function checkedData(changeNum) {
+   count += changeNum;
+   number.textContent = count;
+   if (count >= 10) {
+      buttonPlus.setAttribute('disabled', true);
+   } else {
+      buttonPlus.removeAttribute('disabled');
+   }
+   if (count >= 9) {
+      plus2.setAttribute('disabled', true);
+   } else {
+      plus2.removeAttribute('disabled');
+   }
+   if (count > 1) {
+      buttonMinus.removeAttribute('disabled');
+   } else {
+      buttonMinus.setAttribute('disabled', true);
+   }
+   if (count > 2) {
+      minus2.removeAttribute('disabled');
+   } else {
+      minus2.setAttribute('disabled', true);
+   }
+   buttonColor();
 }
 
-plus2.addEventListener('click', () => {
-   countMinus2();
-});
 
-// 12.2. Atima dvejetą iš esamos h3 elemento reikšmės.
-minus2.textContent = '-2';
-
-minus2.addEventListener('click', () => {
-   number.textContent -= 2;
-});
 
 
 
