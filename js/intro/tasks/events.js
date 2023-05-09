@@ -41,7 +41,6 @@ let count = defaultCount;
 checkedData(0);
 number.textContent = count;
 
-
 buttonPlus.textContent = '+';
 buttonMinus.textContent = '-';
 plus2.textContent = '+2';
