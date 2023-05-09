@@ -31,12 +31,13 @@ const plus2 = document.createElement('button');
 const minus2 = document.createElement('button');
 
 // Kintamieji prideti i numbers elementa:
-numbersDOM.append(number, buttonPlus, buttonMinus, plus2, minus2);
-numbersDOM.after(resetBtn);
+numbersDOM.append(number, buttonPlus, plus2, resetBtn, minus2, buttonMinus);
+numbersDOM.after();
 
 // Prideti contentai kintamiesiems:
 // Sukuriamas kintamasis stringui pakeisti i skaiciu:
-let count = 5;
+let defaultCount = 5;
+let count = defaultCount;
 checkedData(0);
 number.textContent = count;
 
@@ -51,10 +52,15 @@ resetBtn.textContent = 'Reset';
 // EVENTAI ir FUKCIJOS:
 // Sukuriami keturi eventai keturiems mygtukams:
 
-buttonPlus.addEventListener('click', checkedData(1));
-plus2.addEventListener('click', checkedData(2));
-buttonMinus.addEventListener('click', checkedData(-1));
-minus2.addEventListener('click', checkedData(-2));
+buttonPlus.addEventListener('click', () => checkedData(1));
+plus2.addEventListener('click', () => checkedData(2));
+buttonMinus.addEventListener('click', () => checkedData(-1));
+minus2.addEventListener('click', () => checkedData(-2));
+
+resetBtn.addEventListener('click', () => {
+   count = defaultCount;
+   checkedData(0)
+})
 
 function buttonColor() {
    if (count >= 5) {
@@ -89,6 +95,8 @@ function checkedData(changeNum) {
    }
    buttonColor();
 }
+
+
 
 
 
