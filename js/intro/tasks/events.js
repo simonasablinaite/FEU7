@@ -13,6 +13,7 @@
 12. Sukurti du naujus mygtukus, kurie:
 12.1. Prideda dvejetą prie esamos h3 elemento reikšmės.
 12.2. Atima dvejetą iš esamos h3 elemento reikšmės.
+
 13. Sukurti naują elementą (h4) ir jį pridėti į „numbers" elemento pabaigą.
 13.1. Šio elemento tekstas turėtų būti „Balai:"
 14. Sukurti naują elementą (ul) ir jį pridėti į „numbers" elemento pabaigą.
@@ -30,13 +31,24 @@ const resetBtn = document.createElement('button');
 const plus2 = document.createElement('button');
 const minus2 = document.createElement('button');
 
+const grades = document.createElement('h4');
+const gradesList = document.createElement('ul');
+const saveGrades = document.createElement('button');
+
+let defaultCount = 5;
+const inputElement = document.createElement('input');
+inputElement.type = 'number';
+inputElement.max = 10;
+inputElement.min = 1;
+inputElement.value = defaultCount;
+
+
 // Kintamieji prideti i numbers elementa:
-numbersDOM.append(number, buttonPlus, plus2, resetBtn, minus2, buttonMinus);
-numbersDOM.after();
+numbersDOM.append(inputElement, number, buttonPlus, plus2, resetBtn, minus2, buttonMinus, saveGrades, grades, gradesList);
 
 // Prideti contentai kintamiesiems:
 // Sukuriamas kintamasis stringui pakeisti i skaiciu:
-let defaultCount = 5;
+
 let count = defaultCount;
 checkedData(0);
 number.textContent = count;
@@ -48,6 +60,9 @@ minus2.textContent = '-2';
 
 resetBtn.textContent = 'Reset';
 
+grades.textContent = "Balai:"
+saveGrades.textContent = 'Irasyti bala';
+
 // EVENTAI ir FUKCIJOS:
 // Sukuriami keturi eventai keturiems mygtukams:
 
@@ -56,22 +71,48 @@ plus2.addEventListener('click', () => checkedData(2));
 buttonMinus.addEventListener('click', () => checkedData(-1));
 minus2.addEventListener('click', () => checkedData(-2));
 
+inputElement.addEventListener('change', () => {
+   count = Number(inputElement.value);
+   checkedData(0);
+})
+
+saveGrades.addEventListener('click', () => {
+   let gradeItem = document.createElement('li');
+   const deleteGrade = document.createElement('button');
+   deleteGrade.textContent = 'X';
+   gradeItem.textContent = count;
+   gradeItem.style.color = number.style.color;
+   gradesList.prepend(gradeItem);
+   gradeItem.append(deleteGrade);
+   deleteGrade.addEventListener('click', () => {
+      gradeItem.remove();
+   })
+   count = defaultCount; //nuresetinamas skaicius po jo ivesties i lista
+   checkedData(0);
+})
+
 resetBtn.addEventListener('click', () => {
    count = defaultCount;
    checkedData(0)
 })
 
 function buttonColor() {
-   if (count >= 5) {
-      number.style.color = 'green';
+   if (count < 7) {
+      number.style.color = 'orange'; {
+         if (count < 5) {
+            number.style.color = 'red';
+         }
+      }
    } else {
-      number.style.color = 'red';
+      number.style.color = 'green';
    }
 }
 
 function checkedData(changeNum) {
    count += changeNum;
    number.textContent = count;
+   inputElement.value = count;
+
    if (count >= 10) {
       buttonPlus.setAttribute('disabled', true);
    } else {
