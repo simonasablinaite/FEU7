@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Forms</title>
+
+   <style>
+      form {
+         width: 150px;
+         display: grid;
+         grid-template-columns: 1fr;
+         gap: 10px;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- /*
+PIRMA DALIS:
+Sukurti kontaktų formą.
+1. Kontaktų formoje turi būti šie laukeliai:
+    1. Tekstinis laukelis vardui (privalomas).
+    2. Tekstinis laukelis pavardei (privalomas).
+    3. Skaičiaus laukelis amžiui (privalomas).
+    4. Laukelis įvesti telefono numerį (neprivalomas).
+    5. Laukelis įvesti el. paštą (privalomas).
+    6. Range tipo laukelis, kuris skirtas įvertinti savo IT žinias nuo 1 iki 10. Galimas vertinimas tik sveikiems skaičiams.
+    7. Radio tipo laukeliai, kuriuose pasirenkamas grupės numeris. Turi būti galimybė pasirinkti grupes nuo FEU 1gr. iki FEU 7gr.
+    8. Šalia kiekvieno įvesties (input) elemento, pridėti label elementą, kuris žymi laukelio pavadinimą.
+*/ -->
+
+   <!-- ANTRA DALIS:
+1. Sukurti div elementą, kuris turės id „students-list".
+2. Kiekvieną kartą pridavus formą (submit), turi būti sukurtas naujas div elementas su klase „student-item" ir pridedamas į „students-list" elemento pradžią.
+3. Duomenys apie studentą turi būti įdėti į „student-item" elementą. -->
+
+   <form id="student-form">
+      <div class="form-control">
+         <label for="name">Name:</label>
+         <input type="text" id="name" name="name">
+      </div>
+
+      <div class="form-control">
+         <label for="last-name">Last name:</label>
+         <input type="text" id="last-name" name="last-name">
+      </div>
+
+      <div class="form-control">
+         <label for="age">Age:</label>
+         <input type="number" id="age" name="age">
+      </div>
+
+      <div class="form-control">
+         <label for="phone">Phone</label>
+         <input type="tel" id="phone" name="phone">
+      </div>
+
+      <div class="form-control">
+         <label for="email">Email</label>
+         <input type="email" id="email" name="email">
+      </div>
+
+
+      <div>
+         <label for="IT">IT knowledge </label>
+         <input type="range" min="1" max="10" class="IT-knowledge" name="IT-knowledge">
+      </div>
+
+      <div class="groups">
+         <fieldset>
+            <legend>Groups:</legend>
+            <div>
+               <label for="group-1">FEU 1gr</label>
+               <input type="radio" id="group-1" name="group" value="FEU 1gr.">
+            </div>
+            <div>
+               <label for="group-2">FEU 2gr</label>
+               <input type="radio" id="group-2" name="group" value="FEU 2gr.">
+            </div>
+            <div>
+               <label for="group-3">FEU 3gr</label>
+               <input type="radio" id="group-3" name="group" value="FEU 3gr.">
+            </div>
+            <div>
+               <label for="group-4">FEU 4gr</label>
+               <input type="radio" id="group-4" name="group" value="FEU 4gr.">
+            </div>
+            <div>
+               <label for="group-5">FEU 5gr</label>
+               <input type="radio" id="group-5" name="group" value="FEU 5gr.">
+            </div>
+            <div>
+               <label for="group-6">FEU 6gr</label>
+               <input type="radio" id="group-6" name="group" value="FEU 6gr.">
+            </div>
+            <div>
+               <label for="group-7">FEU 7gr</label>
+               <input type="radio" id="group-7" name="group" value="FEU 7gr.">
+            </div>
+         </fieldset>
+      </div>
+      <button class="submit" type="submit">Submit</button>
+   </form>
+   <div id="students-list"></div>
+   <script src="./tasks/forms.js"></script>
+</body>
+
+</html>
