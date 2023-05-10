@@ -25,6 +25,22 @@ TREČIA DALIS:
 // 7. Range reikšmės atvaizdavimas naujame elemente.
 
 /*
+KETVIRTA DALIS (studento ištrynimas):
+1. Prie kiekvieno sukurto studento elemento pridėti mygtuką „Ištrinti studentą".
+2. Paspaudus šį mygtuką, studento elementas yra ištrinamas.
+3. Ištrynus studentą, turi iššokti <span> elementas, kuris informuoja apie studento ištrynimą: „Studentas (Vardas Pavardė) sėkmingai ištrintas.". Šis span elementas dingsta po 5 sekundžių.
+
+PENKTA UŽDUOTIS (formos validacija naudojant JavaScript):
+1. Priduodant formą (submit) patikrinti ar privalomi laukeliai nėra tušti.
+2. Jeigu bent vienas privalomas formos laukelis yra tuščias:
+    2.1. Formos alert žinutėje reikia parašyti, jog ne visi laukeliai yra užpildyti. Šis tekstas turi būti raudonos spalvos.
+    2.2. Kiekvienas privalomas input laukelis, kuris nėra užpildytas:
+        2.2.1. Turi būti apvestas raudonu rėmeliu.
+        2.2.2. Šalia laukelio turi būti parašytas raudonas tekstas: „Šis laukelis yra privalomas".
+
+*/
+
+/*
 PAPILDOMA UŽDUOTIS (formos validacija naudojant JavaScript):
 Papildyti formos validaciją. Jeigu:
 1. Vardas yra trumpesnis nei 3 simboliai, parašyti: „Vardas privalo būti bent 3 simbolių ilgumo".
@@ -47,11 +63,10 @@ studentForm.addEventListener('submit', (event) => {
    const age = form.age.value;
    const phone = form.phone.value;
    const email = form.email.value;
-   const ITknowledge = form['IT-knowledge'].value;
-   const output = form.output.value
+   const ITknowledge = form.rangeInput.value;
    const group = form.group.value;
 
-   console.log(name, lastName, age, phone, email, ITknowledge, group, output);
+   console.log(name, lastName, age, phone, email, ITknowledge, group);
 
    const studentsList = document.querySelector('#students-list') // paselektinam sukurta diva
    const studentItem = document.createElement('div'); // sukuriamas naujas div kuriame bus sukelta studento info po submitinimo
@@ -77,6 +92,7 @@ studentForm.addEventListener('submit', (event) => {
 
    const groupElement = document.createElement('p');
    groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
+
 
 
    studentsList.prepend(studentItem) //i studento lista idedame studento itema
@@ -128,6 +144,8 @@ studentForm.addEventListener('submit', (event) => {
    setTimeout(() => {
       alertMsg.textContent = '';
    }, 5000)
+
+
 })
 
 

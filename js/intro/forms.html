@@ -63,8 +63,14 @@ Sukurti kontaktų formą.
 
       <div>
          <label for="IT">IT knowledge </label>
-         <input type="range" min="1" max="10" class="IT-knowledge" name="IT-knowledge"><output name="output"
-            for="IT"></output>
+         <input type="range" id="rangeInput" name="rangeInput" min="1" max="10" value="1"
+            oninput="amount.value=rangeInput.value">
+
+         <output id="amount" name="amount" for="rangeInput">0</output>
+         <!-- <label for="IT">IT knowledge </label>
+         <input  max="10" class="IT-knowledge" name="IT-knowledge" value="1"
+            oninput="output.value=['IT-knowledge'].value">
+         <output name="output" id="output" for="IT-knowledge"></output> -->
       </div>
 
       <div class="groups">
