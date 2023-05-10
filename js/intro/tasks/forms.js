@@ -1,4 +1,13 @@
 const studentForm = document.querySelector('#student-form');
+
+
+/* ANTRA DALIS:
+1. Sukurti div elementą, kuris turės id „students-list".
+2. Kiekvieną kartą pridavus formą (submit), turi būti sukurtas naujas div elementas su klase „student-item" ir pridedamas į „students-list" elemento pradžią.
+3. Duomenys apie studentą turi būti įdėti į „student-item" elementą. 
+
+4. Formoje pridėti „checkbox" tipo input'ą, kuriame pateikta galimybę rinktis iš dominančių programavimo kalbų.
+5. Dominančias programavimo kalbas atvaizduoti „student-item" elemente. */
 /*
 TREČIA DALIS:
 1. Vietoje el. pašto rodyti tik žvaigždutes „****".
@@ -10,6 +19,10 @@ TREČIA DALIS:
     4.1. Paslėpti asmens el. paštą.
     4.2. Mygtuko tekstą pakeisti į „Rodyti asmens duomenis".
 */
+
+// 6. Sukūrus studentą, turi iššokti <span> elementas, kuris informuoja apie studento sukūrimą: „Sukurtas studentas (Vardas Pavardė)". Šis span elementas dingsta po 5 sekundžių.
+
+// 7. Range reikšmės atvaizdavimas naujame elemente.
 
 studentForm.addEventListener('submit', (event) => {
    event.preventDefault();
@@ -78,7 +91,8 @@ studentForm.addEventListener('submit', (event) => {
    privateInfoBtn.textContent = 'Show info';
    let hiddenPrivateInfo = true;
 
-   privateInfoBtn.addEventListener('click', () => {
+   privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
+
       if (hiddenPrivateInfo) {
          phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
          emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
@@ -90,11 +104,17 @@ studentForm.addEventListener('submit', (event) => {
       }
       hiddenPrivateInfo = !hiddenPrivateInfo;
 
-   }) //mygtukui suteikiamas funkcionalumas
-
+   })
 
    studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn) //i studento itema prideda sukurta elementa
 
+   const alertMsg = document.querySelector('#alert-msg');
+   alertMsg.textContent = `Student created (${name} ${lastName})`;
+   studentItem.after(alertMsg);
+
+   setTimeout(() => {
+      alertMsg.textContent = '';
+   }, 5000)
 })
 
 
