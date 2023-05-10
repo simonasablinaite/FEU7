@@ -24,6 +24,17 @@ TREČIA DALIS:
 
 // 7. Range reikšmės atvaizdavimas naujame elemente.
 
+/*
+PAPILDOMA UŽDUOTIS (formos validacija naudojant JavaScript):
+Papildyti formos validaciją. Jeigu:
+1. Vardas yra trumpesnis nei 3 simboliai, parašyti: „Vardas privalo būti bent 3 simbolių ilgumo".
+2. Pavardė yra trumpesnė nei 3 simboliai, parašyti: „Pavardė privalo būti bent 3 simbolių ilgumo".
+3. Amžius yra neigamas, parašyti: „Amžius privalo būti teigiamas skaičius".
+4. Amžius yra daugiau nei 120 metų, parašyti: „Įvestas amžius yra per didelis".
+5. Telefono numeris yra mažiau nei 9 arba daugiau nei 12 simbolių, parašyti: „Įvestas telefono numeris yra neteisingas".
+6. Elektroninis paštas yra trumpesnis nei 8 simboliai ir jame nėra panaudotas @ ir . simboliai, parašyti: „Įvestas elektroninis paštas yra neteisingas".
+*/
+
 studentForm.addEventListener('submit', (event) => {
    event.preventDefault();
    // Inputo reiksmes gavimas is formos:
@@ -37,9 +48,10 @@ studentForm.addEventListener('submit', (event) => {
    const phone = form.phone.value;
    const email = form.email.value;
    const ITknowledge = form['IT-knowledge'].value;
+   const output = form.output.value
    const group = form.group.value;
 
-   console.log(name, lastName, age, phone, email, ITknowledge, group);
+   console.log(name, lastName, age, phone, email, ITknowledge, group, output);
 
    const studentsList = document.querySelector('#students-list') // paselektinam sukurta diva
    const studentItem = document.createElement('div'); // sukuriamas naujas div kuriame bus sukelta studento info po submitinimo
@@ -107,6 +119,7 @@ studentForm.addEventListener('submit', (event) => {
    })
 
    studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn) //i studento itema prideda sukurta elementa
+   form.reset() //formos duomenu nuresetinimas po submitinimo
 
    const alertMsg = document.querySelector('#alert-msg');
    alertMsg.textContent = `Student created (${name} ${lastName})`;
