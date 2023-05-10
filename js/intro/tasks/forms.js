@@ -42,10 +42,10 @@ studentForm.addEventListener('submit', (event) => {
    ageElement.innerHTML = `<span style='font-weight:900'>Age:</span> ${age}`;
 
    const phoneElement = document.createElement('p');
-   phoneElement.innerHTML = `<span style='font-weight:900'>Phone:</span> ${phone}`;
+   phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
 
    const emailElement = document.createElement('p');
-   emailElement.innerHTML = `<span style='font-weight:900'>Email:</span> ${email}`;
+   emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
 
    const ITknowledgeElement = document.createElement('p');
    ITknowledgeElement.innerHTML = `<span style='font-weight:900'>IT knowledge:</span> ${ITknowledge}`;
@@ -74,11 +74,26 @@ studentForm.addEventListener('submit', (event) => {
 
    interestsWrapper.append(interestTitle, interestList); // kintamasis idedamas i interestu konteineri
 
+   const privateInfoBtn = document.createElement('button');
+   privateInfoBtn.textContent = 'Show info';
+   let hiddenPrivateInfo = true;
+
+   privateInfoBtn.addEventListener('click', () => {
+      if (hiddenPrivateInfo) {
+         phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
+         emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
+         privateInfoBtn.textContent = 'Hide info';
+      } else {
+         phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
+         emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
+         privateInfoBtn.textContent = 'Show info';
+      }
+      hiddenPrivateInfo = !hiddenPrivateInfo;
+
+   }) //mygtukui suteikiamas funkcionalumas
 
 
-
-
-   studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper) //i studento itema prideda sukurta elementa
+   studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn) //i studento itema prideda sukurta elementa
 
 })
 
