@@ -1,6 +1,3 @@
-const studentForm = document.querySelector('#student-form');
-
-
 /* ANTRA DALIS:
 1. Sukurti div elementą, kuris turės id „students-list".
 2. Kiekvieną kartą pridavus formą (submit), turi būti sukurtas naujas div elementas su klase „student-item" ir pridedamas į „students-list" elemento pradžią.
@@ -37,7 +34,6 @@ PENKTA UŽDUOTIS (formos validacija naudojant JavaScript):
     2.2. Kiekvienas privalomas input laukelis, kuris nėra užpildytas:
         2.2.1. Turi būti apvestas raudonu rėmeliu.
         2.2.2. Šalia laukelio turi būti parašytas raudonas tekstas: „Šis laukelis yra privalomas".
-
 */
 
 /*
@@ -51,12 +47,50 @@ Papildyti formos validaciją. Jeigu:
 6. Elektroninis paštas yra trumpesnis nei 8 simboliai ir jame nėra panaudotas @ ir . simboliai, parašyti: „Įvestas elektroninis paštas yra neteisingas".
 */
 
+const studentForm = document.querySelector('#student-form');
+// eventas kas vyksta submitinant forma
+
 studentForm.addEventListener('submit', (event) => {
    event.preventDefault();
+
    // Inputo reiksmes gavimas is formos:
    // 1. sukurti kintamaji inputo reiksmei gauti;
    // 2. Issitraukiame inputo reiksme:
    const form = event.target;
+
+   const inputErrorMsgs = form.querySelectorAll('.error-msg');
+   console.log(inputErrorMsgs);
+   inputErrorMsgs.forEach(msg => msg.remove());
+
+   const requiredFields = document.querySelectorAll('input:required');
+
+   let isValid = true;
+   // kadangi grazinamas masyvas su duomenimis, sukamas ciklas gauti kiekvienam nariui:
+   requiredFields.forEach((requiredField) => {
+
+      requiredField.classList.remove('error-input');
+
+
+      if (!requiredField.value) { //sugaudome ar value yra tuscias
+         requiredField.classList.add('error-input');
+
+         let errorMsg = document.createElement('span');
+         errorMsg.classList.add('error-msg');
+         errorMsg.textContent = 'Required requiredField';
+
+         requiredField.after(errorMsg);
+
+         const errorMsgtext = 'The field is filled in incorrectly';
+         renderAlertMsg(errorMsgtext, 'red');
+         isValid = false;
+      }
+   })
+
+   if (!isValid) {
+      return;
+   }
+
+   console.log('laukeliai uzpildyti teisingai');
 
    const name = form.name.value; //studento vardo reiksmes gavimas
    const lastName = form['last-name'].value;
@@ -92,8 +126,6 @@ studentForm.addEventListener('submit', (event) => {
 
    const groupElement = document.createElement('p');
    groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
-
-
 
    studentsList.prepend(studentItem) //i studento lista idedame studento itema
 
@@ -137,22 +169,24 @@ studentForm.addEventListener('submit', (event) => {
 
    deleteStudentBtn.addEventListener('click', () => {
       studentItem.remove();
-      renderAlertMsg(`Student deleted (${name} ${lastName})`);
+      const deletedStudentText = `Student deleted (${name} ${lastName})`;
+      renderAlertMsg(deletedStudentText, 'red');
    })
-
 
    studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn) //i studento itema prideda sukurta elementa
    form.reset() //formos duomenu nuresetinimas po submitinimo
 
+   const createdStudentText = `Student created (${name} ${lastName})`; // zinutes teksto kintamasis (kai studentas sukurtas)
+   renderAlertMsg(createdStudentText, 'green'); //issokancio pranesimo apie sukurta studenta f-jos panaudojimas
 
-
-   renderAlertMsg(`Student created (${name} ${lastName})`);
    studentItem.after(alertMsg);
 })
 
-function renderAlertMsg(text) {
+// Issokancios zinutes sukurimo f-ja
+function renderAlertMsg(text, color) {
    const alertMsg = document.querySelector('#alert-msg');
    alertMsg.textContent = text;
+   alertMsg.style.color = color;
 
    setTimeout(() => {
       alertMsg.textContent = '';

@@ -7,6 +7,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Forms</title>
 
+   <link rel="stylesheet" href="./style.css">
+
    <style>
       form {
          width: 150px;
@@ -34,20 +36,20 @@ Sukurti kontaktų formą.
 
 
 
-   <form id="student-form">
+   <form id="student-form" novalidate>
       <div class="form-control">
          <label for="name">Name:</label>
-         <input type="text" id="name" name="name">
+         <input type="text" id="name" name="name" required>
       </div>
 
       <div class="form-control">
          <label for="last-name">Last name:</label>
-         <input type="text" id="last-name" name="last-name">
+         <input type="text" id="last-name" name="last-name" required>
       </div>
 
       <div class="form-control">
          <label for="age">Age:</label>
-         <input type="number" id="age" name="age">
+         <input type="number" id="age" name="age" required>
       </div>
 
       <div class="form-control">
@@ -57,7 +59,7 @@ Sukurti kontaktų formą.
 
       <div class="form-control">
          <label for="email">Email</label>
-         <input type="email" id="email" name="email">
+         <input type="email" id="email" name="email" required>
       </div>
 
 
