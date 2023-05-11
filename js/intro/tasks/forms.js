@@ -120,7 +120,6 @@ studentForm.addEventListener('submit', (event) => {
    let hiddenPrivateInfo = true;
 
    privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
-
       if (hiddenPrivateInfo) {
          phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
          emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
@@ -131,21 +130,31 @@ studentForm.addEventListener('submit', (event) => {
          privateInfoBtn.textContent = 'Show info';
       }
       hiddenPrivateInfo = !hiddenPrivateInfo;
-
    })
 
-   studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn) //i studento itema prideda sukurta elementa
+   const deleteStudentBtn = document.createElement('button');
+   deleteStudentBtn.textContent = 'Remove student';
+
+   deleteStudentBtn.addEventListener('click', () => {
+      studentItem.remove();
+      renderAlertMsg(`Student deleted (${name} ${lastName})`);
+   })
+
+
+   studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn) //i studento itema prideda sukurta elementa
    form.reset() //formos duomenu nuresetinimas po submitinimo
 
-   const alertMsg = document.querySelector('#alert-msg');
-   alertMsg.textContent = `Student created (${name} ${lastName})`;
+
+
+   renderAlertMsg(`Student created (${name} ${lastName})`);
    studentItem.after(alertMsg);
+})
+
+function renderAlertMsg(text) {
+   const alertMsg = document.querySelector('#alert-msg');
+   alertMsg.textContent = text;
 
    setTimeout(() => {
       alertMsg.textContent = '';
    }, 5000)
-
-
-})
-
-
+}
