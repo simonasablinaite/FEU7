@@ -76,13 +76,97 @@ studentForm.addEventListener('submit', (event) => {
 
          let errorMsg = document.createElement('span');
          errorMsg.classList.add('error-msg');
-         errorMsg.textContent = 'Required requiredField';
+         errorMsg.textContent = 'Required Field';
 
          requiredField.after(errorMsg);
 
          const errorMsgtext = 'The field is filled in incorrectly';
          renderAlertMsg(errorMsgtext, 'red');
          isValid = false;
+      } else {
+         console.log('Laukelis uzpildytas');
+         if (requiredField.name === 'name') {
+            if (requiredField.value.length < 3) {
+               requiredField.classList.add('error-input');
+
+               let errorMsg = document.createElement('span');
+               errorMsg.classList.add('error-msg');
+               errorMsg.textContent = 'Vardas privalo būti bent 3 simbolių ilgumo';
+
+               requiredField.after(errorMsg);
+
+               const errorMsgtext = 'The field is filled in incorrectly';
+               renderAlertMsg(errorMsgtext, 'red');
+               isValid = false;
+            }
+         } else if (requiredField.name === 'last-name') {
+            if (requiredField.value.length < 3) {
+               requiredField.classList.add('error-input');
+
+               let errorMsg = document.createElement('span');
+               errorMsg.classList.add('error-msg');
+               errorMsg.textContent = 'Pavarde privalo būti bent 3 simbolių ilgumo';
+
+               requiredField.after(errorMsg);
+
+               const errorMsgtext = 'The field is filled in incorrectly';
+               renderAlertMsg(errorMsgtext, 'red');
+               isValid = false;
+            }
+         } else if (requiredField.name === 'age') {
+            if (requiredField.value < 0) {
+               requiredField.classList.add('error-input');
+               console.log(requiredField.name === 'age');
+               let errorMsg = document.createElement('span');
+               errorMsg.classList.add('error-msg');
+               errorMsg.textContent = 'Amzius privalo buti teigiamas skaicius';
+
+               requiredField.after(errorMsg);
+
+               const errorMsgtext = 'The field is filled in incorrectly';
+               renderAlertMsg(errorMsgtext, 'red');
+               isValid = false;
+            } else if (requiredField.value > 120) {
+               requiredField.classList.add('error-input');
+
+               let errorMsg = document.createElement('span');
+               errorMsg.classList.add('error-msg');
+               errorMsg.textContent = 'Ivestas amzius per didelis';
+
+               requiredField.after(errorMsg);
+
+               const errorMsgtext = 'The field is filled in incorrectly';
+               renderAlertMsg(errorMsgtext, 'red');
+               isValid = false;
+            }
+         } else if (requiredField.name === 'phone') {
+            if (requiredField.value.length < 9 || requiredField.value.length > 12) {
+               requiredField.classList.add('error-input');
+               let errorMsg = document.createElement('span');
+               errorMsg.classList.add('error-msg');
+               errorMsg.textContent = 'Ivestas telefono numeris yra neteisingas';
+
+               requiredField.after(errorMsg);
+
+               const errorMsgtext = 'The field is filled in incorrectly';
+               renderAlertMsg(errorMsgtext, 'red');
+               isValid = false;
+            }
+         } else if (requiredField.name === 'email') {
+            if (requiredField.value.length < 8 || !requiredField.value.includes('@') || !requiredField.value.includes('.')) {
+               requiredField.classList.add('error-input');
+
+               let errorMsg = document.createElement('span');
+               errorMsg.classList.add('error-msg');
+               errorMsg.textContent = 'Ivestas elektroninis pastas yra neteisingas';
+
+               requiredField.after(errorMsg);
+
+               const errorMsgtext = 'The field is filled in incorrectly';
+               renderAlertMsg(errorMsgtext, 'red');
+               isValid = false;
+            }
+         }
       }
    })
 
@@ -179,7 +263,7 @@ studentForm.addEventListener('submit', (event) => {
    const createdStudentText = `Student created (${name} ${lastName})`; // zinutes teksto kintamasis (kai studentas sukurtas)
    renderAlertMsg(createdStudentText, 'green'); //issokancio pranesimo apie sukurta studenta f-jos panaudojimas
 
-   studentItem.after(alertMsg);
+   studentItem.after(createdStudentText);
 })
 
 // Issokancios zinutes sukurimo f-ja
