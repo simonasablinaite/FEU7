@@ -47,9 +47,169 @@ Papildyti formos validaciją. Jeigu:
 6. Elektroninis paštas yra trumpesnis nei 8 simboliai ir jame nėra panaudotas @ ir . simboliai, parašyti: „Įvestas elektroninis paštas yra neteisingas".
 */
 
-const studentForm = document.querySelector('#student-form');
-// eventas kas vyksta submitinant forma
+/*
+ŠEŠTA UŽDUOTIS:
+1. Sukurti pradinius duomenų masyvą, kuriame būtų bent 5 studentų duomenys (objektų formatu).
+2. Sukurti funkciją, kuri priima šiuos duomenis ir užkrovus puslapį į ekraną iškart išveda duomenis iš šio masyvo.
+*/
 
+const studentForm = document.querySelector('#student-form');
+
+// Sukuriamas masyvas su studentu duomenimis:
+
+const dataAboutStudents = [
+   {
+      name: 'Jonas',
+      lastName: 'Jonaitis',
+      age: 29,
+      phone: 860000000,
+      email: 'jonas@jonas.lt',
+      itKnowledge: 2,
+      group: 'FEU 4 gr',
+      interests: [],
+   },
+   {
+      name: 'Maryte',
+      lastName: 'Pavardaite',
+      age: 35,
+      phone: 861111111,
+      email: 'maryte@maryte.lt',
+      itKnowledge: 3,
+      group: 'FEU 7 gr',
+      interests: ['PHP'],
+   },
+   {
+      name: 'Petras',
+      lastName: 'Petraitis',
+      age: 20,
+      phone: 863333333,
+      email: 'petraitis@petras.lt',
+      itKnowledge: 8,
+      group: ' FEU 1 gr',
+      interests: ['JavaScript', 'PHP'],
+   },
+   {
+      name: 'Onute',
+      lastName: 'Onaitiene',
+      age: 30,
+      phone: 865555555,
+      email: 'oana@onute.lt',
+      itKnowledge: '7',
+      group: 'FEU 5 gr',
+      interests: ['Java', 'JavaScript'],
+   },
+   {
+      name: 'Juozas',
+      lastName: 'Juozenas',
+      age: 55,
+      phone: 864444444,
+      email: 'juozenas@gmail.com',
+      itKnowledge: 1,
+      group: 'FEU 7 gr',
+      interests: ['JavaScript'],
+   },
+];
+
+function studentsData(data) {
+
+   data.forEach(item => {
+      let { name, lastName, age, phone, email, itKnowledge, group, interests } = item;
+
+      console.log(item);
+      console.log(name);
+      console.log(lastName);
+      console.log(age);
+      console.log(phone);
+      console.log(email);
+      console.log(itKnowledge);
+      console.log(group);
+      console.log(interests);
+      interests.forEach(interest => console.log(interest));
+
+
+      const studentsList = document.querySelector('#students-list');
+      const studentItem = document.createElement('div');
+      studentItem.classList.add('student-item');
+      studentsList.prepend(studentItem);
+
+      const nameElement = document.createElement('p');
+      nameElement.innerHTML = `<span style='font-weight:900'>Name:</span> ${name}`;
+
+      const lastNameElement = document.createElement('p');
+      lastNameElement.innerHTML = `<span style='font-weight:900'>Last Name:</span> ${lastName}`;
+
+      const ageElement = document.createElement('p');
+      ageElement.innerHTML = `<span style='font-weight:900'>Age:</span> ${age}`;
+
+      const phoneElement = document.createElement('p');
+      phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
+
+      const emailElement = document.createElement('p');
+      emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
+
+      const ITknowledgeElement = document.createElement('p');
+      ITknowledgeElement.innerHTML = `<span style='font-weight:900'>IT knowledge:</span> ${itKnowledge}`;
+
+      const groupElement = document.createElement('p');
+      groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
+
+      studentsList.prepend(studentItem) //i studento lista idedame studento itema
+
+      // checkboxo reiksmiu gavimas:
+      interests = document.querySelectorAll('[name="interests"]:checked');
+
+      // reiksmes isvedimas i ekrana:
+      const interestsWrapper = document.createElement('div'); //sukuriamas konteineris duomenims talpinti
+      const interestTitle = document.createElement('p'); //sukuriamas duoments kintamasis
+      interestTitle.textContent = 'Strudents interests:'; // suteikiamas tekstas
+
+      const interestList = document.createElement('ul');
+
+      interests.forEach(interest => {
+         const interestElement = document.createElement('li');
+         interestElement.textContent = interest.value;
+         interestList.append(interestElement)
+      })
+
+      interestsWrapper.append(interestTitle, interestList); // kintamasis idedamas i interestu konteineri
+
+      const privateInfoBtn = document.createElement('button');
+      privateInfoBtn.textContent = 'Show info';
+      let hiddenPrivateInfo = true;
+
+      privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
+         if (hiddenPrivateInfo) {
+            phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
+            emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
+            privateInfoBtn.textContent = 'Hide info';
+         } else {
+            phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
+            emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
+            privateInfoBtn.textContent = 'Show info';
+         }
+         hiddenPrivateInfo = !hiddenPrivateInfo;
+      })
+
+      const deleteStudentBtn = document.createElement('button');
+      deleteStudentBtn.textContent = 'Remove student';
+
+      deleteStudentBtn.addEventListener('click', () => {
+         studentItem.remove();
+         const deletedStudentText = `Student deleted (${name} ${lastName})`;
+         renderAlertMsg(deletedStudentText, 'red');
+      })
+
+
+      studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn) //i studento itema prideda sukurta elementa
+      // form.reset() //formos duomenu nuresetinimas po submitinimo
+
+   })
+
+}
+
+studentsData(dataAboutStudents);
+
+// eventas kas vyksta submitinant forma
 studentForm.addEventListener('submit', (event) => {
    event.preventDefault();
 

@@ -54,7 +54,7 @@ Sukurti kontaktų formą.
 
       <div class="form-control">
          <label for="phone">Phone:</label>
-         <input type="tel" id="phone" name="phone">
+         <input type="tel" id="phone" name="phone" required>
       </div>
 
       <div class="form-control">
@@ -62,17 +62,12 @@ Sukurti kontaktų formą.
          <input type="email" id="email" name="email" required>
       </div>
 
-
       <div>
-         <label for="IT">IT knowledge </label>
-         <input type="range" id="rangeInput" name="rangeInput" min="1" max="10" value="1"
+         <label for="ITknowledge">IT knowledge </label>
+         <input type="range" id="rangeInput" name="ITknowledge" min="1" max="10" value="1"
             oninput="amount.value=rangeInput.value">
 
          <output id="amount" name="amount" for="rangeInput">0</output>
-         <!-- <label for="IT">IT knowledge </label>
-         <input  max="10" class="IT-knowledge" name="IT-knowledge" value="1"
-            oninput="output.value=['IT-knowledge'].value">
-         <output name="output" id="output" for="IT-knowledge"></output> -->
       </div>
 
       <div class="groups">
