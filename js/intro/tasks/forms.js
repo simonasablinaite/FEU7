@@ -127,86 +127,90 @@ const dataAboutStudents = [
    },
 ];
 
+function renderSingleStudent(student) {
+   let { name, lastName, age, phone, email, itKnowledge, group, interests } = student;
+
+   const studentsList = document.querySelector('#students-list');
+   const studentItem = document.createElement('div');
+   studentItem.classList.add('student-item');
+   studentsList.prepend(studentItem);
+
+   const nameElement = document.createElement('p');
+   nameElement.innerHTML = `<span style='font-weight:900'>Name:</span> ${name}`;
+
+   const lastNameElement = document.createElement('p');
+   lastNameElement.innerHTML = `<span style='font-weight:900'>Last Name:</span> ${lastName}`;
+
+   const ageElement = document.createElement('p');
+   ageElement.innerHTML = `<span style='font-weight:900'>Age:</span> ${age}`;
+
+   const phoneElement = document.createElement('p');
+   phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
+
+   const emailElement = document.createElement('p');
+   emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
+
+   const ITknowledgeElement = document.createElement('p');
+   ITknowledgeElement.innerHTML = `<span style='font-weight:900'>IT knowledge:</span> ${itKnowledge}`;
+
+   const groupElement = document.createElement('p');
+   groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
+
+   studentsList.prepend(studentItem) // i studento lista idedame studento itema
+
+   // reiksmes isvedimas i ekrana:
+   const interestsWrapper = document.createElement('div'); // sukuriamas konteineris duomenims talpinti
+   const interestTitle = document.createElement('p'); // sukuriamas duoments kintamasis
+   interestTitle.innerHTML = "<span style='font-weight:900'>Student interests:</span>"; // suteikiamas tekstas
+
+   const interestList = document.createElement('ul');
+
+   interests.forEach(interest => {
+      console.log(interest);
+      const interestElement = document.createElement('li');
+      interestElement.textContent = interest;
+      interestList.append(interestElement)
+   })
+
+   interestsWrapper.append(interestTitle, interestList); // kintamasis idedamas i interestu konteineri
+
+   const privateInfoBtn = document.createElement('button');
+   privateInfoBtn.textContent = 'Show info';
+   let hiddenPrivateInfo = true;
+
+   privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
+      if (hiddenPrivateInfo) {
+         phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
+         emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
+         privateInfoBtn.textContent = 'Hide info';
+      } else {
+         phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
+         emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
+         privateInfoBtn.textContent = 'Show info';
+      }
+      hiddenPrivateInfo = !hiddenPrivateInfo;
+   })
+
+   const deleteStudentBtn = document.createElement('button');
+   deleteStudentBtn.textContent = 'Remove student';
+
+   deleteStudentBtn.addEventListener('click', () => {
+      studentItem.remove();
+      const deletedStudentText = `Student deleted (${name} ${lastName})`;
+      renderAlertMsg(deletedStudentText, 'red');
+   })
+
+
+   studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn) //i studento itema prideda sukurta elementa
+   // form.reset() //formos duomenu nuresetinimas po submitinimo
+
+}
+
+
 function studentsData(data) {
 
    data.forEach(item => {
-
-      let { name, lastName, age, phone, email, itKnowledge, group, interests } = item;
-
-      const studentsList = document.querySelector('#students-list');
-      const studentItem = document.createElement('div');
-      studentItem.classList.add('student-item');
-      studentsList.prepend(studentItem);
-
-      const nameElement = document.createElement('p');
-      nameElement.innerHTML = `<span style='font-weight:900'>Name:</span> ${name}`;
-
-      const lastNameElement = document.createElement('p');
-      lastNameElement.innerHTML = `<span style='font-weight:900'>Last Name:</span> ${lastName}`;
-
-      const ageElement = document.createElement('p');
-      ageElement.innerHTML = `<span style='font-weight:900'>Age:</span> ${age}`;
-
-      const phoneElement = document.createElement('p');
-      phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
-
-      const emailElement = document.createElement('p');
-      emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
-
-      const ITknowledgeElement = document.createElement('p');
-      ITknowledgeElement.innerHTML = `<span style='font-weight:900'>IT knowledge:</span> ${itKnowledge}`;
-
-      const groupElement = document.createElement('p');
-      groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
-
-      studentsList.prepend(studentItem) // i studento lista idedame studento itema
-
-      // reiksmes isvedimas i ekrana:
-      const interestsWrapper = document.createElement('div'); // sukuriamas konteineris duomenims talpinti
-      const interestTitle = document.createElement('p'); // sukuriamas duoments kintamasis
-      interestTitle.innerHTML = "<span style='font-weight:900'>Student interests:</span>"; // suteikiamas tekstas
-
-      const interestList = document.createElement('ul');
-
-      interests.forEach(interest => {
-         console.log(interest);
-         const interestElement = document.createElement('li');
-         interestElement.textContent = interest;
-         interestList.append(interestElement)
-      })
-
-      interestsWrapper.append(interestTitle, interestList); // kintamasis idedamas i interestu konteineri
-
-      const privateInfoBtn = document.createElement('button');
-      privateInfoBtn.textContent = 'Show info';
-      let hiddenPrivateInfo = true;
-
-      privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
-         if (hiddenPrivateInfo) {
-            phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
-            emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
-            privateInfoBtn.textContent = 'Hide info';
-         } else {
-            phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
-            emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
-            privateInfoBtn.textContent = 'Show info';
-         }
-         hiddenPrivateInfo = !hiddenPrivateInfo;
-      })
-
-      const deleteStudentBtn = document.createElement('button');
-      deleteStudentBtn.textContent = 'Remove student';
-
-      deleteStudentBtn.addEventListener('click', () => {
-         studentItem.remove();
-         const deletedStudentText = `Student deleted (${name} ${lastName})`;
-         renderAlertMsg(deletedStudentText, 'red');
-      })
-
-
-      studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn) //i studento itema prideda sukurta elementa
-      // form.reset() //formos duomenu nuresetinimas po submitinimo
-
+      renderSingleStudent(item)
    })
 
 }
