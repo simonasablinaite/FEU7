@@ -53,6 +53,23 @@ Papildyti formos validaciją. Jeigu:
 2. Sukurti funkciją, kuri priima šiuos duomenis ir užkrovus puslapį į ekraną iškart išveda duomenis iš šio masyvo.
 */
 
+/*
+SEPTINTA UŽDUOTIS:
+1. Prie kiekvieno studento pridėti mygtuką, kurį paspaudus leistų redaguoti studento duomenis.
+2. Redaguojant studentą, submit mygtuko tekstas turėtų pasikeisti į „Save Changes".
+3. Pakeitus studento duomenis, turi iššokti <span> elementas, kuris informuoja apie studento duomenų redagavimą: „Studento (Vardas Pavardė) duomenys sėkmingai pakeisti". Šis span elementas dingsta po 5 sekundžių.
+
+1. Sukurti Edit mygtuką.
+2. Prie mygtuko pridėti event listener'į.
+3. Surinkti studento duomenis ir jais užpildyti formos laukelius.
+4. Pakeisti formos submit mygtuko tekstą.
+5. Išsaugoti studento HTML elementą kintamąjame.
+6. Submit event'o metu patikrinti ar kuriame naują studentą, ar redaguojame jau sukurtą.
+7. Jeigu studentas redaguojamas, šį naują (redaguotą) HTML elementą panaudoti perrašant seną studento HTML elementą (kuris išsaugotas 5 žingsnyje).
+8. Pakeisti formos submit mygtuko tekstą į pradinį ir pakeisti iššokančio pranešimo tekstą.
+
+*/
+
 const studentForm = document.querySelector('#student-form');
 
 // Sukuriamas masyvas su studentu duomenimis:
@@ -113,19 +130,8 @@ const dataAboutStudents = [
 function studentsData(data) {
 
    data.forEach(item => {
+
       let { name, lastName, age, phone, email, itKnowledge, group, interests } = item;
-
-      console.log(item);
-      console.log(name);
-      console.log(lastName);
-      console.log(age);
-      console.log(phone);
-      console.log(email);
-      console.log(itKnowledge);
-      console.log(group);
-      console.log(interests);
-      interests.forEach(interest => console.log(interest));
-
 
       const studentsList = document.querySelector('#students-list');
       const studentItem = document.createElement('div');
@@ -153,21 +159,19 @@ function studentsData(data) {
       const groupElement = document.createElement('p');
       groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
 
-      studentsList.prepend(studentItem) //i studento lista idedame studento itema
-
-      // checkboxo reiksmiu gavimas:
-      interests = document.querySelectorAll('[name="interests"]:checked');
+      studentsList.prepend(studentItem) // i studento lista idedame studento itema
 
       // reiksmes isvedimas i ekrana:
-      const interestsWrapper = document.createElement('div'); //sukuriamas konteineris duomenims talpinti
-      const interestTitle = document.createElement('p'); //sukuriamas duoments kintamasis
-      interestTitle.textContent = 'Strudents interests:'; // suteikiamas tekstas
+      const interestsWrapper = document.createElement('div'); // sukuriamas konteineris duomenims talpinti
+      const interestTitle = document.createElement('p'); // sukuriamas duoments kintamasis
+      interestTitle.innerHTML = "<span style='font-weight:900'>Student interests:</span>"; // suteikiamas tekstas
 
       const interestList = document.createElement('ul');
 
       interests.forEach(interest => {
+         console.log(interest);
          const interestElement = document.createElement('li');
-         interestElement.textContent = interest.value;
+         interestElement.textContent = interest;
          interestList.append(interestElement)
       })
 
