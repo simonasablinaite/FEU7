@@ -71,9 +71,9 @@ SEPTINTA UŽDUOTIS:
 */
 
 const studentForm = document.querySelector('#student-form');
+const studentsList = document.querySelector('#students-list');
 
 // Sukuriamas masyvas su studentu duomenimis:
-
 const dataAboutStudents = [
    {
       name: 'Jonas',
@@ -127,14 +127,17 @@ const dataAboutStudents = [
    },
 ];
 
-function renderSingleStudent(student) {
-   let { name, lastName, age, phone, email, itKnowledge, group, interests } = student;
+let editStudent = null;
 
-   const studentsList = document.querySelector('#students-list');
+// Vieno studento funkcionalumas:
+function renderSingleStudent(student) {
+   const { name, lastName, age, phone, email, itKnowledge, group, interests } = student;
+
+   // Sukuriamas elementas vieno studento informacijai kupti
    const studentItem = document.createElement('div');
    studentItem.classList.add('student-item');
-   studentsList.prepend(studentItem);
 
+   // Sukuriami formos elementai apie studenta
    const nameElement = document.createElement('p');
    nameElement.innerHTML = `<span style='font-weight:900'>Name:</span> ${name}`;
 
@@ -150,15 +153,12 @@ function renderSingleStudent(student) {
    const emailElement = document.createElement('p');
    emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
 
-   const ITknowledgeElement = document.createElement('p');
-   ITknowledgeElement.innerHTML = `<span style='font-weight:900'>IT knowledge:</span> ${itKnowledge}`;
+   const itKnowledgeElement = document.createElement('p');
+   itKnowledgeElement.innerHTML = `<span style='font-weight:900'>IT knowledge:</span> ${itKnowledge}`;
 
    const groupElement = document.createElement('p');
    groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
 
-   studentsList.prepend(studentItem) // i studento lista idedame studento itema
-
-   // reiksmes isvedimas i ekrana:
    const interestsWrapper = document.createElement('div'); // sukuriamas konteineris duomenims talpinti
    const interestTitle = document.createElement('p'); // sukuriamas duoments kintamasis
    interestTitle.innerHTML = "<span style='font-weight:900'>Student interests:</span>"; // suteikiamas tekstas
@@ -168,21 +168,15 @@ function renderSingleStudent(student) {
    if (interests.length > 0) {
       interests.forEach(interest => {
          const interestElement = document.createElement('li');
-
-         if (interest.value) {
-            interestElement.textContent = interest.value;
-         } else {
-            interestElement.textContent = interest;
-         }
-
-         interestList.append(interestElement);
+         interestElement.textContent = interest;
+         interestList.append(interestElement)
       })
       interestsWrapper.append(interestTitle, interestList); // kintamasis idedamas i interestu konteineri
    } else {
-      interestTitle.innerHTML = "<span style='font-weight:900; font-size:20px'>Interests Not Found :(</span>"; // vietoje 'Studemts Interests:' uzraso, bus Interests not found. Jei noreciau, kad isliktu uzrasas Students interests ir plius interests not found, reiktu susikurti naja kintamaji siam uzrasui.
+      const noInterestTitle = document.createElement('span');
+      noInterestTitle.textContent = 'No interests :(';
 
-      interestsWrapper.append(interestTitle);
-
+      interestsWrapper.append(interestTitle, noInterestTitle);
    }
 
    const privateInfoBtn = document.createElement('button');
@@ -190,6 +184,8 @@ function renderSingleStudent(student) {
    let hiddenPrivateInfo = true;
 
    privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
+      hiddenPrivateInfo = !hiddenPrivateInfo;
+
       if (hiddenPrivateInfo) {
          phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
          emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
@@ -199,7 +195,6 @@ function renderSingleStudent(student) {
          emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
          privateInfoBtn.textContent = 'Show info';
       }
-      hiddenPrivateInfo = !hiddenPrivateInfo;
    })
 
    const deleteStudentBtn = document.createElement('button');
@@ -211,20 +206,52 @@ function renderSingleStudent(student) {
       renderAlertMsg(deletedStudentText, 'red');
    })
 
-   studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn) //i studento itema prideda sukurta elementa
-   // form.reset() //formos duomenu nuresetinimas po submitinimo
-}
+   const editStudentBtn = document.createElement('button');
+   editStudentBtn.textContent = 'Edit Student';
 
+   editStudentBtn.addEventListener('click', () => {
+      // editStudent = true;
+
+      // Redaguojamo mygtuko gavimas:
+      const nameInput = studentForm.name;
+      nameInput.value = name;
+
+      const lastNameInput = studentForm['last-name'];
+      lastNameInput.value = lastName;
+
+      // console.log(age);
+      // console.log(phone);
+      // console.log(email);
+      // console.log(itKnowledge);
+      // console.log(group);
+      // console.log(interests);
+
+      studentForm['student-form-submit'].value = 'Save Changes';
+      editStudent = studentItem;
+   })
+
+   studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn, editStudentBtn) //i studento itema prideda sukurta elementa
+   // form.reset() //formos duomenu nuresetinimas po submitinimo
+
+   return studentItem;
+}
 
 function studentsData(data) {
 
    data.forEach(item => {
-      renderSingleStudent(item)
+      renderSingleStudent(item);
+      const studentElement = renderSingleStudent(item);
+      studentsList.prepend(studentElement);
    })
-
 }
 
 studentsData(dataAboutStudents);
+
+// Su destytoju aptarti IT knowledge funkcija:
+// function itKnowledgeHandler() {
+//    const studentItKnowledgeInput = document.querySelector('#rangeInput');
+//    const studentItKnowledgeOutput = document.querySelector
+// }
 
 // eventas kas vyksta submitinant forma
 studentForm.addEventListener('submit', (event) => {
@@ -235,123 +262,12 @@ studentForm.addEventListener('submit', (event) => {
    // 2. Issitraukiame inputo reiksme:
    const form = event.target;
 
-   const inputErrorMsgs = form.querySelectorAll('.error-msg');
-   console.log(inputErrorMsgs);
-   inputErrorMsgs.forEach(msg => msg.remove());
+   let formIsValid = validateForm(form)
 
-   const requiredFields = document.querySelectorAll('input:required');
-
-   let isValid = true;
-   // kadangi grazinamas masyvas su duomenimis, sukamas ciklas gauti kiekvienam nariui:
-   requiredFields.forEach((requiredField) => {
-
-      requiredField.classList.remove('error-input');
-
-
-      if (!requiredField.value) { //sugaudome ar value yra tuscias
-         requiredField.classList.add('error-input');
-
-         let errorMsg = document.createElement('span');
-         errorMsg.classList.add('error-msg');
-         errorMsg.textContent = 'Required Field';
-
-         requiredField.after(errorMsg);
-
-         const errorMsgtext = 'The field is filled in incorrectly';
-         renderAlertMsg(errorMsgtext, 'red');
-         isValid = false;
-      } else {
-         console.log('Laukelis uzpildytas');
-         if (requiredField.name === 'name') {
-            if (requiredField.value.length < 3) {
-               requiredField.classList.add('error-input');
-
-               let errorMsg = document.createElement('span');
-               errorMsg.classList.add('error-msg');
-               errorMsg.textContent = 'Vardas privalo būti bent 3 simbolių ilgumo';
-
-               requiredField.after(errorMsg);
-
-               const errorMsgtext = 'The field is filled in incorrectly';
-               renderAlertMsg(errorMsgtext, 'red');
-               isValid = false;
-            }
-         } else if (requiredField.name === 'last-name') {
-            if (requiredField.value.length < 3) {
-               requiredField.classList.add('error-input');
-
-               let errorMsg = document.createElement('span');
-               errorMsg.classList.add('error-msg');
-               errorMsg.textContent = 'Pavarde privalo būti bent 3 simbolių ilgumo';
-
-               requiredField.after(errorMsg);
-
-               const errorMsgtext = 'The field is filled in incorrectly';
-               renderAlertMsg(errorMsgtext, 'red');
-               isValid = false;
-            }
-         } else if (requiredField.name === 'age') {
-            if (requiredField.value < 0) {
-               requiredField.classList.add('error-input');
-               console.log(requiredField.name === 'age');
-               let errorMsg = document.createElement('span');
-               errorMsg.classList.add('error-msg');
-               errorMsg.textContent = 'Amzius privalo buti teigiamas skaicius';
-
-               requiredField.after(errorMsg);
-
-               const errorMsgtext = 'The field is filled in incorrectly';
-               renderAlertMsg(errorMsgtext, 'red');
-               isValid = false;
-            } else if (requiredField.value > 120) {
-               requiredField.classList.add('error-input');
-
-               let errorMsg = document.createElement('span');
-               errorMsg.classList.add('error-msg');
-               errorMsg.textContent = 'Ivestas amzius per didelis';
-
-               requiredField.after(errorMsg);
-
-               const errorMsgtext = 'The field is filled in incorrectly';
-               renderAlertMsg(errorMsgtext, 'red');
-               isValid = false;
-            }
-         } else if (requiredField.name === 'phone') {
-            if (requiredField.value.length < 9 || requiredField.value.length > 12) {
-               requiredField.classList.add('error-input');
-               let errorMsg = document.createElement('span');
-               errorMsg.classList.add('error-msg');
-               errorMsg.textContent = 'Ivestas telefono numeris yra neteisingas';
-
-               requiredField.after(errorMsg);
-
-               const errorMsgtext = 'The field is filled in incorrectly';
-               renderAlertMsg(errorMsgtext, 'red');
-               isValid = false;
-            }
-         } else if (requiredField.name === 'email') {
-            if (requiredField.value.length < 8 || !requiredField.value.includes('@') || !requiredField.value.includes('.')) {
-               requiredField.classList.add('error-input');
-
-               let errorMsg = document.createElement('span');
-               errorMsg.classList.add('error-msg');
-               errorMsg.textContent = 'Ivestas elektroninis pastas yra neteisingas';
-
-               requiredField.after(errorMsg);
-
-               const errorMsgtext = 'The field is filled in incorrectly';
-               renderAlertMsg(errorMsgtext, 'red');
-               isValid = false;
-            }
-         }
-      }
-   })
-
-   if (!isValid) {
+   if (!formIsValid) {
+      renderAlertMsg('Some fields are missing', 'red');
       return;
    }
-
-   console.log('laukeliai uzpildyti teisingai');
 
    const name = form.name.value; //studento vardo reiksmes gavimas
    const lastName = form['last-name'].value;
@@ -360,8 +276,11 @@ studentForm.addEventListener('submit', (event) => {
    const email = form.email.value;
    const ITknowledge = form.rangeInput.value;
    const group = form.group.value;
+   const interests = form.querySelectorAll('[name="interests"]:checked');
 
-   const nweStudentData = {
+   const interestsData = [...interests].map(interest => interest.value);
+
+   const newStudentData = {
       name: name,
       lastName: lastName,
       age: age,
@@ -369,91 +288,32 @@ studentForm.addEventListener('submit', (event) => {
       email: email,
       itKnowledge: ITknowledge,
       group: group,
-      interests: [],
+      interests: interestsData,
    };
 
-   renderSingleStudent(nweStudentData)
-   // console.log(name, lastName, age, phone, email, ITknowledge, group);
+   if (editStudent) {
+      console.log('redaguojame studenta');
+      let updatedStudent = renderSingleStudent(newStudentData);
+      editStudent.replaceWith(updatedStudent);
 
-   // const studentsList = document.querySelector('#students-list') // paselektinam sukurta diva
-   // const studentItem = document.createElement('div'); // sukuriamas naujas div kuriame bus sukelta studento info po submitinimo
-   // studentItem.classList.add('student-item'); // pridedama klase 
+      renderSingleStudent(newStudentData);
 
-   // const nameElement = document.createElement('p'); //sukuriamas elementas kiekvienai studento inputo reiksmei atvaizduoti liste
-   // nameElement.innerHTML = `<span style='font-weight:900'>Name:</span> ${name}`; // elementui priskiriame reiksme
+      const createdStudentText = `Student updated (${name} ${lastName})`; // zinutes teksto kintamasis (kai studentas sukurtas)
+      renderAlertMsg(createdStudentText, 'green'); //issokancio pranesimo apie sukurta studenta f-jos panaudojimas 
 
-   // const lastNameElement = document.createElement('p');
-   // lastNameElement.innerHTML = `<span style='font-weight:900'>Last Name:</span> ${lastName}`;
+      form.reset();
+      studentForm['student-form-submit'].value = 'Create student';
+      editStudent = null;
+   } else {
+      console.log('kuriame nauja studenta');
+      let newStudent = renderSingleStudent(newStudentData);
+      studentsList.prepend(newStudent);
 
-   // const ageElement = document.createElement('p');
-   // ageElement.innerHTML = `<span style='font-weight:900'>Age:</span> ${age}`;
+      let createdStudentText = `Student created (${name} ${lastName})`
+      renderAlertMsg(createdStudentText, 'green');
+      form.reset();
+   }
 
-   // const phoneElement = document.createElement('p');
-   // phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
-
-   // const emailElement = document.createElement('p');
-   // emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
-
-   // const ITknowledgeElement = document.createElement('p');
-   // ITknowledgeElement.innerHTML = `<span style='font-weight:900'>IT knowledge:</span> ${ITknowledge}`;
-
-   // const groupElement = document.createElement('p');
-   // groupElement.innerHTML = `<span style='font-weight:900'>Group:</span> ${group}`;
-
-   // studentsList.prepend(studentItem) //i studento lista idedame studento itema
-
-   // // checkboxo reiksmiu gavimas:
-   // const interests = document.querySelectorAll('[name="interests"]:checked');
-
-   // // reiksmes isvedimas i ekrana:
-   // const interestsWrapper = document.createElement('div'); //sukuriamas konteineris duomenims talpinti
-   // const interestTitle = document.createElement('p'); //sukuriamas duoments kintamasis
-   // interestTitle.textContent = 'Strudents interests:'; // suteikiamas tekstas
-
-   // const interestList = document.createElement('ul');
-
-   // interests.forEach(interest => {
-   //    const interestElement = document.createElement('li');
-   //    interestElement.textContent = interest.value;
-   //    interestList.append(interestElement)
-   // })
-
-   // interestsWrapper.append(interestTitle, interestList); // kintamasis idedamas i interestu konteineri
-
-   // const privateInfoBtn = document.createElement('button');
-   // privateInfoBtn.textContent = 'Show info';
-   // let hiddenPrivateInfo = true;
-
-   // privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
-   //    if (hiddenPrivateInfo) {
-   //       phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span> ${phone}`;
-   //       emailElement.innerHTML = `<span style='font-weight:900'>Email: </span> ${email}`;
-   //       privateInfoBtn.textContent = 'Hide info';
-   //    } else {
-   //       phoneElement.innerHTML = `<span style='font-weight:900'>Phone: </span>*****`;
-   //       emailElement.innerHTML = `<span style='font-weight:900'>Email: </span>*****`;
-   //       privateInfoBtn.textContent = 'Show info';
-   //    }
-   //    hiddenPrivateInfo = !hiddenPrivateInfo;
-   // })
-
-   // const deleteStudentBtn = document.createElement('button');
-   // deleteStudentBtn.textContent = 'Remove student';
-
-   // deleteStudentBtn.addEventListener('click', () => {
-   //    studentItem.remove();
-   //    const deletedStudentText = `Student deleted (${name} ${lastName})`;
-   //    renderAlertMsg(deletedStudentText, 'red');
-   // })
-
-   // studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn) //i studento itema prideda sukurta elementa
-
-   form.reset() //formos duomenu nuresetinimas po submitinimo
-
-   const createdStudentText = `Student created (${name} ${lastName})`; // zinutes teksto kintamasis (kai studentas sukurtas)
-   renderAlertMsg(createdStudentText, 'green'); //issokancio pranesimo apie sukurta studenta f-jos panaudojimas
-
-   studentItem.after(createdStudentText);
 })
 
 // Issokancios zinutes sukurimo f-ja
@@ -466,3 +326,86 @@ function renderAlertMsg(text, color) {
       alertMsg.textContent = '';
    }, 5000)
 }
+
+function validateInputField(input, message) {
+   input.classList.add('input-error');
+
+   const inputErrorMsgs = document.createElement('span');
+   inputErrorMsgs.classList.add('input-error-message');
+   inputErrorMsgs.textContent = message;
+
+   input.after(inputErrorMsgs);
+   return false;
+}
+
+function validateForm(form) {
+   const inputErrorMsgs = form.querySelectorAll('.error-msg');
+   inputErrorMsgs.forEach(errorMsg => errorMsg.remove());
+
+   const requiredFields = document.querySelectorAll('input:required');
+
+   let isValid = true;
+   // kadangi grazinamas masyvas su duomenimis, sukamas ciklas gauti kiekvienam nariui:
+   requiredFields.forEach((requiredField) => {
+      requiredField.classList.remove('input-error');
+
+      if (!requiredField.value) { //sugaudome ar value yra tuscias
+         isValid = validateInputField(requiredField, 'Required field');
+
+      } else {
+         console.log('Laukelis uzpildytas');
+         if (requiredField.name === 'name') {
+            if (requiredField.value.length < 3) {
+               let errorMsg = 'Vardas privalo būti bent 3 simbolių ilgumo';
+               validateInputField(requiredField, errorMsg);
+               isValid = false;
+            }
+            return;
+         }
+
+         if (requiredField.name === 'last-name') {
+            if (requiredField.value.length < 3) {
+               validateInputField(requiredField, 'Pavarde privalo būti bent 3 simbolių ilgumo');
+
+               isValid = false;
+            }
+            return;
+         }
+
+         if (requiredField.name === 'age') {
+            if (requiredField.value < 0) {
+               validateInputField(requiredField, 'Amzius privalo buti teigiamas skaicius');
+               isValid = false;
+
+
+            } else if (requiredField.value > 120) {
+               validateInputField(requiredField, 'Ivestas amzius per didelis');
+               isValid = false;
+            }
+            return;
+         }
+
+         if (requiredField.name === 'phone') {
+            if (requiredField.value.length < 9 || requiredField.value.length > 12) {
+               validateInputField(requiredField, 'Ivestas telefono numeris yra neteisingas');
+               isValid = false;
+            }
+            return;
+         }
+
+         if (requiredField.name === 'email') {
+            if (requiredField.value.length < 8 || !requiredField.value.includes('@') || !requiredField.value.includes('.')) {
+               validateInputField(requiredField, 'Ivestas el.pastas yra neteisingas');
+               isValid = false;
+            }
+            return;
+         }
+      }
+   })
+   return isValid;
+}
+
+
+
+
+

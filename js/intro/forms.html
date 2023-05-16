@@ -39,32 +39,32 @@ Sukurti kontaktų formą.
    <form id="student-form" novalidate>
       <div class="form-control">
          <label for="name">Name:</label>
-         <input type="text" id="name" name="name" required>
+         <input type="text" id="name" name="name" value="Angelina" required>
       </div>
 
       <div class="form-control">
          <label for="last-name">Last name:</label>
-         <input type="text" id="last-name" name="last-name" required>
+         <input type="text" id="last-name" name="last-name" value="Jolie" required>
       </div>
 
       <div class="form-control">
          <label for="age">Age:</label>
-         <input type="number" id="age" name="age" required>
+         <input type="number" id="age" name="age" value="30" required>
       </div>
 
       <div class="form-control">
          <label for="phone">Phone:</label>
-         <input type="tel" id="phone" name="phone" required>
+         <input type="tel" id="phone" name="phone" value="123456789" required>
       </div>
 
       <div class="form-control">
          <label for="email">Email:</label>
-         <input type="email" id="email" name="email" required>
+         <input type="email" id="email" name="email" value="angelina@angelina.com" required>
       </div>
 
       <div>
-         <label for="ITknowledge">IT knowledge </label>
-         <input type="range" id="rangeInput" name="ITknowledge" min="1" max="10" value="1"
+         <label for="itKnowledge">IT knowledge </label>
+         <input type="range" id="rangeInput" name="itKnowledge" min="1" max="10" value="1"
             oninput="amount.value=rangeInput.value">
 
          <output id="amount" name="amount" for="rangeInput">0</output>
@@ -121,7 +121,7 @@ Sukurti kontaktų formą.
          </fieldset>
       </div>
 
-      <button class="submit" type="submit">Submit</button>
+      <button class="submit" type="submit" id="student-form-submit">Submit</button>
    </form>
 
    <span id="alert-msg"></span>
