@@ -179,10 +179,12 @@ function renderSingleStudent(student) {
       interestsWrapper.append(interestTitle, noInterestTitle);
    }
 
+   // Sukurtas jautrios info rodymo/paslepimo mygtukas
    const privateInfoBtn = document.createElement('button');
    privateInfoBtn.textContent = 'Show info';
    let hiddenPrivateInfo = true;
 
+   // Jautrios info rodymo/paslepimo eventas
    privateInfoBtn.addEventListener('click', () => { //mygtukui suteikiamas funkcionalumas rodyti/paslepti privacia info
       hiddenPrivateInfo = !hiddenPrivateInfo;
 
@@ -197,20 +199,23 @@ function renderSingleStudent(student) {
       }
    })
 
+   // Istrynimo mygtuko suskurimas
    const deleteStudentBtn = document.createElement('button');
    deleteStudentBtn.textContent = 'Remove student';
 
+   // Istrynimo mygtuko eventas
    deleteStudentBtn.addEventListener('click', () => {
       studentItem.remove();
       const deletedStudentText = `Student deleted (${name} ${lastName})`;
       renderAlertMsg(deletedStudentText, 'red');
    })
 
+   // Redagavimo mygtuko suskurimas
    const editStudentBtn = document.createElement('button');
    editStudentBtn.textContent = 'Edit Student';
 
+   // Redagavimo mygtuko eventas
    editStudentBtn.addEventListener('click', () => {
-      // editStudent = true;
 
       // Redaguojamo mygtuko gavimas:
       const nameInput = studentForm.name;
@@ -226,18 +231,18 @@ function renderSingleStudent(student) {
       // console.log(group);
       // console.log(interests);
 
+      console.dir(studentForm);
       studentForm['student-form-submit'].value = 'Save Changes';
       editStudent = studentItem;
    })
 
    studentItem.append(nameElement, lastNameElement, ageElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapper, privateInfoBtn, deleteStudentBtn, editStudentBtn) //i studento itema prideda sukurta elementa
-   // form.reset() //formos duomenu nuresetinimas po submitinimo
 
    return studentItem;
 }
 
+// Vieno studento duomenu gavimas
 function studentsData(data) {
-
    data.forEach(item => {
       renderSingleStudent(item);
       const studentElement = renderSingleStudent(item);
@@ -313,7 +318,6 @@ studentForm.addEventListener('submit', (event) => {
       renderAlertMsg(createdStudentText, 'green');
       form.reset();
    }
-
 })
 
 // Issokancios zinutes sukurimo f-ja
@@ -327,6 +331,7 @@ function renderAlertMsg(text, color) {
    }, 5000)
 }
 
+// Ivesties laukeliu validavimo f-ja ir logika
 function validateInputField(input, message) {
    input.classList.add('input-error');
 
@@ -338,6 +343,7 @@ function validateInputField(input, message) {
    return false;
 }
 
+// Formos validavimo f-ja ir logika
 function validateForm(form) {
    const inputErrorMsgs = form.querySelectorAll('.error-msg');
    inputErrorMsgs.forEach(errorMsg => errorMsg.remove());
@@ -377,7 +383,6 @@ function validateForm(form) {
                validateInputField(requiredField, 'Amzius privalo buti teigiamas skaicius');
                isValid = false;
 
-
             } else if (requiredField.value > 120) {
                validateInputField(requiredField, 'Ivestas amzius per didelis');
                isValid = false;
@@ -404,8 +409,3 @@ function validateForm(form) {
    })
    return isValid;
 }
-
-
-
-
-
