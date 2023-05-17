@@ -224,15 +224,21 @@ function renderSingleStudent(student) {
       const lastNameInput = studentForm['last-name'];
       lastNameInput.value = lastName;
 
-      // console.log(age);
-      // console.log(phone);
-      // console.log(email);
+      const ageInput = studentForm.age;
+      ageInput.value = age;
+
+      const phoneInput = studentForm.phone;
+      phoneInput.value = phone;
+
+      const emailInput = studentForm.email;
+      emailInput.value = email;
+
       // console.log(itKnowledge);
       // console.log(group);
       // console.log(interests);
 
       console.dir(studentForm);
-      studentForm['student-form-submit'].value = 'Save Changes';
+      studentForm['student-form-submit'].textContent = 'Save Changes';
       editStudent = studentItem;
    })
 
