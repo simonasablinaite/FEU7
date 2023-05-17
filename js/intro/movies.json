@@ -3,120 +3,120 @@
       "title": "All quiet on the western front",
       "rating": {
          "rating": 7.8,
-         "number-of-ratings": 203000
+         "numberOfRatings": 203000
       },
-      "release-date": 2022,
+      "releaseDate": 2022,
       "description": "A young German soldier's terrifying experiences and distress on the western front during World War I.",
       "genres": ["action", "drama", "war"],
       "director": ["Edward Berger"],
-      "main actors": ["Felix Kammerer", "Albrecht Schuch", "Aaron Hilmer"]
+      "mainActors": ["Felix Kammerer", "Albrecht Schuch", "Aaron Hilmer"]
    },
    {
       "title": "Black Panther: Wakanda Forever",
       "rating": {
          "rating": 6.7,
-         "number-of-ratings": 265000
+         "numberOfRatings": 265000
       },
-      "release-date": 2022,
+      "releaseDate": 2022,
       "description": "The people of Wakanda fight to protect their home from intervening world powers as they mourn the death of King T'Challa.",
       "genres": ["Action", "Adventure", "drama"],
       "director": ["Ryan Coogler"],
-      "main actors": ["Letitia Wright", "Lupita Nyong'o", "Danai Gurira"]
+      "mainActors": ["Letitia Wright", "Lupita Nyong'o", "Danai Gurira"]
    },
    {
       "title": "Interstellar",
       "rating": {
          "rating": 8.6,
-         "number-of-ratings": 1900000
+         "numberOfRatings": 1900000
       },
-      "release-date": 2014,
+      "releaseDate": 2014,
       "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
       "genres": ["Adventure", "Drama", "Sci-Fi"],
       "director": ["Christopher Nolan"],
-      "main actors": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"]
+      "mainActors": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"]
    },
    {
       "title": "Inception",
       "rating": {
          "rating": 8.8,
-         "number-of-ratings": 2400000
+         "numberOfRatings": 2400000
       },
-      "release-date": 2010,
+      "releaseDate": 2010,
       "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
       "genres": ["Action", "Adventure", "Sci-Fi"],
       "director": ["Christopher Nolan"],
-      "main actors": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"]
+      "mainActors": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"]
    },
    {
       "title": "Only the Brave",
       "rating": {
          "rating": 7.6,
-         "number-of-ratings": 73000
+         "numberOfRatings": 73000
       },
-      "release-date": 2017,
+      "releaseDate": 2017,
       "description": "Based on the true story of the Granite Mountain Hotshots, a group of elite firefighters who risk everything to protect a town from a historic wildfire.",
       "genres": ["Action", "Biography", "Drama"],
       "director": ["Joseph Kosinski"],
-      "main actors": ["Josh Brolin", "Miles Teller", "jeff Bridges"]
+      "mainActors": ["Josh Brolin", "Miles Teller", "jeff Bridges"]
    },
    {
       "title": "Joker",
       "rating": {
          "rating": 8.4,
-         "number-of-ratings": 1300000
+         "numberOfRatings": 1300000
       },
-      "release-date": 2019,
+      "releaseDate": 2019,
       "description": "The rise of Arthur Fleck, from aspiring stand-up comedian and pariah to Gotham's clown prince and leader of the revolution.",
       "genres": ["Crime", "Drama", "Thriller"],
       "director": ["Todd Phillips"],
-      "main actors": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"]
+      "mainActors": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"]
    },
    {
       "title": "The Green Mile",
       "rating": {
          "rating": 8.6,
-         "number-of-ratings": 1300000
+         "numberOfRatings": 1300000
       },
-      "release-date": 1999,
+      "releaseDate": 1999,
       "description": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
       "genres": ["Crime", "Drama", "Fantasy"],
       "director": ["Frank Darabont"],
-      "main actors": ["Tom Hanks", "Michael Clarke Duncean", "David Morse"]
+      "mainActors": ["Tom Hanks", "Michael Clarke Duncean", "David Morse"]
    },
    {
       "title": "Law Abiding Citizen",
       "rating": {
          "rating": 7.4,
-         "number-of-ratings": 306000
+         "numberOfRatings": 306000
       },
-      "release-date": 2009,
+      "releaseDate": 2009,
       "description": "A frustrated man decides to take justice into his own hands after a plea bargain sets one of his family's killers free.",
       "genres": ["Action", "Crime", "Drama"],
       "director": ["F. Gary Gray"],
-      "main actors": ["Gerard Butler", "Jamie Foxx", "Laslie Bibb"]
+      "mainActors": ["Gerard Butler", "Jamie Foxx", "Laslie Bibb"]
    },
    {
       "title": "12 Years a Slave",
       "rating": {
          "rating": 8.1,
-         "number-of-ratings": 715000
+         "numberOfRatings": 715000
       },
-      "release-date": 2013,
+      "releaseDate": 2013,
       "description": "In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.",
       "genres": ["Biography", "Drama", "History"],
       "director": ["Steve McQueen"],
-      "main actors": ["Chiwetel Ejiofor", "Michael Kenneth Williams", "Michael Fassbender"]
+      "mainActors": ["Chiwetel Ejiofor", "Michael Kenneth Williams", "Michael Fassbender"]
    },
    {
       "title": "13 Hours",
       "rating": {
          "rating": 7.3,
-         "number-of-ratings": 150000
+         "numberOfRatings": 150000
       },
-      "release-date": 2016,
+      "releaseDate": 2016,
       "description": "During an attack on a U.S. compound in Libya, a security team struggles to make sense out of the chaos.",
       "genres": ["Action", "Drama", "History"],
       "director": ["Michael Bay"],
-      "main actors": ["John Krasinski", "pablo Schreiber", "James Badge Dale"]
+      "mainActors": ["John Krasinski", "pablo Schreiber", "James Badge Dale"]
    }
 ]
