@@ -1,3 +1,5 @@
+// 1. Sukurti mygtuką, kurį paspaudus ekrane atvaizduojamas atsitiktinis juokelis.
+
 const randomJoke = document.querySelector('#joke-paragraph');
 const randomJokeButton = document.querySelector('#add-joke');
 
