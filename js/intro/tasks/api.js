@@ -12,4 +12,33 @@ randomJokeButton.addEventListener('click', () => {
       })
 })
 
+/*
+2. Sukurti galimybę pasirinkti juokelių kategoriją:
+  2.1. Sukurti formą, kurioje bus <select> elementas. 
+  2.2. <select> elementas savyje turės <option> elementus. Juose galima pasirinkti juokelių kategoriją. Šie elementai turi susigeneruoti automatiškai, priklausomai nuo to, kokias kategorijas turi API.
+ 
+  2.3. Sukurti mygtuką, kurį paspaudus, sugeneruotų atsitiktinį juokelį pagal pasirinktą kategoriją.
+*/
+
+const formElement = document.querySelector('form');
+const selectElement = document.querySelector('#categories');
+
+function getOptions() {
+   fetch('https://api.chucknorris.io/jokes/categories')
+      .then(res => res.json())
+      .then((categories) => {
+         categories.forEach(category => {
+            const optionElement = document.createElement('option');
+            optionElement.textContent = category;
+            selectElement.append(optionElement);
+
+         })
+      })
+};
+getOptions();
+
+
+
+
+
 
