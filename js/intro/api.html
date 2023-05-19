@@ -10,12 +10,21 @@
 
 <body>
    <p id="joke-paragraph"></p>
-   <button id="add-joke">Get joke</button>
+   <button id="get-joke">Get joke</button>
 
    <form>
       <select name="categories" id="categories"></select>
       <button type="submit" id="category-select-button" disabled>Get a joke</button>
    </form>
+
+   <form id="search-form">
+      <input type="text" name="search-input" id="search-input">
+      <button type="submit" id="search-button">Search for a joke</button>
+   </form>
+
+
+
+
    <script src="./tasks/api.js"></script>
 
 </body>
