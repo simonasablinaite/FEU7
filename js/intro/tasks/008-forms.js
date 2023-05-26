@@ -132,6 +132,7 @@ let editStudent = null;
 // Vieno studento funkcionalumas:
 function renderSingleStudent(student) {
    const { name, lastName, age, phone, email, itKnowledge, group, interests } = student;
+   console.log(student);
 
    // Sukuriamas elementas vieno studento informacijai kupti
    const studentItem = document.createElement('div');
