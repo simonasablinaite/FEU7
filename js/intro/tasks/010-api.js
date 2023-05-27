@@ -1,78 +1,120 @@
-// 1. Sukurti mygtuką, kurį paspaudus ekrane atvaizduojamas atsitiktinis juokelis.
+/*
+API - budas kompiuteriams tarpusavyje dalintis informacija;
+Pagrinde yra REST API standartas;
+Jei yra API - jis turi tureti dokumentacija, kaip naudotis juo;
+API nuorodos turi endpoint'us - /persons, /pages ir pan.
 
-const randomJoke = document.querySelector('#joke-paragraph');
-const randomJokeButton = document.querySelector('#get-joke');
+UZKLAUSU TIPAI:
+GET - nurodome, kad norime gauti duomenis;
+POST - nurodome, kad norime kazka sukurti;
+PUT/PATCH - nurodome, kad norime redaguoti duomenis;
+DELETE - nurodome, kad norime istrinti duomenis;
 
-randomJokeButton.addEventListener('click', () => {
-   fetch("https://api.chucknorris.io/jokes/random")
+API adresas: https://api.chucknorris.io;
+API adresas: https://api.chucknorris.io/jokes/random?category={category} -> ? papildomi parametrai, kuriuos galima perduoti i endpointa
+
+*/
+
+// Uzklausos siuntimas i API-aju ir duomenu isvedimas i ekrana:
+const jokeParagraph = document.querySelector('#joke-paragraph');
+
+fetch("https://api.chucknorris.io/jokes/random")
+   .then(res => res.json())
+   .then(jokeData => {
+      jokeParagraph.textContent = jokeData.value;
+   })
+
+// 1. Sukurti mygtuką, kurį paspaudus ekrane atvaizduojamas atsitiktinis juokelis:
+
+const randomJokeBtn = document.querySelector('#random-joke');
+
+randomJokeBtn.addEventListener('click', () => {
+
+   fetch('https://api.chucknorris.io/jokes/random')
       .then(res => res.json())
-      .then(jokeData => {
-         randomJoke.textContent = jokeData.value;
+      .then(randJoke => {
+         jokeParagraph.textContent = randJoke.value;
       })
 })
 
 /*
 2. Sukurti galimybę pasirinkti juokelių kategoriją:
-  2.1. Sukurti formą, kurioje bus <select> elementas. 
+  2.1. Sukurti formą, kurioje bus <select> elementas.
   2.2. <select> elementas savyje turės <option> elementus. Juose galima pasirinkti juokelių kategoriją. Šie elementai turi susigeneruoti automatiškai, priklausomai nuo to, kokias kategorijas turi API.
- 
-  2.3. Sukurti mygtuką, kurį paspaudus, sugeneruotų atsitiktinį juokelį pagal pasirinktą kategoriją.
+
 */
 
+const formElement = document.querySelector('form');
+const selectOptions = document.querySelector('#select-category');
 
 
+fetch('https://api.chucknorris.io/jokes/categories')
+   .then(res => res.json())
+   .then(categories => {
+      categories.forEach(category => {
+         const categoryOptions = document.createElement('option'); // kodel kategoriju atvaizdavimas neveikia, kai kintamasis yra iskeliamas is ciklo? Atvaizduoja tik viena travel kategorija? Kodel option elementa reikia kurti kategories ciklo viduje?
 
-function getOptions() {
-   fetch('https://api.chucknorris.io/jokes/categories')
-      .then(res => res.json())
-      .then((categories) => {
-         const selectElement = document.querySelector('#categories');
-
-         categories.forEach(category => {
-            const optionElement = document.createElement('option');
-            optionElement.textContent = '-' + category;
-            optionElement.value = category; //gaunamos visos kategorijos kokios yra API
-            selectElement.append(optionElement); //i select elementa pridedamos kategorijos
-         })
-
-         const categoryButton = document.querySelector('#category-select-button');
-         categoryButton.removeAttribute('disabled');
+         categoryOptions.textContent = '-' + category;
+         categoryOptions.value = category; // leidzia rasti kategorija net ir nurodzius papildomus simbolius pavadinime, pvz "-"
+         selectOptions.append(categoryOptions);
       })
-}
-
-getOptions();
-
-function task23() {
-   const formElement = document.querySelector('form');
-
-   formElement.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const category = event.target.categories.textContent; // gaunama konkreti kategorija
-      fetch('https://api.chucknorris.io/jokes/random?category=' + category) // prie nuorodos pridedama kategorija
-         .then(response => response.json())
-         .then((jokeData) => {
-            console.log(jokeData.value);
-            randomJoke.textContent = jokeData.value;
-         })
+      const forCategoryBtn = document.querySelector('#for-category');
+      forCategoryBtn.removeAttribute('disabled'); //panaikinamas disabled atributas is mygtuko esancio HTML'o f-le
    })
-}
-task23();
+//   2.3. Sukurti mygtuką, kurį paspaudus, sugeneruotų atsitiktinį juokelį pagal pasirinktą kategoriją.
+formElement.addEventListener('submit', (event) => {
+   event.preventDefault();
+
+   form = event.target // issitraukiame event.target'a (pacia forma)
+   console.log(form.elements); // grazina visus formos elementus i konsole
+
+   console.log(form['rand-joke'].value); // grazina pasirinkta kateegorija
+   const category = form['rand-joke'].value;
+
+
+   fetch(`https://api.chucknorris.io/jokes/random?category=${category}`)
+      .then(res => res.json())
+      .then(randJoke => {
+         console.log(randJoke.value);
+         jokeParagraph.textContent = randJoke.value; // isvedama i ekrana
+      })
+})
 
 // 3. Sukurti galimybę ieškoti juokelių pagal užklausos frazę.
-function task3() {
-   const searchForm = document.querySelector('#search-form');
-   // inputo value gavimas, kuris bus panaudotas nuorodos tekste
-   searchForm.addEventListener('submit', (event) => {
-      event.preventDefault();
+// 3.1 Pasubmitiname forma, kurioje gauname inputo teksta
 
-      console.log(event.target['search-input'].value);
-      const searchValue = event.target['search-input'].value;
+const searchForm = document.querySelector('#search-text');
+const getPhraseBtn = document.querySelector('get-phrase');
+const inputText = document.querySelector('for-text');
 
-      fetch('https://api.chucknorris.io/jokes/search?query=' + searchValue)
-         .then(res => res.json())
-         .then((searchData) => {
-            console.log(searchData);
-         })
-   })
-}
-task3();
+searchForm.addEventListener('submit', (event) => {
+
+   event.preventDefault();
+   const form = event.target;
+   console.log(form); // gaunu formos elementus
+   const inputText = form['for-text'].value; //pasiekiu inputo ivesta reiksme
+   console.log(inputText);
+
+   fetch(`https://api.chucknorris.io/jokes/search?query=${inputText}`)
+      .then(res => res.json())
+      .then(searchData => {
+         console.log(searchData);
+         // console.log(searchData.result[0].value); // visada bus gaunamas tik pirmas zodi atitinkantis juokelis
+         // jokeParagraph.textContent = searchData.result[0].value;
+         function getRandomJoke(min, max) {
+            min = Math.ceil(0);
+            max = Math.floor(searchData.result.length - 1);
+            return Math.floor(Math.random() * (max - min) + min)
+         }
+         const index = getRandomJoke();
+         const jokeData = searchData.result[index];
+
+         jokeParagraph.textContent = jokeData.value;
+      })
+})
+
+
+
+
+
+

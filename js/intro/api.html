@@ -5,28 +5,31 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <title>API</title>
 </head>
 
 <body>
    <p id="joke-paragraph"></p>
-   <button id="get-joke">Get joke</button>
+   <button type="button" id="random-joke">Random joke</button>
 
-   <form>
-      <select name="categories" id="categories"></select>
-      <button type="submit" id="category-select-button" disabled>Get a joke</button>
+   <form type="submit">
+      <label for="rand-joke">Select category:</label>
+      <select name="rand-joke" id="select-category"></select>
+      <button type="submit" id="for-category" disabled>Select category</button>
    </form>
 
-   <form id="search-form">
-      <input type="text" name="search-input" id="search-input">
-      <button type="submit" id="search-button">Search for a joke</button>
+   <form type="submit" id="search-text">
+      <label for="for-text">Enter phrase:</label>
+      <input type="text" id="for-text" name="for-text">
+      <button type="submit" id="get-phrase">Get by phrase</button>
    </form>
 
 
 
-
-   <script src="./tasks/api.js"></script>
+   <script src="./tasks/010-api.js"></script>
 
 </body>
 
 </html>
+
+<!-- disabled ant mygtuko nurodytas tam, kad mygtuka butu galima paspausti tik tada, kada pasirinkta kategorija -->
