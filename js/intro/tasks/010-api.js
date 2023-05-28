@@ -114,7 +114,7 @@ searchForm.addEventListener('submit', (event) => {
 })
 
 
-// Sutrumpintas Math.random() funkcijops uzrasymo budas:
+// Sutrumpintas Math.random() funkcijos uzrasymo budas:
 /*
 1. Sukuriamas kintamasis result: const result = searchData.result;
 2. Sukuriamas kintamasis indeksui apskaiciuoti: const index = Math.floor(Math.random() * result)
