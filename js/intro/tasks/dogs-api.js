@@ -60,11 +60,25 @@ function dogBreeds() {
             const subBreed = breedEntry[1] //gaunama suns subveisle
             // console.log(subBreed);
 
-            const optionElement = document.createElement('option');
-            optionElement.textContent = mainBreed
+            if (subBreed.length > 0) {
+               subBreed.forEach(oneSubBreed => {
+                  const mainBreedText = mainBreed.at(0)
+                     .toUpperCase() + mainBreed.slice(1);
+                  const optionText = `${mainBreedText} (${oneSubBreed})`;
 
-            selectElement.append(optionElement);
+                  const optionElement = document.createElement('option');
+                  optionElement.textContent = optionText;
+                  optionElement.value = `${mainBreed}/${oneSubBreed}`;
 
+                  selectElement.append(optionElement);
+               })
+            } else {
+               const optionElement = document.createElement('option');
+               optionElement.textContent = mainBreed.at(0).toUpperCase() + mainBreed.slice(1);
+               optionElement.value = mainBreed;
+
+               selectElement.append(optionElement);
+            }
          })
 
       })
@@ -74,7 +88,7 @@ function dogBreeds() {
       const form = event.target;
 
       const breedSelect = form['dog-breed'].value;  //gaunama select reiksme
-      // console.log(breedSelect);
+      console.log(breedSelect);
 
       const apiUrl = `https://dog.ceo/api/breed/${breedSelect}/images/random`; // API adresas i kuri kreipsimes kad gauti nuotraukas sunu pagal veisle
       // console.log(apiUrl);
@@ -82,10 +96,13 @@ function dogBreeds() {
       fetch(apiUrl)
          .then(res => res.json())
          .then(images => {
+
+            if (images.code === 404) {
+               return;
+            }
             const imgUrl = images.message;
             dogImageElement.src = imgUrl;
          })
-
    })
 }
 dogBreeds();
