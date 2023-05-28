@@ -21,12 +21,14 @@ Lyčiai - https://genderize.io/
 
 // Task: 1:
 // 1.1. Gauti atsitiktines sunu nuotrauka:
-function dogsImageOnDisplay() {
+function randomDogsImageOnDisplay() {
+   const imgContainer = document.querySelector('#img-container');
+
    fetch('https://dog.ceo/api/breeds/image/random')
       .then(res => res.json())
       .then(images => {
-         console.log(images.message);
-         const imgUrl = images.message // nuotrauku adresu kintamasis
+         // console.log(images.message);
+         const imgUrl = images.message; // nuotrauku adresu kintamasis
          const dogImageElement = document.createElement('img');
          dogImageElement.src = imgUrl;
 
@@ -34,55 +36,59 @@ function dogsImageOnDisplay() {
       })
 }
 
-// dogsImageOnDisplay();
+// randomDogsImageOnDisplay();
 
 // 1.2 grazinama viena atsitiktine suniuko nuotrauka pagal veisle
-function dogBdreeds() {
-   console.log('veikia✅');
+function dogBreeds() {
    const imgContainer = document.querySelector('#img-container');
    const breedsForm = document.querySelector('#dog-breed-form');
    const selectElement = document.querySelector('#dog-breed');
    const dogImageElement = document.createElement('img');
 
+   imgContainer.append(dogImageElement);
 
    fetch('https://dog.ceo/api/breeds/list/all')
       .then(res => res.json())
-      .then(breeds => {
-         console.log(breeds.message);
+      .then(breedsData => {
+         // console.log(breedsData.message);
+         const breeds = breedsData.message;
 
-         for (const breed in breeds.message) {
-            console.log(breed); // suns veisle
-            console.log(breeds.message[breed]); // suns veisles subveisle
+         const breedsEntries = Object.entries(breeds);
+         breedsEntries.forEach(breedEntry => {
+            const mainBreed = breedEntry[0] // gaunama suns veisle
+            // console.log(mainBreed);
+            const subBreed = breedEntry[1] //gaunama suns subveisle
+            // console.log(subBreed);
 
             const optionElement = document.createElement('option');
-
-            optionElement.textContent = `${breed}${breeds.message[breed]}`;
+            optionElement.textContent = mainBreed
 
             selectElement.append(optionElement);
-         }
+
+         })
 
       })
+
    breedsForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const form = event.target;
+
       const breedSelect = form['dog-breed'].value;  //gaunama select reiksme
-      console.log(breedSelect);
+      // console.log(breedSelect);
 
       const apiUrl = `https://dog.ceo/api/breed/${breedSelect}/images/random`; // API adresas i kuri kreipsimes kad gauti nuotraukas sunu pagal veisle
-      console.log(apiUrl);
+      // console.log(apiUrl);
 
       fetch(apiUrl)
          .then(res => res.json())
          .then(images => {
-            const imgUrl = images.message
+            const imgUrl = images.message;
             dogImageElement.src = imgUrl;
-
-            imgContainer.append(dogImageElement);
          })
-   })
 
+   })
 }
-dogBdreeds();
+dogBreeds();
 
 
 // Kiti budai issitraukti duomenis is masyvo ir sudeti elementus i select elementa:
