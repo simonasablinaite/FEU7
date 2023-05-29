@@ -1,0 +1,169 @@
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  width: calc(100% - 20px);
+  background-color: aqua;
+  height: 200px;
+}
+.shops-container {
+  width: calc(100% - 20px);
+  padding: 20px;
+  height: 100px;
+  background-color: chocolate;
+}
+.shops-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shop-card {
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+.shop-content {
+  padding: 20px;
+}
+
+.references a {
+  display: flex;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: blue;
+}
+.references .contacts {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.map-container {
+  padding: 20px;
+}
+
+@media (max-width: 300px) {
+  .container {
+    width: 100%;
+  }
+  .shop-content .references a {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .shop-content .references .contacts {
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+
+  .shop-content .references a {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  .shop-content .references .contacts {
+    margin-bottom: 5px;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shop-card {
+    width: calc(50% - 20px);
+  }
+
+  .main-title {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shop-card {
+    width: calc(50% - 20px);
+  }
+
+  .main-title {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-title {
+    font-size: 25px;
+  }
+  .shop-card {
+    width: calc(100% - 20px);
+  }
+  .map-container {
+    width: 50%;
+
+    margin-top: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .shops-container {
+    width: 100%;
+  }
+  .shops-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .main-title {
+    font-size: 30px;
+  }
+  .shop-card {
+    width: calc(50% - 20px);
+  }
+  .map-container {
+    width: 80%;
+    height: 100%;
+    margin-top: 0;
+  }
+}
