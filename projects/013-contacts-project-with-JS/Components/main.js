@@ -7,6 +7,7 @@ function main() {
    mainContainer.classList.add('container');
 
    document.body.append(mainContainer);
+   mainContainer.append(shopsContainer, mapContainer)
 
 }
 

@@ -2,14 +2,11 @@
   display: flex;
   flex-direction: column-reverse;
   width: calc(100% - 20px);
-  background-color: aqua;
-  height: 200px;
 }
 .shops-container {
   width: calc(100% - 20px);
   padding: 20px;
   height: 100px;
-  background-color: chocolate;
 }
 .shops-list {
   display: flex;
