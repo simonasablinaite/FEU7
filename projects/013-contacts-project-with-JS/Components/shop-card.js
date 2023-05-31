@@ -32,30 +32,33 @@ function shopCard() {
       }
    ];
 
+   const shopTitle = document.createElement('h2');
+   shopTitle.textContent = oneShopData.title;
+
+   const references = document.createElement('a');
+   references.href = '#';
+
+   const phone = document.createElement('span');
+   phone.innerHTML = `<span style="color: black; font-weight: 900">Phone: </span>` + '';
+
+   const email = document.createElement('span');
+   email.innerHTML = `<span style="color: black; font-weight: 900">Email: </span>` + '';
+
+   const address = document.createElement('span');
+   address.innerHTML = `<span style="color: black; font-weight: 900">Address: </span>` + '';
+
+
    shopCardData.forEach(oneShopData => {
       console.log(oneShopData);
 
-      const shopTitle = document.createElement('h2');
-      shopTitle.textContent = oneShopData.title;
+      shopTitle = oneShopData.title
 
-      const references = document.createElement('a');
-      references.href = '#';
 
-      const phone = document.createElement('span');
-      phone.innerHTML = `<span style="color: black; font-weight: 900">Phone: </span>` + oneShopData.phone;
-
-      const email = document.createElement('span');
-      email.innerHTML = `<span style="color: black; font-weight: 900">Email: </span>` + oneShopData.email;
-
-      const address = document.createElement('span');
-      address.innerHTML = `<span style="color: black; font-weight: 900">Address: </span>` + oneShopData.address;
-
-      references.append(phone, email, address)
-
-      shopCard.append(shopTitle, references)
-
-      shopContent.append(shopCard)
    })
+
+
+   shopContent.append(shopTitle)
+   shopCard.append(shopContent)
    return shopCard;
 }
 
