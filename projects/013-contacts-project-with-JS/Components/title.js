@@ -3,11 +3,11 @@ function title() {
    mainTitleWrapper.classList.add('main-title');
 
    const mainTitle = document.createElement('h1');
-   mainTitle.textContent = `Find us`
+   mainTitle.textContent = `Find Us`
 
    mainTitleWrapper.append(mainTitle)
 
    return mainTitleWrapper;
 }
 
-export default title();
+export default title;
