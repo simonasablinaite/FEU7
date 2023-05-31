@@ -52,9 +52,9 @@ function shopCard() {
 
       references.append(phone, email, address)
 
-      shopContent.append(shopTitle, references)
+      shopCard.append(shopTitle, references)
 
-      shopCard.append(shopContent)
+      shopContent.append(shopCard)
    })
    return shopCard;
 }
