@@ -1,4 +1,5 @@
 import React from 'react'
+import '../style/shops.css'
 
 const ShopCard = ({ title, phone, email, address }) => {
    return (

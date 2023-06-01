@@ -1,5 +1,6 @@
 import React from 'react'
 import ShopCard from './ShopCard'
+import '../style/shops.css'
 
 const ShopsContainer = ({ mainTitle }) => {
    return (

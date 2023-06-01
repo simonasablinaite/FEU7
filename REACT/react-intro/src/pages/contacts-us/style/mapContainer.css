@@ -1,0 +1,19 @@
+.map-container {
+  padding: 20px;
+}
+
+@media (min-width: 992px) {
+  .map-container {
+    width: 50%;
+
+    margin-top: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .map-container {
+    width: 80%;
+    height: 100%;
+    margin-top: 0;
+  }
+}
