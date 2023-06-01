@@ -137,9 +137,10 @@
 
 @media (min-width: 1200px) {
   .container {
-    width: 1140px;
+    width: calc(100% - 30px);
     display: flex;
     flex-direction: row;
+    gap: 30px;
   }
 
   .shops-container {
