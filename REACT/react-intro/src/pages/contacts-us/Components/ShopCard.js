@@ -5,6 +5,7 @@ const ShopCard = ({ title, phone, email, address, addressLink }) => {
    console.log(title, phone, email, address);
    let addressElement = '';
 
+   // Jei neturime parduotuves pavadinimo - elemento nesukuriame:
    if (!title) {
       return ''
    }
