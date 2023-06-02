@@ -44,7 +44,15 @@ const ShopsContainer = ({ mainTitle }) => {
 
          <div className='shops-list'>
 
-            {shopsData.map((shop, index) => <ShopCard key={index} title={shop.title} phone={shop.phone} email={shop.email} address={shop.address} addressLink={shop.addressLink} />)}
+            {shopsData.map((shop, index) => (<ShopCard
+               key={index}
+               title={shop.title}
+               phone={shop.phone}
+               email={shop.email}
+               address={shop.address}
+               addressLink={shop.addressLink}
+            />
+            ))}
          </div>
       </div>
    )
