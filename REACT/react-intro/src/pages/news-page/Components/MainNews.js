@@ -5,6 +5,7 @@ import SecondaryNewsItem from './SecondaryNewsItem'
 import VideoContainer from './VideoContainer'
 
 const MainContent = () => {
+
    return (
       <div className='main-content'>
          <div className='news-wrapper'>

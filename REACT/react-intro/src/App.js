@@ -1,11 +1,11 @@
-import DemoNewsPage from './pages/news-page/DemoNewsPage';
+import DemoContactsPage from './pages/contacts-us/DemoContactsPage';
 import './pages/news-page/style/style.css'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <DemoNewsPage />
+        <DemoContactsPage />
       </header>
     </div>
   );
