@@ -1,12 +1,19 @@
 import DemoContactsPage from './pages/contacts-us/DemoContactsPage';
 import DemoNewsPage from './pages/news-page/DemoNewsPage';
 import './pages/news-page/style/style.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link, NavLink } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+
+        <nav>
+          <NavLink className='nav-item' to="/">Home</NavLink>
+          <NavLink className='nav-item' to="/contacts">Contacts Page</NavLink>
+          <NavLink className='nav-item' to="/news">News Page</NavLink>
+        </nav>
+
         <Routes>
           <Route path='/' element={
             <div>
@@ -14,7 +21,12 @@ function App() {
                 Norint patekti i projektus, ziniatinklio juostoje nurodyk kelius /contacts arba /news</h1>
             </div>
           } />
-          <Route path='*' element={<h1>404 Error. Page Not Found</h1>} />
+          <Route path='*' element={
+            <div>
+              <h1>404 Error. Page Not Found</h1>
+              <Link to='/'>Go to home page</Link>
+            </div>
+          } />
           <Route path='/contacts' element={<DemoContactsPage />} />
           <Route path='/news' element={<DemoNewsPage />} />
         </Routes>
