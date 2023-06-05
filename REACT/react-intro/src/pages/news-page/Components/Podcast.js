@@ -1,11 +1,14 @@
 import React from 'react'
+import podcastImage from '../img/podcast-image.jpg';
+
+console.log(podcastImage);
 
 const Podcast = ({ podcastLength, title, podcastDate }) => {
 
    return (
       <div className='podcast'>
          <div className='podcast-controls'>
-            <img className="podcast-image" src="../img/podcast-image.jpg" alt='podcast-img'></img>
+            <img className="podcast-image" src={podcastImage} alt='podcast host'></img>
             <span className="podcast-length">{podcastLength}</span>
             <button className="podcast-play">Play</button>
          </div>
