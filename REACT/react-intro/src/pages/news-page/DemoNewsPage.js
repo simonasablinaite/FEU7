@@ -5,6 +5,7 @@ const DemoNewsPage = () => {
    return (
       <div>
          <MainContainer />
+
       </div>
    )
 }

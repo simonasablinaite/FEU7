@@ -1,11 +1,12 @@
 import React from 'react'
 import MainContent from './MainNews'
+import SidebarContainer from './SidebarContainer'
 
 const MainContainer = () => {
    return (
       <div className='content-wrapper'>
          <MainContent />
-         <div>SIDEBAR CONTENT</div>
+         <SidebarContainer />
       </div>
    )
 }
