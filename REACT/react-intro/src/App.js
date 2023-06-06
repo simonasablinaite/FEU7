@@ -2,6 +2,7 @@ import DemoContactsPage from './pages/contacts-us/DemoContactsPage';
 import DemoNewsPage from './pages/news-page/DemoNewsPage';
 import './pages/news-page/style/style.css';
 import { Routes, Route, Link, NavLink } from 'react-router-dom';
+import Counter from './pages/Counter/Counter';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
           <NavLink className='nav-item' to="/">Home</NavLink>
           <NavLink className='nav-item' to="/contacts">Contacts Page</NavLink>
           <NavLink className='nav-item' to="/news">News Page</NavLink>
+          <NavLink className='nav-item' to="/counter">Counter Page</NavLink>
+
         </nav>
 
         <Routes>
@@ -29,8 +32,9 @@ function App() {
           } />
           <Route path='/contacts' element={<DemoContactsPage />} />
           <Route path='/news' element={<DemoNewsPage />} />
-        </Routes>
+          <Route path='/counter' element={<Counter />} />
 
+        </Routes>
       </header>
     </div>
   );
