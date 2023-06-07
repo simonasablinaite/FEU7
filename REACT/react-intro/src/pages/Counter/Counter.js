@@ -17,12 +17,8 @@ const Counter = () => {
    const initialValue = 5;
    const [count, setCount] = useState(initialValue);
 
-   const minusOne = () => setCount(count - 1);
-   const minusTwo = () => setCount(count - 2);
-   const minusFive = () => setCount(count - 5);
-   const plusOne = () => setCount(count + 1);
-   const plusTwo = () => setCount(count + 2);
-   const plusFive = () => setCount(count + 5);
+   const countButtonHandler = num => setCount(prevState => prevState + num); // cia return privalomas, nes tai kas gris is sitoss funkcijos, turi nueiti i setCount'a. Tik esant vienam parametrui, retun zodelis nerasomas ir nededami garbanoti skliausteliai
+
    const reset = () => setCount(initialValue);
 
    const changedColor = () => {
@@ -56,15 +52,20 @@ const Counter = () => {
 
          <input type="number" max='10' min='1' value={count} onChange={inputHandler} />
 
-         <button onClick={minusOne} disabled={count <= 1}>-1</button>
-         <button onClick={minusTwo} disabled={count <= 2}>-2</button>
-         <button onClick={minusFive} disabled={count <= 5}>-5</button>
+         <button onClick={() => countButtonHandler(-1)} disabled={count <= 1}>-1</button>
+         <button onClick={() => countButtonHandler(-2)} disabled={count <= 2}>-2</button>
+         <button onClick={() => countButtonHandler(-5)} disabled={count <= 5}>-5</button>
          <button onClick={reset}>Reset</button>
-         <button onClick={plusFive} disabled={count >= 6}>+5</button>
-         <button onClick={plusTwo} disabled={count >= 9}>+2</button>
-         <button onClick={plusOne} disabled={count >= 10}>+1</button>
+         <button onClick={() => countButtonHandler(5)} disabled={count >= 6}>+5</button>
+         <button onClick={() => countButtonHandler(2)} disabled={count >= 9}>+2</button>
+         <button onClick={() => countButtonHandler(1)} disabled={count >= 10}>+1</button>
       </div>
    )
 }
 
 export default Counter
+
+
+/*
+Jei redaguojame state ir tas redaguojamas state priklauso nuo buvusio state, tai rasome su callback funkcija ir naudojame prevState pavadinima. 
+*/
