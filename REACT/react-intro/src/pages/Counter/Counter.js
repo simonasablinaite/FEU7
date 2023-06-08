@@ -23,12 +23,12 @@ const Counter = () => {
 
    const reset = () => setCount(initialValue);
 
-   const changedColor = () => {
+   const changedColor = (item) => {
       let displayClassName = '';
 
-      if (count < 4) {
+      if (item < 4) {
          displayClassName = 'red';
-      } else if (count < 7) {
+      } else if (item < 7) {
          displayClassName = 'orange';
       } else {
          displayClassName = 'green';
@@ -50,17 +50,25 @@ const Counter = () => {
 
    const addGradesHandler = () => {
       setGrades(prevState => {
-         const newState = [...prevState] // sukuriama masyvo kopija
-
-         newState.push(count)
+         const newState = [count, ...prevState] // sukuriama masyvo kopija, o panaudojus rest operatoriu, count reiksme pridedama i prieki
          return newState;
       })
+      setCount(initialValue) // graziname i pradine reiksme po pateikimo i lista
+   }
+
+   const deleteHandler = (index) => {
+      setGrades(prevState => {
+         // const newState = prevState.toSpliced(index, 1) // naudojamas naujas metodas toSpliced(). kuris nekeicia seno masyvo, o is karto sukuria seno masyvo kopija
+         // return newState;
+         return prevState.toSpliced(index, 1) // trumpesnis naujo metodo uzrasymo budas
+      })
+
    }
 
    return (
       <>
          <div>
-            <h3 className={changedColor()}>{count}</h3>
+            <h3 className={changedColor(count)}>{count}</h3>
 
             <input type="number" max='10' min='1' value={count} onChange={inputHandler} />
 
@@ -72,7 +80,9 @@ const Counter = () => {
             <button onClick={() => countButtonHandler(2)} disabled={count >= 9}>+2</button>
             <button onClick={() => countButtonHandler(1)} disabled={count >= 10}>+1</button>
 
-            <button onClick={addGradesHandler}>Add grades</button>
+            <button onClick={addGradesHandler}>Add grade</button>
+
+
          </div>
 
          <div className='grades-list-wrapper'>
@@ -82,7 +92,13 @@ const Counter = () => {
             {/* Jei nera grades - masyvas nekuriamas */}
             {grades && grades.length > 0 && (
                <ul>
-                  {grades && grades.map((grade, index) => <li key={index}>{grade}</li>)}
+                  {grades && grades.map((grade, index) => (
+                     <li key={index} className={changedColor(grade)}>
+                        {grade}
+                        <button onClick={deleteHandler}>Delete</button>
+                     </li>
+
+                  ))}
                </ul>
             )}
 
