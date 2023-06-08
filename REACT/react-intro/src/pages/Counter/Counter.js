@@ -16,6 +16,8 @@ const Counter = () => {
 
    const initialValue = 5;
    const [count, setCount] = useState(initialValue);
+   const [grades, setGrades] = useState([]);
+
 
    const countButtonHandler = num => setCount(prevState => prevState + num); // cia return privalomas, nes tai kas gris is sitoss funkcijos, turi nueiti i setCount'a. Tik esant vienam parametrui, retun zodelis nerasomas ir nededami garbanoti skliausteliai
 
@@ -46,22 +48,49 @@ const Counter = () => {
 
    }
 
+   const addGradesHandler = () => {
+      setGrades(prevState => {
+         const newState = [...prevState] // sukuriama masyvo kopija
+
+         newState.push(count)
+         return newState;
+      })
+   }
+
    return (
-      <div>
-         <h3 className={changedColor()}>{count}</h3>
+      <>
+         <div>
+            <h3 className={changedColor()}>{count}</h3>
 
-         <input type="number" max='10' min='1' value={count} onChange={inputHandler} />
+            <input type="number" max='10' min='1' value={count} onChange={inputHandler} />
 
-         <button onClick={() => countButtonHandler(-1)} disabled={count <= 1}>-1</button>
-         <button onClick={() => countButtonHandler(-2)} disabled={count <= 2}>-2</button>
-         <button onClick={() => countButtonHandler(-5)} disabled={count <= 5}>-5</button>
-         <button onClick={reset}>Reset</button>
-         <button onClick={() => countButtonHandler(5)} disabled={count >= 6}>+5</button>
-         <button onClick={() => countButtonHandler(2)} disabled={count >= 9}>+2</button>
-         <button onClick={() => countButtonHandler(1)} disabled={count >= 10}>+1</button>
-      </div>
+            <button onClick={() => countButtonHandler(-1)} disabled={count <= 1}>-1</button>
+            <button onClick={() => countButtonHandler(-2)} disabled={count <= 2}>-2</button>
+            <button onClick={() => countButtonHandler(-5)} disabled={count <= 5}>-5</button>
+            <button onClick={reset}>Reset</button>
+            <button onClick={() => countButtonHandler(5)} disabled={count >= 6}>+5</button>
+            <button onClick={() => countButtonHandler(2)} disabled={count >= 9}>+2</button>
+            <button onClick={() => countButtonHandler(1)} disabled={count >= 10}>+1</button>
+
+            <button onClick={addGradesHandler}>Add grades</button>
+         </div>
+
+         <div className='grades-list-wrapper'>
+            {/* Patikrinama, ar masyvas turscias ar ne */}
+            <h4>{grades && grades.length > 0 ? 'Grades:' : 'No grades'}</h4>
+
+            {/* Jei nera grades - masyvas nekuriamas */}
+            {grades && grades.length > 0 && (
+               <ul>
+                  {grades && grades.map((grade, index) => <li key={index}>{grade}</li>)}
+               </ul>
+            )}
+
+         </div>
+      </>
    )
 }
+
 
 export default Counter
 
