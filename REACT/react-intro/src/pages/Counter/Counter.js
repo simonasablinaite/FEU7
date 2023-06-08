@@ -18,7 +18,6 @@ const Counter = () => {
    const [count, setCount] = useState(initialValue);
    const [grades, setGrades] = useState([]);
 
-
    const countButtonHandler = num => setCount(prevState => prevState + num); // cia return privalomas, nes tai kas gris is sitoss funkcijos, turi nueiti i setCount'a. Tik esant vienam parametrui, retun zodelis nerasomas ir nededami garbanoti skliausteliai
 
    const reset = () => setCount(initialValue);
@@ -81,8 +80,6 @@ const Counter = () => {
             <button onClick={() => countButtonHandler(1)} disabled={count >= 10}>+1</button>
 
             <button onClick={addGradesHandler}>Add grade</button>
-
-
          </div>
 
          <div className='grades-list-wrapper'>
@@ -97,11 +94,9 @@ const Counter = () => {
                         {grade}
                         <button onClick={deleteHandler}>Delete</button>
                      </li>
-
                   ))}
                </ul>
             )}
-
          </div>
       </>
    )
