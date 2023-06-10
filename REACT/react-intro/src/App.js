@@ -3,6 +3,7 @@ import DemoNewsPage from './pages/news-page/DemoNewsPage';
 import './pages/news-page/style/style.css';
 import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import Counter from './pages/Counter/Counter';
+import ShopingList from './pages/Shop-list/ShopingList';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <NavLink className='nav-item' to="/contacts">Contacts Page</NavLink>
           <NavLink className='nav-item' to="/news">News Page</NavLink>
           <NavLink className='nav-item' to="/counter">Counter Page</NavLink>
+          <Link className='nav-item' to='/shoping-list'>Shoping list Page</Link>
 
         </nav>
 
@@ -33,6 +35,7 @@ function App() {
           <Route path='/contacts' element={<DemoContactsPage />} />
           <Route path='/news' element={<DemoNewsPage />} />
           <Route path='/counter' element={<Counter />} />
+          <Route path='/shoping-list' element={<ShopingList />} />
 
         </Routes>
       </header>
