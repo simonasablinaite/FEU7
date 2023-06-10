@@ -10,7 +10,7 @@ const ShopingList = () => {
       },
       {
          title: 'Kiausiniai',
-         done: true
+         done: false
       },
       {
          title: 'Pienas',
@@ -22,40 +22,42 @@ const ShopingList = () => {
       },
       {
          title: 'Sviestas',
-         done: true
+         done: false
       },
    ]
 
    const [items, setItems] = useState(shopingList);
+   const [newListItem, setNewListItem] = useState('');
 
    console.log(shopingList);
    console.log(shopingList[0]);
    console.log(shopingList[1]);
 
-   const addedGoog = (inputValue) => {
-      setItems(prevState => {
-         const newState = [inputValue, ...prevState];
-         return newState
-      })
+   const inputHandler = (event) => {
+      event.preventDefault();
+      console.log(event.target.value);
 
+      setNewListItem('')
    }
 
-   const inputHandler = (event) => {
-      const inputValue = event.target.value;
-      console.log(inputValue);
-      return inputValue;
+   const addedGoog = (event) => {
+      console.log(event.target.value);
+      setNewListItem(event.target.value)
+
    }
 
    return (
 
       <div className="container">
 
-         <form typeof="submit">
+         <form onSubmit={inputHandler}>
             <h1>Shoping list</h1>
-            <input type="text" value={items.value} onChange={inputHandler} />
+
+            <label htmlFor="input-value">Enter good:</label>
+            <input type="text" value={newListItem.value} name='input-value' id="input-value" onChange={inputHandler} />
             <button className="btn" onClick={addedGoog}>Add good</button>
 
-            <h3>{items && items.length > 0 ? 'Goods:' : 'Your shopping list is empty'}</h3>
+            <h2>{items && items.length > 0 ? 'Goods:' : 'Your shopping list is empty'}</h2>
 
             {items && items.length > 0 && (
                <ul className="list">
@@ -63,8 +65,6 @@ const ShopingList = () => {
                      <ShopingItem
                         key={index}
                         goods={item}
-
-
                      />
                   ))}
                </ul>
@@ -78,5 +78,4 @@ const ShopingList = () => {
 
 export default ShopingList
 
-
-// neveikia klases .done uzdejimas;
+// Key paliekamas cia, nes pagal reacto logika, ShopingItem yra pirmas elementas liste, o ne li.
