@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ShopingItem from "./ShopingItem";
 import './shopingList.css'
 
 const ShopingList = () => {
@@ -9,7 +10,7 @@ const ShopingList = () => {
       },
       {
          title: 'Kiausiniai',
-         done: false
+         done: true
       },
       {
          title: 'Pienas',
@@ -21,7 +22,7 @@ const ShopingList = () => {
       },
       {
          title: 'Sviestas',
-         done: false
+         done: true
       },
    ]
 
@@ -46,6 +47,7 @@ const ShopingList = () => {
    }
 
    return (
+
       <div className="container">
 
          <form typeof="submit">
@@ -58,14 +60,23 @@ const ShopingList = () => {
             {items && items.length > 0 && (
                <ul className="list">
                   {items && items.map((item, index) => (
-                     <li key={index}>{item.title}</li>
+                     <ShopingItem
+                        key={index}
+                        goods={item}
+
+
+                     />
                   ))}
                </ul>
             )}
 
          </form>
       </div>
+
    )
 }
 
 export default ShopingList
+
+
+// neveikia klases .done uzdejimas;
