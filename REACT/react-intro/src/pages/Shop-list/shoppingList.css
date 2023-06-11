@@ -40,8 +40,16 @@ input {
   font-weight: 600;
 }
 
+.btn.click {
+  width: 100px;
+  background-color: darkblue;
+}
 .done {
   text-decoration: line-through;
   opacity: 0.5;
   color: black;
+}
+
+.shopping-item {
+  cursor: pointer;
 }
