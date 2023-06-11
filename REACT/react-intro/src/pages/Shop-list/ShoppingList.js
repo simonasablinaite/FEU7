@@ -3,30 +3,30 @@ import ShoppingItem from "./ShoppingItem"
 import './shoppingList.css'
 
 const ShoppingList = () => {
-   const shoppingListData = [
-      {
-         title: 'Duona',
-         done: false
-      },
-      {
-         title: 'Kiausiniai',
-         done: false
-      },
-      {
-         title: 'Pienas',
-         done: false
-      },
-      {
-         title: 'Miltai',
-         done: false
-      },
-      {
-         title: 'Sviestas',
-         done: false
-      },
-   ]
+   // const shoppingListData = [
+   //    {
+   //       title: 'Duona',
+   //       done: false
+   //    },
+   //    {
+   //       title: 'Kiausiniai',
+   //       done: false
+   //    },
+   //    {
+   //       title: 'Pienas',
+   //       done: false
+   //    },
+   //    {
+   //       title: 'Miltai',
+   //       done: false
+   //    },
+   //    {
+   //       title: 'Sviestas',
+   //       done: false
+   //    },
+   // ]
 
-   const [shoppingList, setShoppingList] = useState(shoppingListData)
+   const [shoppingList, setShoppingList] = useState([])
    const [newItem, setNewItem] = useState('');
 
    const newItemHandler = (event) => {
@@ -88,8 +88,6 @@ const ShoppingList = () => {
             <input type="text" id="shopping-item" name="shopping-item" value={newItem} onChange={inputHandler} />
 
             <button className="btn">Add good</button>
-
-            {/* <button className="btn click" onClick={() => itemDoneHandler(0)}> Click</button> */}
          </form>
       </div >
    )
