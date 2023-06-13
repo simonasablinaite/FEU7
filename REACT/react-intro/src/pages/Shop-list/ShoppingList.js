@@ -31,7 +31,6 @@ const ShoppingList = () => {
 
    const newItemHandler = (event) => {
       event.preventDefault();
-      console.log(newItem);
 
       setShoppingList(prevState => {
          const newShoppingItem = {
