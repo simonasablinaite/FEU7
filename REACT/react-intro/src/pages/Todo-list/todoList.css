@@ -1,0 +1,17 @@
+.todo-list-element {
+  background-color: transparent;
+  list-style-type: none;
+  text-align: left;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+input {
+  margin-left: 20px;
+}
