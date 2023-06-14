@@ -1,17 +1,49 @@
-.todo-list-element {
-  background-color: transparent;
-  list-style-type: none;
-  text-align: left;
+.form-control {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 20px;
+  margin-right: 170px;
+}
+
+label {
   font-size: 18px;
   font-style: italic;
   font-weight: 600;
 }
 
-label {
-  font-size: 20px;
-  font-weight: 600;
+.todo-list-wrapper {
+  padding: 20px;
+  margin-top: 50px;
+  background-color: rgb(51, 87, 88);
+  border-radius: 5px;
+  color: white;
 }
 
-input {
-  margin-left: 20px;
+.todo-list {
+  list-style-type: none;
+  margin: 0 40px 0 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 100%;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.todo-list h3 {
+  font-size: 25px;
+}
+
+.todo-list span {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.todo-list textarea {
+  margin-bottom: 20px;
 }
