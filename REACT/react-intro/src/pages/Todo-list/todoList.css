@@ -47,3 +47,9 @@ li {
 .todo-list textarea {
   margin-bottom: 20px;
 }
+
+.todo-btn {
+  width: 215px;
+  margin-top: 20px;
+  margin-left: 220px;
+}

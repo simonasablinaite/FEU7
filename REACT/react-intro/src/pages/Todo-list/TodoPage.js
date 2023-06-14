@@ -60,7 +60,7 @@ const TodoPage = () => {
 
    const [newTitle, setNewTitle] = useState('')
    const [newDescription, setNewDescription] = useState('');
-   const [newdate, setNewDate] = useState('');
+   const [newDate, setNewDate] = useState('');
 
 
    const newTaskHandler = (event) => {
@@ -69,8 +69,13 @@ const TodoPage = () => {
       setTodoList(prevState => {
 
          const newTodoTask = {
-            title: newTask,
-            date: `${year}-${month}-${day}`
+            id: Math.random().toFixed(2),
+            title: newTitle,
+            date: `${year}-${month}-${day}`,
+            description: newDescription,
+            done: false,
+            dueDate: newDate
+
          };
 
          const newState = [newTodoTask, ...prevState];
@@ -89,9 +94,13 @@ const TodoPage = () => {
       console.log('veikia');
    }
 
-   const taskDoneHandler = (id) => {
-      console.log(id);
-   }
+   const taskDoneHandler = id => console.log(id);
+
+   const titleInputHandler = event => setNewTitle(event.target.value);
+
+   const descriptionInputHandler = event => setNewDescription(event.target.value);
+
+   const dateInputHandler = event => setNewDate(event.target.value);
 
    return (
       <div>
@@ -99,16 +108,18 @@ const TodoPage = () => {
          <form onSubmit={newTaskHandler}>
             <div className='form-control'>
                <label htmlFor="todo-title">Title:</label>
-               <input type="text" name='yodo-title' id='title' value={newTitle} />
+               <input type="text" name='yodo-title' id='title' value={newTitle} onChange={titleInputHandler} />
             </div>
             <div className='form-control'>
                <label htmlFor="todo-description">Description:</label>
-               <textarea name="todo-description" id="description" cols="60" rows="4" value={newDescription}></textarea>
+               <textarea name="todo-description" id="description" cols="60" rows="4" value={newDescription} onChange={descriptionInputHandler}></textarea>
             </div>
             <div className='form-control'>
                <label htmlFor="due-date">Due date:</label>
-               <input type="date" name='todo-due-date' id='due-date' />
+               <input type="date" name='todo-due-date' id='due-date' value={newDate} onChange={dateInputHandler} />
             </div>
+
+            <button className='btn todo-btn'>Add task</button>
          </form>
 
          <div className='todo-list-wrapper'>
@@ -117,13 +128,9 @@ const TodoPage = () => {
                   <li key={index}>
 
                      <h3 className='todo-item'>{item.title}, {item.id}</h3>
-
                      <span className='created-data'>{item.date}</span><br />
-
                      <textarea value={newDescription} onChange={textAreaHandler} name="" id="" cols="60" rows="4">Here is task description</textarea>
-
                      <span>{item.dueDate}</span>
-
                      <div className='form-control'>
                         <label htmlFor="done">Task done</label>
                         <input type="checkbox" checked={item.done} onChange={taskChangeHandler} name='done' id='done' />
