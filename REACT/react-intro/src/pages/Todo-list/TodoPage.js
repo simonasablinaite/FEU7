@@ -28,16 +28,12 @@ TODO UŽDUOTIS:
 
 import React from 'react'
 import { useState } from 'react'
+import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import './todoList.css'
 
 
 const TodoPage = () => {
-   const year = new Date().getFullYear();
-   const month = (new Date().getMonth() + 1).toString().padStart(2, '0'); // nurodau, kad menuo butinai turi buti dvizenklis skaicius. Jei yra vienzenklis - pridetu 0 priekyje-
-   const day = (new Date().getDate()).toString().padStart(2, '0');
-
-   const currentDate = `${year}-${month}-${day}`
 
    /*
 Data galima gauti ir vienoje eiluteje:
@@ -65,33 +61,11 @@ const fullDate = new Date().toISOString().splice(0, 10);
    const [todoList, setTodoList] = useState(todoListData);
    const [newTask, setNewTask] = useState('');
 
-   const [newTitle, setNewTitle] = useState('')
-   const [newDescription, setNewDescription] = useState('');
-   const [newDate, setNewDate] = useState('');
-
-
-   const newTaskHandler = (event) => {
-      event.preventDefault();
-
-      setTodoList(prevState => {
-
-         const newTodoTask = {
-            id: Math.random().toFixed(2),
-            title: newTitle,
-            date: currentDate,
-            description: newDescription,
-            done: false,
-            dueDate: newDate
-
-         };
-
-         const newState = [newTodoTask, ...prevState];
-         return newState;
-      })
+   const newTaskHandler = (newTodoTask) => {
+      console.log(newTodoTask);
+      setTodoList(prevState => [newTodoTask, ...prevState])
       setNewTask('')
    }
-
-
 
    const textAreaHandler = (event) => {
       console.log(event.target.value)
@@ -99,34 +73,12 @@ const fullDate = new Date().toISOString().splice(0, 10);
 
    const taskDoneHandler = id => console.log(id);
 
-   const titleInputHandler = event => setNewTitle(event.target.value);
-
-   const descriptionInputHandler = event => setNewDescription(event.target.value);
-
-   const dateInputHandler = event => setNewDate(event.target.value);
-
    return (
       <div>
          <h1>Todos:</h1>
-         <form onSubmit={newTaskHandler}>
-            <div className='form-control'>
-               <label htmlFor="todo-title">Title:</label>
-               <input type="text" name='yodo-title' id='title' value={newTitle} onChange={titleInputHandler} />
-            </div>
-            <div className='form-control'>
-               <label htmlFor="todo-description">Description:</label>
-               <textarea name="todo-description" id="description" cols="60" rows="4" value={newDescription} onChange={descriptionInputHandler}></textarea>
-            </div>
-            <div className='form-control'>
-               <label htmlFor="due-date">Due date:</label>
-               <input type="date" name='todo-due-date' id='due-date' value={newDate} onChange={dateInputHandler} />
-            </div>
-
-            <div className='form-control'>
-               <button className='btn todo-btn'>Add task</button>
-
-            </div>
-         </form>
+         <TodoForm
+            onNewTask={newTaskHandler}
+         />
 
          <TodoList
             todoList={todoList}
