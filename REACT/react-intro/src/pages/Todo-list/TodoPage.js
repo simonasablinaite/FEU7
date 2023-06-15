@@ -45,7 +45,7 @@ const fullDate = new Date().toISOString().splice(0, 10);
          date: '2023-06-11',
          title: 'Todo Page',
          description: 'Description 1',
-         done: true,
+         done: false,
          dueDate: '2023-07-10'
       },
       {

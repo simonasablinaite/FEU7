@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoList = ({ todoList }) => {
+const TodoList = ({ todoList, index }) => {
    return (
 
       <div className='todo-list-wrapper'>
@@ -13,8 +13,13 @@ const TodoList = ({ todoList }) => {
                   {/* <textarea value={newDescription} onChange={textAreaHandler} name="" id="" cols="60" rows="4">Here is task description</textarea> */}
                   <span>{item.dueDate}</span>
                   <div className='form-control'>
-                     <label htmlFor="done">Task done</label>
-                     {/* <input type="checkbox" checked={item.done} onChange={taskChangeHandler} name='done' id='done' /> */}
+                     <label htmlFor={`done-${index}`}>Task done</label>
+                     <input
+                        type="checkbox"
+                        defaultChecked={item.done}
+                        onChange={console.log((item.id))}
+                        name='done'
+                        id={`done-${index}`} />
                   </div>
                </li>
             ))}
