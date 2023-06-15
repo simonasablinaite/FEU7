@@ -33,9 +33,15 @@ import './todoList.css'
 
 const TodoPage = () => {
    const year = new Date().getFullYear();
-   const month = new Date().getMonth() + 1;
-   const day = new Date().getDate();
+   const month = (new Date().getMonth() + 1).toString().padStart(2, '0'); // nurodau, kad menuo butinai turi buti dvizenklis skaicius. Jei yra vienzenklis - pridetu 0 priekyje-
+   const day = (new Date().getDate()).toString().padStart(2, '0');
 
+   const currentDate = `${year}-${month}-${day}`
+
+   /*
+Data galima gauti ir vienoje eiluteje:
+const fullDate = new Date().toISOString().splice(0, 10);
+   */
    const todoListData = [
       {
          id: 1,
@@ -71,7 +77,7 @@ const TodoPage = () => {
          const newTodoTask = {
             id: Math.random().toFixed(2),
             title: newTitle,
-            date: `${year}-${month}-${day}`,
+            date: currentDate,
             description: newDescription,
             done: false,
             dueDate: newDate
@@ -119,7 +125,10 @@ const TodoPage = () => {
                <input type="date" name='todo-due-date' id='due-date' value={newDate} onChange={dateInputHandler} />
             </div>
 
-            <button className='btn todo-btn'>Add task</button>
+            <div className='form-control'>
+               <button className='btn todo-btn'>Add task</button>
+
+            </div>
          </form>
 
          <div className='todo-list-wrapper'>
