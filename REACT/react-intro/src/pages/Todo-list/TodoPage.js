@@ -28,6 +28,7 @@ TODO UŽDUOTIS:
 
 import React from 'react'
 import { useState } from 'react'
+import TodoList from './TodoList';
 import './todoList.css'
 
 
@@ -96,10 +97,6 @@ const fullDate = new Date().toISOString().splice(0, 10);
       console.log(event.target.value)
    }
 
-   const taskChangeHandler = () => {
-      console.log('veikia');
-   }
-
    const taskDoneHandler = id => console.log(id);
 
    const titleInputHandler = event => setNewTitle(event.target.value);
@@ -131,23 +128,9 @@ const fullDate = new Date().toISOString().splice(0, 10);
             </div>
          </form>
 
-         <div className='todo-list-wrapper'>
-            <ul className='todo-list'>
-               {todoList && todoList.map((item, index) => (
-                  <li key={index}>
-
-                     <h3 className='todo-item'>{item.title}, {item.id}</h3>
-                     <span className='created-data'>{item.date}</span><br />
-                     <textarea value={newDescription} onChange={textAreaHandler} name="" id="" cols="60" rows="4">Here is task description</textarea>
-                     <span>{item.dueDate}</span>
-                     <div className='form-control'>
-                        <label htmlFor="done">Task done</label>
-                        <input type="checkbox" checked={item.done} onChange={taskChangeHandler} name='done' id='done' />
-                     </div>
-                  </li>
-               ))}
-            </ul>
-         </div>
+         <TodoList
+            todoList={todoList}
+         />
       </div>
    )
 }
