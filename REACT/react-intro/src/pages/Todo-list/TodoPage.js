@@ -41,7 +41,7 @@ const fullDate = new Date().toISOString().splice(0, 10);
    */
    const todoListData = [
       {
-         id: 1,
+         id: Math.random(),
          date: '2023-06-11',
          title: 'Todo Page',
          description: 'Description 1',
@@ -49,7 +49,7 @@ const fullDate = new Date().toISOString().splice(0, 10);
          dueDate: '2023-07-10'
       },
       {
-         id: 2,
+         id: Math.random(),
          date: '2023-06-11',
          title: 'Task 2',
          description: 'Description 2',
@@ -67,11 +67,10 @@ const fullDate = new Date().toISOString().splice(0, 10);
       setNewTask('')
    }
 
-   const textAreaHandler = (event) => {
-      console.log(event.target.value)
+   const taskDoneHandler = id => {
+      console.log(id);
+      console.log(todoList);
    }
-
-   const taskDoneHandler = id => console.log(id);
 
    return (
       <div>
@@ -82,6 +81,7 @@ const fullDate = new Date().toISOString().splice(0, 10);
 
          <TodoList
             todoList={todoList}
+            onTaskDone={taskDoneHandler}
          />
       </div>
    )

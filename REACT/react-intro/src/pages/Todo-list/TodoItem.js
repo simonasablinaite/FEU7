@@ -1,16 +1,17 @@
 import React from 'react'
 
 const TodoItem = ({ index, item }) => {
+
    return (
       <div className='todo-item'>
-         <li key={index}>
+         <li>
 
             <h3 className='todo-item'>{item.title}, {item.id}</h3>
             <span className='created-data'>{item.date}</span><br />
             {/* <textarea value={newDescription} onChange={textAreaHandler} name="" id="" cols="60" rows="4">Here is task description</textarea> */}
             <span>{item.dueDate}</span>
             <div className='form-control'>
-               <label htmlFor={`done-${index}`}>Task done</label>
+               <label htmlFor={`done-${item.id}`}>Task done</label>
                <input
                   type="checkbox"
                   defaultChecked={item.done}
