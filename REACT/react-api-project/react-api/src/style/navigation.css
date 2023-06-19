@@ -10,6 +10,7 @@
 .nav-item {
   color: rgb(81, 81, 251);
   text-decoration: none;
+  margin-left: 30px;
 }
 
 .nav-item:hover {

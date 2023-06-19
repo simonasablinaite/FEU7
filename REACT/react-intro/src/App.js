@@ -7,7 +7,6 @@ import ShoppingList from './pages/Shop-list/ShoppingList';
 import TodoPage from './pages/Todo-list/TodoPage';
 import './App.css'
 
-
 function App() {
   return (
     <div className="main-content">
