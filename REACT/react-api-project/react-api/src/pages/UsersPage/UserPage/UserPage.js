@@ -20,6 +20,7 @@ const UserPage = () => {
    if (!user) {
       return '';
    }
+
    return (
       <div>
          <h1>{user.name} info:</h1>

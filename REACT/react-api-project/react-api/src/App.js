@@ -9,8 +9,8 @@ function App() {
     <div className="container">
       <div className="navigation">
         <nav>
-          <NavLink className='nav-item' to='/users'>Users Page</NavLink>
-          <NavLink className='nav-item' to='/posts'>Posts Page</NavLink>
+          <NavLink className='nav-item' to='/json/users'>Users Page</NavLink>
+          <NavLink className='nav-item' to='/json/posts'>Posts Page</NavLink>
 
         </nav>
       </div>
@@ -20,9 +20,9 @@ function App() {
           <h1>Home page</h1>
         } />
 
-        <Route path='/users' element={<UsersPage />} />
-        <Route path='/users/:id' element={<UserPage />} />
-        <Route path='/posts' element={<PostsPage />} />
+        <Route path='/json/users' element={<UsersPage />} />
+        <Route path='/json/users/:id' element={<UserPage />} />
+        <Route path='/json/posts' element={<PostsPage />} />
 
         <Route path='*' element={
           <div>
