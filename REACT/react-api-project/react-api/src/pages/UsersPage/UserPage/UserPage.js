@@ -7,10 +7,11 @@ const UserPage = () => {
 
    const { id } = useParams();
 
-   const [user, setUser] = useState(null)
+   const [user, setUser] = useState({})
+   console.log(useState(user));
 
    useEffect(() => {
-      fetch(`${API_URL}/users/${id}`)
+      fetch(`${API_URL}/users/${id}?_embed=posts`)
          .then(res => res.json())
          .then(data => {
             setUser(data);

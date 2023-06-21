@@ -23,7 +23,12 @@ const PostsPage = () => {
 
          <div className='posts-wrapper'>
             <ul>
-               {posts.map(post => <li key={post.id}><Link to={'/json/posts/' + post.id}>{post.title}</Link></li>)}
+               {posts.map(post => (
+                  <li key={post.id}>
+                     <Link to={'/json/posts/' + post.id}>{post.title}
+                     </Link>
+                  </li>
+               ))}
             </ul>
          </div>
       </div>

@@ -98,6 +98,7 @@ const UsersPage = () => {
 
   const [users, setUsers] = useState([]);
 
+
   // Duomenu gavimas is API:
   useEffect(() => {
     fetch(API_URL + '/users') // importuojamas url is config f-lo;
@@ -111,8 +112,12 @@ const UsersPage = () => {
     <div>
       <h1>Users:</h1>
       <ul>
-        {users.map((user) => (
-          <li key={user.id}><Link to={`/json/users/${user.id}`}>{user.name}</Link></li>))}
+        {users.map(user => (
+          <li key={user.id}>
+            <Link to={`/json/users/${user.id}`}>
+              {user.id}. {user.name}
+            </Link>
+          </li>))}
       </ul>
     </div>
   )

@@ -3,6 +3,7 @@ import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import './style/navigation.css';
 import UserPage from "./pages/UsersPage/UserPage/UserPage";
 import PostsPage from "./pages/PostsPage/PostsPage";
+import PostPage from "./pages/PostsPage/PostPage/PostPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/json/users' element={<UsersPage />} />
         <Route path='/json/users/:id' element={<UserPage />} />
         <Route path='/json/posts' element={<PostsPage />} />
+        <Route path='/json/posts/:id' element={<PostPage />} />
 
         <Route path='*' element={
           <div>
