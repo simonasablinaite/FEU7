@@ -4,6 +4,7 @@ import './style/navigation.css';
 import UserPage from "./pages/UsersPage/UserPage/UserPage";
 import PostsPage from "./pages/PostsPage/PostsPage";
 import PostPage from "./pages/PostsPage/PostPage/PostPage";
+import CreatePost from "./pages/CreatePost/CreatePost";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/json/users/:id' element={<UserPage />} />
         <Route path='/json/posts' element={<PostsPage />} />
         <Route path='/json/posts/:id' element={<PostPage />} />
+        <Route path='/json/create-post' element={<CreatePost />} />
 
         <Route path='*' element={
           <div>

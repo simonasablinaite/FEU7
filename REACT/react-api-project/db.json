@@ -20,12 +20,6 @@
     },
     {
       "userId": 1,
-      "id": 4,
-      "title": "eum et est occaecati",
-      "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
-    },
-    {
-      "userId": 1,
       "id": 6,
       "title": "dolorem eum magni eos aperiam quia",
       "body": "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae"
@@ -569,6 +563,12 @@
       "id": 100,
       "title": "at nam consequatur ea labore ea harum",
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
+    },
+    {
+      "title": "Naujas Postas",
+      "body": "Posto aprasymas",
+      "userId": 9,
+      "id": 101
     }
   ],
   "albums": [
@@ -1305,6 +1305,13 @@
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
       }
+    },
+    {
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "id": 12
     }
   ],
   "comments": [
@@ -1412,41 +1419,6 @@
       "name": "debitis magnam hic odit aut ullam nostrum tenetur",
       "email": "Maynard.Hodkiewicz@roberta.com",
       "body": "nihil ut voluptates blanditiis autem odio dicta rerum\nquisquam saepe et est\nsunt quasi nemo laudantium deserunt\nmolestias tempora quo quia"
-    },
-    {
-      "postId": 4,
-      "id": 16,
-      "name": "perferendis temporibus delectus optio ea eum ratione dolorum",
-      "email": "Christine@ayana.info",
-      "body": "iste ut laborum aliquid velit facere itaque\nquo ut soluta dicta voluptate\nerror tempore aut et\nsequi reiciendis dignissimos expedita consequuntur libero sed fugiat facilis"
-    },
-    {
-      "postId": 4,
-      "id": 17,
-      "name": "eos est animi quis",
-      "email": "Preston_Hudson@blaise.tv",
-      "body": "consequatur necessitatibus totam sed sit dolorum\nrecusandae quae odio excepturi voluptatum harum voluptas\nquisquam sit ad eveniet delectus\ndoloribus odio qui non labore"
-    },
-    {
-      "postId": 4,
-      "id": 18,
-      "name": "aut et tenetur ducimus illum aut nulla ab",
-      "email": "Vincenza_Klocko@albertha.name",
-      "body": "veritatis voluptates necessitatibus maiores corrupti\nneque et exercitationem amet sit et\nullam velit sit magnam laborum\nmagni ut molestias"
-    },
-    {
-      "postId": 4,
-      "id": 19,
-      "name": "sed impedit rerum quia et et inventore unde officiis",
-      "email": "Madelynn.Gorczany@darion.biz",
-      "body": "doloribus est illo sed minima aperiam\nut dignissimos accusantium tempore atque et aut molestiae\nmagni ut accusamus voluptatem quos ut voluptates\nquisquam porro sed architecto ut"
-    },
-    {
-      "postId": 4,
-      "id": 20,
-      "name": "molestias expedita iste aliquid voluptates",
-      "email": "Mariana_Orn@preston.org",
-      "body": "qui harum consequatur fugiat\net eligendi perferendis at molestiae commodi ducimus\ndoloremque asperiores numquam qui\nut sit dignissimos reprehenderit tempore"
     },
     {
       "postId": 6,

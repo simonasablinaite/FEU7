@@ -40,6 +40,7 @@ const PostsPage = () => {
          <Button onClick={createPost}>Create Post</Button>
 
          <div className='posts-wrapper'>
+            <Link to='/json/create-post'>Create new post</Link>
             <ul>
                {posts.map(post => (
                   <li key={post.id}>
