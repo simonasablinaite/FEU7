@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import '../../style/button.css'
 
 import styled from 'styled-components'
 
@@ -37,10 +38,10 @@ const PostsPage = () => {
    return (
       <div>
          <h1>Posts:</h1>
-         <Button onClick={createPost}>Create Post</Button>
+         <Button onClick={createPost}>Get Post</Button>
 
          <div className='posts-wrapper'>
-            <Link to='/json/create-post'>Create new post</Link>
+            <button className='post-btn'><Link className='post-link' to='/json/create-post'>Create new post</Link></button>
             <ul>
                {posts.map(post => (
                   <li key={post.id}>

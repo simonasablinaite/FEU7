@@ -1,0 +1,13 @@
+.post-btn {
+  padding: 10px;
+  background-color: blue;
+  font-size: px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-link {
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+}

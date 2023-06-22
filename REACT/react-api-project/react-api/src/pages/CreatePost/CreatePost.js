@@ -19,29 +19,32 @@ const CreatePost = () => {
    const newPostHandler = (event) => {
       event.preventDefault();
 
-      fetch(`${API_URL}/posts`, {
-         method: 'POST',
-         body: JSON.stringify({
-            title,
-            body,
-            userId: +user,
-         }),
-         headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-         },
-      })
-         .then((response) => response.json())
-         .then((json) => console.log(json));
+      // fetch(`${API_URL}/posts`, {
+      //    method: 'POST',
+      //    body: JSON.stringify({
+      //       title,
+      //       body,
+      //       userId: +user,
+      //    }),
+      //    headers: {
+      //       'Content-type': 'application/json; charset=UTF-8',
+      //    },
+      // })
+      //    .then((response) => response.json())
+      //    .then((json) => console.log(json));
+
+
+      // AXIOS:
+      axios.post(`${API_URL}/posts`, {
+         title: title,
+         body: body,
+         userId: +user,
+      }).then(res => console.log(res.data));
    }
-
-
 
    const titleHandler = event => setTitle(event.target.value);
    const bodyHandler = event => setBody(event.target.value);
    const userHandler = event => setUser(event.target.value);
-
-
-
 
    return (
 
