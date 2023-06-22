@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { API_URL } from '../../../config';
 
@@ -15,15 +15,25 @@ const PostPage = () => {
    }, [id])
 
    const deletePostHandler = () => {
-      fetch(`${API_URL}/posts/${id}`, { method: 'DELETE' }) // puslapis ismeta klaida, kad nebera toko posto (status code 404)
-         .then(res => res.json())
-         .then(data => setPostDelete(true))
+      // fetch(`${API_URL}/posts/${id}`, { method: 'DELETE' }) // puslapis ismeta klaida, kad nebera toko posto (status code 404)
+      //    .then(res => res.json())
+      //    .then(data => setPostDelete(true))  // budas su iprastu fetchu
+
+      axios.delete(`${API_URL}/posts/${id}`)
+         .then(data => {
+            setPostDelete(true) // budas su AXIOS
+         })
    }
 
    return (
 
       <div>
-         {postDelete ? <h1>Post was deleted</h1> : (
+         {postDelete ? (
+            <>
+               <h1>Post was deleted</h1>
+               <Link to='/json/posts'>Go back to posts list</Link>
+            </>
+         ) : (
             post && (
                <>
                   <h1>{post.title}</h1>
@@ -33,7 +43,6 @@ const PostPage = () => {
                   <div className='delete-wrapper' style={{ marginTop: '20px' }}>
                      <button onClick={deletePostHandler}>Delete Post</button>
                   </div>
-
                </>
             )
          )}
