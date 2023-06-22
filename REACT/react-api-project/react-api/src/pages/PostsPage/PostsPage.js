@@ -1,6 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
+import styled from 'styled-components'
+
+const Button = styled.button`
+background-color: #74c002;
+border: 2px solid hotpink;
+padding: 10px;
+border-radius: 5px;
+color: white;
+cursor: pointer;
+
+&:hover {
+   background-color: #2dd22d;
+   border: 2px solid #bb0b28;
+   font-size: 15px;
+
+}
+`;
+
 const PostsPage = () => {
 
    const [posts, setPosts] = useState([]);
@@ -19,7 +37,7 @@ const PostsPage = () => {
    return (
       <div>
          <h1>Posts:</h1>
-         <button onClick={createPost}>Create Post</button>
+         <Button onClick={createPost}>Create Post</Button>
 
          <div className='posts-wrapper'>
             <ul>

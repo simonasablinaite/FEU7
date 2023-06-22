@@ -6,24 +6,37 @@ import { API_URL } from '../../../config';
 const PostPage = () => {
    const { id } = useParams();
 
-   const [post, setPost] = useState(null)
+   const [post, setPost] = useState(null);
+   const [postDelete, setPostDelete] = useState(false);
 
    useEffect(() => {
       axios.get(`${API_URL}/posts/${id}?_expand=user`)
          .then(res => setPost(res.data))
    }, [id])
 
+   const deletePostHandler = () => {
+      fetch(`${API_URL}/posts/${id}`, { method: 'DELETE' }) // puslapis ismeta klaida, kad nebera toko posto (status code 404)
+         .then(res => res.json())
+         .then(data => setPostDelete(true))
+   }
+
    return (
 
       <div>
-         {post && (
-            <>
-               <h1>{post.title}</h1>
-               <p>{post.body}</p>
-               <span>Author: {post.user.name}</span>
-            </>
-         )}
+         {postDelete ? <h1>Post was deleted</h1> : (
+            post && (
+               <>
+                  <h1>{post.title}</h1>
+                  <p>{post.body}</p>
+                  <span>Author: {post.user.name}</span>
 
+                  <div className='delete-wrapper' style={{ marginTop: '20px' }}>
+                     <button onClick={deletePostHandler}>Delete Post</button>
+                  </div>
+
+               </>
+            )
+         )}
       </div>
    )
 }
