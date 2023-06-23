@@ -38,7 +38,13 @@ const EditPost = () => {
 
    const editPostHandler = (event) => {
       event.preventDefault();
-      console.log('veikia');
+
+      axios.put(`${API_URL}/posts/${id}`, {
+         id,
+         title,
+         body,
+         userid: +user,
+      }).then(res => console.log(res.data))
    }
 
 
