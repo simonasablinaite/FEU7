@@ -1,0 +1,33 @@
+@use './main/variables.scss';
+
+header {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   background-color: variables.$header-bg-color;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+
+
+      nav {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr) 1fr 1fr repeat(3, 1fr);
+         gap: 20px;
+         justify-content: center;
+         color: variables.$main-text-color;
+         align-items: center;
+         padding: 30px;
+
+            a {
+               display: flex;
+               flex-direction: row;
+               justify-content: center;
+               color: variables.$main-text-color;
+               text-decoration: none;
+               text-transform: uppercase;
+               font-weight: 600;
+               cursor: pointer;
+
+            }
+      }
+} 
