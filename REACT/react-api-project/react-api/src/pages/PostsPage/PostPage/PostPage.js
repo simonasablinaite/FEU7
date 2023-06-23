@@ -42,6 +42,7 @@ const PostPage = () => {
 
                   <div className='delete-wrapper' style={{ marginTop: '20px' }}>
                      <button onClick={deletePostHandler}>Delete Post</button>
+                     <Link to={`/json/edit-post/${post.id}`}>Edit post</Link>
                   </div>
                </>
             )
