@@ -8,12 +8,11 @@ const personalCode = 37878787878;
 const city = 'Kaunas';
 
 let asmensInformacija = name + ' ' + lastName + ' (amžius ' + age + ' m.), asmens kodas: ' + personalCode + ', gyvenamasis miestas: ' + city + '.';
-console.log(asmensInformacija);
 
+console.log(asmensInformacija);
 console.log(name + " " + lastName + " (amžius " + age + " m.), asmens kodas: " + personalCode + ", gyvenamasis miestas: " + city + ".");
 console.log(name + ` ` + lastName + ` (amžius ` + age + ` m.), asmens kodas: ` + personalCode + `, gyvenamasis miestas: ` + city + `.`);
 console.log(`${name}​ ${lastName}​ (amžius ${age}​ m.), asmens kodas: ${personalCode}​, gyvenamasis miestas: ${city}​.`);
-
 
 // John said: "Good morning".
 console.log('John said: "Good morning".');

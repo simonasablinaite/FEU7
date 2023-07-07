@@ -29,7 +29,7 @@
     "students": "nodemon ./tasks/students.js",
     "password": "nodemon ./tasks/password.js",
     "personAge": "nodemon ./tasks/personAge.js",
-    "sentences": "nodemon ./tasks/sentences.js",
+    "sentences": "nodemon ./tasks/001-sentences.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
