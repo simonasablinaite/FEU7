@@ -9,14 +9,6 @@
 
    <link rel="stylesheet" href="./style.css">
 
-   <style>
-      form {
-         width: 150px;
-         display: grid;
-         grid-template-columns: 1fr;
-         gap: 10px;
-      }
-   </style>
 </head>
 
 <body>
@@ -33,101 +25,6 @@ Sukurti kontaktų formą.
     7. Radio tipo laukeliai, kuriuose pasirenkamas grupės numeris. Turi būti galimybė pasirinkti grupes nuo FEU 1gr. iki FEU 7gr.
     8. Šalia kiekvieno įvesties (input) elemento, pridėti label elementą, kuris žymi laukelio pavadinimą.
 */ -->
-
-
-
-   <form id="student-form" novalidate>
-      <div class="form-control">
-         <label for="name">Name:</label>
-         <input type="text" id="name" name="name" value="Angelina" required>
-      </div>
-
-      <div class="form-control">
-         <label for="last-name">Last name:</label>
-         <input type="text" id="last-name" name="last-name" value="Jolie" required>
-      </div>
-
-      <div class="form-control">
-         <label for="age">Age:</label>
-         <input type="number" id="age" name="age" value="30" required>
-      </div>
-
-      <div class="form-control">
-         <label for="phone">Phone:</label>
-         <input type="tel" id="phone" name="phone" value="123456789" required>
-      </div>
-
-      <div class="form-control">
-         <label for="email">Email:</label>
-         <input type="email" id="email" name="email" value="angelina@angelina.com" required>
-      </div>
-
-      <div>
-         <label for="itKnowledge">IT knowledge </label>
-         <input type="range" id="rangeInput" name="itKnowledge" min="1" max="10" value="1"
-            oninput="amount.value=rangeInput.value">
-
-         <output id="amount" name="amount" for="rangeInput">0</output>
-      </div>
-
-      <div class="groups">
-         <fieldset>
-            <legend>Groups:</legend>
-            <div>
-               <input type="radio" id="group-1" name="group" value="FEU 1gr.">
-               <label for="group-1">FEU 1gr</label>
-            </div>
-            <div>
-               <input type="radio" id="group-2" name="group" value="FEU 2gr.">
-               <label for="group-2">FEU 2gr</label>
-            </div>
-            <div>
-               <input type="radio" id="group-3" name="group" value="FEU 3gr.">
-               <label for="group-3">FEU 3gr</label>
-            </div>
-            <div>
-               <input type="radio" id="group-4" name="group" value="FEU 4gr.">
-               <label for="group-4">FEU 4gr</label>
-            </div>
-            <div>
-               <input type="radio" id="group-5" name="group" value="FEU 5gr.">
-               <label for="group-5">FEU 5gr</label>
-            </div>
-            <div>
-               <input type="radio" id="group-6" name="group" value="FEU 6gr.">
-               <label for="group-6">FEU 6gr</label>
-            </div>
-            <div>
-               <input type="radio" id="group-7" name="group" value="FEU 7gr.">
-               <label for="group-7">FEU 7gr</label>
-            </div>
-         </fieldset>
-      </div>
-
-      <div class="Interests">
-         <fieldset>
-            <legend>Interests:</legend>
-            <div>
-               <input type="checkbox" id="interest-1" name="interests" value="JavaScript" required>
-               <label for="group-1">JavaScript</label>
-            </div>
-            <div>
-               <input type="checkbox" id="interest-2" name="interests" value="PHP">
-               <label for="group-2">PHP</label>
-            </div>
-            <div>
-               <input type="checkbox" id="interest-3" name="interests" value="Java">
-               <label for="group-3">Java</label>
-         </fieldset>
-      </div>
-
-      <button class="submit" type="submit" id="student-form-submit">Submit</button>
-   </form>
-
-   <span id="alert-msg"></span>
-
-   <div id="students-list"></div>
-
 
    <script src="./tasks/forms.js"></script>
 </body>
