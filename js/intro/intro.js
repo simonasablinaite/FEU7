@@ -82,9 +82,7 @@ console.log(num1 + num3 * num3);
 console.log(num1 + '10' * '10');
 console.log(22 + 100);
 console.log(122);
-*/
 
-/*
 Dar vienas analizės pavyzdys:
 
 console.log((num1 + num3) * num3);
