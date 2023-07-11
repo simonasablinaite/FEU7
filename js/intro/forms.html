@@ -7,7 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Forms</title>
 
-   <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="./form.css">
 
 </head>
 
@@ -26,7 +26,74 @@ Sukurti kontaktų formą.
     8. Šalia kiekvieno įvesties (input) elemento, pridėti label elementą, kuris žymi laukelio pavadinimą.
 */ -->
 
-   <script src="./tasks/forms.js"></script>
+   <form>
+      <div class="form-control">
+         <label for="user-name">Enter your Name:</label>
+         <input type="name" id="user-name">
+      </div>
+
+      <div class="form-control">
+         <label for="last-name">Enter your lastname:</label>
+         <input type="last-name" id="last-name">
+      </div>
+
+      <div class="form-control">
+         <label for="age">Enter your age:</label>
+         <input type="number" id="age">
+      </div>
+
+      <div class="form-control">
+         <label for="phone">Enter your phone:</label>
+         <input type="number" id="phone">
+      </div>
+
+      <div class="form-control">
+         <label for="email">Enter your email:</label>
+         <input type="text" id="email">
+      </div>
+
+      <div class="range-wrap">
+         <input type="range" class="range" min="1" max="10" step="1">
+         <output class="bubble"></output>
+      </div>
+
+      <fieldset>
+         <legend>Select group:</legend>
+
+         <div class="select-form-control">
+            <input type="radio" name="group" id="feu-1">
+            <label for="feu-1">FEU-1</label>
+         </div>
+         <div class="select-form-control">
+            <input type="radio" name="group" id="feu-2">
+            <label for="feu-2">FEU-2</label>
+         </div>
+         <div class="select-form-control">
+            <input type="radio" name="group" id="feu-3">
+            <label for="feu-3">FEU-3</label>
+         </div>
+         <div class="select-form-control">
+            <input type="radio" name="group" id="feu-4">
+            <label for="feu-4">FEU-4</label>
+         </div>
+         <div class="select-form-control">
+            <input type="radio" name="group" id="feu-5">
+            <label for="feu-5">FEU-5</label>
+         </div>
+         <div class="select-form-control">
+            <input type="radio" name="group" id="feu-6">
+            <label for="feu-6">FEU-6</label>
+         </div>
+         <div class="select-form-control">
+            <input type="radio" name="group" id="feu-7">
+            <label for="feu-7">FEU-7</label>
+         </div>
+
+      </fieldset>
+
+   </form>
+
+   <script src="./tasks/008-forms.js"></script>
 </body>
 
 </html>
