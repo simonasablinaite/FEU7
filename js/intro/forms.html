@@ -26,73 +26,73 @@ Sukurti kontaktų formą.
     8. Šalia kiekvieno įvesties (input) elemento, pridėti label elementą, kuris žymi laukelio pavadinimą.
 */ -->
 
-   <form>
+   <form id="student-form">
       <div class="form-control">
-         <label for="user-name">Enter your Name:</label>
-         <input type="name" id="user-name">
+         <label for="student-name">Name:</label>
+         <input type="text" name="name" id="student-name" placeholder="Enter your name here...">
       </div>
 
       <div class="form-control">
-         <label for="last-name">Enter your lastname:</label>
-         <input type="last-name" id="last-name">
+         <label for="student-surname">Surname:</label>
+         <input type="text" name="surname" id="student-surname" placeholder="Enter your surname here..">
       </div>
 
       <div class="form-control">
-         <label for="age">Enter your age:</label>
-         <input type="number" id="age">
+         <label for="age">Age:</label>
+         <input type="number" name="student-age" id="age" placeholder="Enter your age here...">
       </div>
 
       <div class="form-control">
-         <label for="phone">Enter your phone:</label>
-         <input type="number" id="phone">
+         <label for="student-phone">Phone:</label>
+         <input type="tel" name="phone" id="student-phone" placeholder="Enter your phone here...">
       </div>
 
       <div class="form-control">
-         <label for="email">Enter your email:</label>
-         <input type="text" id="email">
+         <label for="student-email">Email:</label>
+         <input type="email" id="email" name="student-email" placeholder="Enter your email here...">
       </div>
 
       <div class="range-wrap">
-         <input type="range" class="range" min="1" max="10" step="1">
+         <label for="student-ITknowledge">IT knowledge:</label>
+         <input type="range" id="ITknowledge" name="student-ITknowledge" min="1" max="10" step="1">
          <output class="bubble"></output>
       </div>
 
       <fieldset>
-         <legend>Select group:</legend>
+         <legend>Group:</legend>
 
          <div class="select-form-control">
-            <input type="radio" name="group" id="feu-1">
+            <input type="radio" name="group" id="feu-1" value="feu-1">
             <label for="feu-1">FEU-1</label>
          </div>
          <div class="select-form-control">
-            <input type="radio" name="group" id="feu-2">
+            <input type="radio" name="group" id="feu-2" value="feu-2">
             <label for="feu-2">FEU-2</label>
          </div>
          <div class="select-form-control">
-            <input type="radio" name="group" id="feu-3">
+            <input type="radio" name="group" id="feu-3" value="feu-3">
             <label for="feu-3">FEU-3</label>
          </div>
          <div class="select-form-control">
-            <input type="radio" name="group" id="feu-4">
+            <input type="radio" name="group" id="feu-4" value="feu-4">
             <label for="feu-4">FEU-4</label>
          </div>
          <div class="select-form-control">
-            <input type="radio" name="group" id="feu-5">
+            <input type="radio" name="group" id="feu-5" value="feu-5">
             <label for="feu-5">FEU-5</label>
          </div>
          <div class="select-form-control">
-            <input type="radio" name="group" id="feu-6">
+            <input type="radio" name="group" id="feu-6" value="feu-6">
             <label for="feu-6">FEU-6</label>
          </div>
          <div class="select-form-control">
-            <input type="radio" name="group" id="feu-7">
+            <input type="radio" name="group" id="feu-7" value="feu-7">
             <label for="feu-7">FEU-7</label>
          </div>
-
       </fieldset>
 
+      <button type="submit">Create student</button>
    </form>
-
    <script src="./tasks/008-forms.js"></script>
 </body>
 

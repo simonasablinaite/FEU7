@@ -83,23 +83,27 @@ SEPTINTA UŽDUOTIS:
 
 */
 
-// Range inputo reiksmes atvaizdavimas:
+// Paselektinu forma ir jos elementus:
+const studentForm = document.querySelector('#student-form');
 
-const range = document.querySelector('.range');
-const bubble = document.querySelector('.bubble');
+// Tam, kad matyti visa formoje esancia informacija, eventas iskvieciamas formai, o ne mygtukui. Forma turi tureti papildoma eventa "submit".
+studentForm.addEventListener('submit', event => {
+    event.preventDefault();
+    // console.log(event);
+    // console.log(event.target);
 
-range.addEventListener('input', () => {
-    setBubble(range, bubble)
-});
-setBubble(range, bubble);
+    const form = event.target;
 
-function setBubble(range, bubble) {
-    const val = range.value;
-    const min = range.min ? range.min : 1;
-    const max = range.max ? range.max : 10;
-    const newVal = Number(((val - min) * 10) / (max - min));
+    // budai pasiekti norimo elemento value:
+    // const studentName = document.querySelector('#student-name').value;
+    // const studentName = document.getElementById('student-name').value;
+    // const studentName = document.getElementsByName('name')[0].value;
+    // const studentName = document.querySelector('[name="name"]').value;
+    // const studentName = form.querySelector('[name="name"]').value;
 
-    bubble.innerHTML = val;
+    // const studentName = event.target.elements.name.value;
+    const studentName = event.target.name.value;
+    console.dir(studentName);
+})
 
-    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
-}
+
