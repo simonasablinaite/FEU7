@@ -83,10 +83,11 @@ SEPTINTA UŽDUOTIS:
 
 */
 
-// Paselektinu forma ir jos elementus:
+// Paselektinama forma ir jos elementai:
 const studentForm = document.querySelector('#student-form');
 
-// Tam, kad matyti visa formoje esancia informacija, eventas iskvieciamas formai, o ne mygtukui. Forma turi tureti papildoma eventa "submit".
+// Tam, kad matyti visa formoje esancia informacija, eventas iskvieciamas formai, o ne mygtukui. Forma turi tureti papildoma eventa "submit":
+
 studentForm.addEventListener('submit', event => {
     event.preventDefault();
     // console.log(event);
@@ -94,16 +95,80 @@ studentForm.addEventListener('submit', event => {
 
     const form = event.target;
 
-    // budai pasiekti norimo elemento value:
-    // const studentName = document.querySelector('#student-name').value;
-    // const studentName = document.getElementById('student-name').value;
-    // const studentName = document.getElementsByName('name')[0].value;
-    // const studentName = document.querySelector('[name="name"]').value;
-    // const studentName = form.querySelector('[name="name"]').value;
+    // surenkama visu inputu informacija i konsole:
+    const name = form.name.value;
+    const surname = form.surname.value;
+    const age = form.age.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const ITknowledge = form.ITknowledge.value;
+    const group = form.group.value;
 
-    // const studentName = event.target.elements.name.value;
-    const studentName = event.target.name.value;
-    console.dir(studentName);
+    console.log(name);
+    console.log(surname);
+    console.log(age);
+    console.log(phone);
+    console.log(email);
+    console.log(ITknowledge);
+    console.log(group);
+
+    // paselektinamas students listas is HTML'o
+    const studentsList = document.querySelector('#students-list');
+
+    // Sukuriamas naujas div elementas ir jam priskiriama klase "student-item"
+    const studentItem = document.createElement('div');
+    studentItem.classList.add('student-item');
+
+    // I studentItem elementa pridedama studento informacija:
+    const listTitle = document.createElement('h1');
+    listTitle.textContent = `New student ${name}`;
+
+    const nameElement = document.createElement('p');
+    nameElement.innerHTML = `<b>Name:</b> ${name}`;
+
+    const surnameElement = document.createElement('p');
+    surnameElement.innerHTML = `<b>Surname:</b> ${surname}`;
+
+    const ageElement = document.createElement('p');
+    ageElement.innerHTML = `<b>Age:</b> ${age}`;
+
+    const phoneElement = document.createElement('p');
+    phoneElement.innerHTML = `<b>Phone number:</b> ${phone}`;
+
+    const emailElement = document.createElement('p');
+    emailElement.innerHTML = `<b>Email address:</b> ${email}`;
+
+    const ITknowledgeElement = document.createElement('p');
+    ITknowledgeElement.innerHTML = `<b>IT knowledge:</b> ${ITknowledge}`;
+
+    const groupElement = document.createElement('p');
+    groupElement.innerHTML = `<b>Group:</b> ${group}`;
+
+    // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
+    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement);
+
+
+    // Prependinu studentItem i students lista kas karta, kai submitinama forma.
+    studentsList.prepend(studentItem);
+
+
+
+
 })
 
+
+
+/*
+KONSPEKTAI IR PAPILDOMA INFO:
+Kiti budai pasiekti norimo elemento value:
+    const studentName = document.querySelector('#student-name').value;
+    const studentName = document.getElementById('student-name').value;
+    const studentName = document.getElementsByName('name')[0].value;
+    const studentName = document.querySelector('[name="name"]').value;
+    const studentName = form.querySelector('[name="name"]').value;
+    const studentName = event.target.elements.name.value;
+
+
+
+*/
 

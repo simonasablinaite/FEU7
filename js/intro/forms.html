@@ -29,27 +29,29 @@ Sukurti kontaktų formą.
    <form id="student-form">
       <div class="form-control">
          <label for="student-name">Name:</label>
-         <input type="text" name="name" id="student-name" placeholder="Enter your name here...">
+         <input type="text" name="name" id="student-name" placeholder="Enter your name here..." value="Jonas">
       </div>
 
       <div class="form-control">
          <label for="student-surname">Surname:</label>
-         <input type="text" name="surname" id="student-surname" placeholder="Enter your surname here..">
+         <input type="text" name="surname" id="student-surname" placeholder="Enter your surname here.."
+            value="Jonaitis">
       </div>
 
       <div class="form-control">
          <label for="age">Age:</label>
-         <input type="number" name="student-age" id="age" placeholder="Enter your age here...">
+         <input type="number" name="student-age" id="age" placeholder="Enter your age here..." value="44">
       </div>
 
       <div class="form-control">
          <label for="student-phone">Phone:</label>
-         <input type="tel" name="phone" id="student-phone" placeholder="Enter your phone here...">
+         <input type="tel" name="phone" id="student-phone" placeholder="Enter your phone here..." value="868686868">
       </div>
 
       <div class="form-control">
          <label for="student-email">Email:</label>
-         <input type="email" id="email" name="student-email" placeholder="Enter your email here...">
+         <input type="email" id="email" name="student-email" placeholder="Enter your email here..."
+            value="jonas@jonas.com">
       </div>
 
       <div class="range-wrap">
@@ -93,6 +95,8 @@ Sukurti kontaktų formą.
 
       <button type="submit">Create student</button>
    </form>
+
+   <div id="students-list"></div>
    <script src="./tasks/008-forms.js"></script>
 </body>
 
