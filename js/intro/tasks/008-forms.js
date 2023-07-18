@@ -136,10 +136,10 @@ studentForm.addEventListener('submit', event => {
     ageElement.innerHTML = `<b>Age:</b> ${age}`;
 
     const phoneElement = document.createElement('p');
-    phoneElement.innerHTML = `<b>Phone number:</b> ${phone}`;
+    phoneElement.innerHTML = '<b>Phone number:</b> *********';
 
     const emailElement = document.createElement('p');
-    emailElement.innerHTML = `<b>Email address:</b> ${email}`;
+    emailElement.innerHTML = '<b>Email address:</b> **********';
 
     const ITknowledgeElement = document.createElement('p');
     ITknowledgeElement.innerHTML = `<b>IT knowledge:</b> ${ITknowledge}`;
@@ -163,17 +163,37 @@ studentForm.addEventListener('submit', event => {
     // interestsTitle pridedamas i interestsElementa, pridedamas interestsList'as ir isvedami i ekrana:
     interestsElement.append(interestsTitlte, interestsList);
 
+    // Sukuriamas showPrivateInfo mygtukas, kuri paspaudus, studento informacija pasikeicia i pilna info, o mygtukas patampa hidenInfo. Paspaudus mygtuka dar karta - vel rodoma zvaigzdutemis uzslepta info:
+    let privateInfoButton = document.createElement('button');
+    privateInfoButton.textContent = 'Show private info';
+
+    // Sukuriamas kintamasis mygtuko reiksmes keitimui:
+    let isPrivateInfoHiden = true;
+
+    privateInfoButton.addEventListener('click', () => {
+        // Kintamojo isPrivateInfo reiksmes 'true' keitimas i false ir atvirksciai
+        isPrivateInfoHiden = !isPrivateInfoHiden;
+
+        // Tikrinama reiksme: jei reikia slepti info ji slepiama, jei reikia rodyti - ji rodoma:
+        if (isPrivateInfoHiden) {
+            phoneElement.innerHTML = '<b>Phone number:</b> *********';
+            emailElement.innerHTML = '<b>Email address:</b> **********';
+            privateInfoButton.textContent = 'Show private info';
+
+        } else {
+            phoneElement.innerHTML = `<b>Phone number:</b> ${phone}`;
+            emailElement.innerHTML = `<b>Email address:</b> ${email}`;
+            privateInfoButton.textContent = 'Hide private info';
+        }
+    })
+
+
     // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
-    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement);
+    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement, privateInfoButton);
 
-    // Prependinu studentItem i students lista kas karta, kai submitinama forma.
+    // Prependinu studentItem i students lista kas karta, kai submitinama forma:
     studentsList.prepend(studentItem);
-
-
-
-
 })
-
 
 
 /*
@@ -185,8 +205,5 @@ Kiti budai pasiekti norimo elemento value:
     const studentName = document.querySelector('[name="name"]').value;
     const studentName = form.querySelector('[name="name"]').value;
     const studentName = event.target.elements.name.value;
-
-
-
 */
 
