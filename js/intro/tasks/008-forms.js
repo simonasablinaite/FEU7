@@ -211,6 +211,9 @@ studentForm.addEventListener('submit', event => {
     // Studento istrynimo funkcionalumas:
     deleteStudentButton.addEventListener('click', () => {
         studentItem.remove();
+
+        const deleteStudentText = `Student ${name} ${surname} was deleted!`;
+        renderAlertMessage(deleteStudentText, 'red');
     })
 
 
@@ -227,15 +230,21 @@ studentForm.addEventListener('submit', event => {
     ITknowledgeChange();
 
     // Paselektinamas issokancios zinutes elementas:
+    const createdStudentText = `Student ${name} ${surname} was created successfully!`;
+    renderAlertMessage(createdStudentText, 'green');
+})
+
+function renderAlertMessage(text, color) {
     const alertMessage = document.querySelector('#alert-message');
-    alertMessage.textContent = `Student ${name} ${surname} was created successfully!`;
+    alertMessage.textContent = text;
+
+    alertMessage.style.color = color;
 
     // F-ja nurodanti, kad sekmes zinute bus matoma 3s:
     setTimeout(() => {
         alertMessage.textContent = '';
     }, 3000)
-})
-
+}
 
 /*
 KONSPEKTAI IR PAPILDOMA INFO:
