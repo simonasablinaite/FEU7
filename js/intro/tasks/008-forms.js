@@ -80,7 +80,6 @@ SEPTINTA UŽDUOTIS:
 6. Submit event'o metu patikrinti ar kuriame naują studentą, ar redaguojame jau sukurtą.
 7. Jeigu studentas redaguojamas, šį naują (redaguotą) HTML elementą panaudoti perrašant seną studento HTML elementą (kuris išsaugotas 5 žingsnyje).
 8. Pakeisti formos submit mygtuko tekstą į pradinį ir pakeisti iššokančio pranešimo tekstą.
-
 */
 
 // Paselektinama forma ir jos elementai:
@@ -205,8 +204,18 @@ studentForm.addEventListener('submit', event => {
         }
     })
 
+    // Sukuriamas studento istrynimo mygtukas:
+    const deleteStudentButton = document.createElement('button');
+    deleteStudentButton.textContent = 'Delete student';
+
+    // Studento istrynimo funkcionalumas:
+    deleteStudentButton.addEventListener('click', () => {
+        studentItem.remove();
+    })
+
+
     // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
-    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement, privateInfoButton);
+    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement, privateInfoButton, deleteStudentButton);
 
     // Prependinu studentItem i students lista kas karta, kai submitinama forma:
     studentsList.prepend(studentItem);
