@@ -86,6 +86,24 @@ SEPTINTA UŽDUOTIS:
 // Paselektinama forma ir jos elementai:
 const studentForm = document.querySelector('#student-form');
 
+// F-ja range inputo reiksmes keitimui:
+function ITknowledgeChange() {
+    // Paselektinami range input ir output elementai:
+    const ITknowledgeInput = document.querySelector('#ITknowledge');
+    const ITknowledgeOutput = document.querySelector('#ITknowledge-output');
+
+    // Kadangi pradzioje paimama pradine inputo reiksme, tai ji nurodoma:
+    ITknowledgeOutput.textContent = ITknowledgeInput.value;
+
+    // Range inputo reiksmes atvaizdavimas:
+    ITknowledgeInput.addEventListener('input', event => {
+        // console.log(event.target.value);
+        ITknowledgeOutput.textContent = event.target.value;
+    })
+}
+
+ITknowledgeChange();
+
 // Tam, kad matyti visa formoje esancia informacija, eventas iskvieciamas formai, o ne mygtukui. Forma turi tureti papildoma eventa "submit":
 
 studentForm.addEventListener('submit', event => {
@@ -187,17 +205,26 @@ studentForm.addEventListener('submit', event => {
         }
     })
 
-
     // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
     studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement, privateInfoButton);
 
     // Prependinu studentItem i students lista kas karta, kai submitinama forma:
     studentsList.prepend(studentItem);
 
+    // Formos nuresetinimo po submito metodas:
+    form.reset();
+
+    // Nuresetinama ir range inputo reiksme:
+    ITknowledgeChange();
+
     // Paselektinamas issokancios zinutes elementas:
     const alertMessage = document.querySelector('#alert-message');
-    alertMessage.textContent = `Student ${name} was created successfully!`;
+    alertMessage.textContent = `Student ${name} ${surname} was created successfully!`;
 
+    // F-ja nurodanti, kad sekmes zinute bus matoma 3s:
+    setTimeout(() => {
+        alertMessage.textContent = '';
+    }, 3000)
 })
 
 
