@@ -16,7 +16,7 @@ Sukurti kontaktų formą.
 2. Kiekvieną kartą pridavus formą (submit), turi būti sukurtas naujas div elementas su klase „student-item" ir pridedamas į „students-list" elemento pradžią.
 3. Duomenys apie studentą turi būti įdėti į „student-item" elementą.
 
-4. Formoje pridėti „checkbox" tipo input'ą, kuriame pateikta galimybę rinktis iš dominančių programavimo kalbų.
+4. Formoje pridėti „checkbox" tipo input'ą, kuriame pateikta galimybė rinktis iš dominančių programavimo kalbų.
 5. Dominančias programavimo kalbas atvaizduoti „student-item" elemente. */
 /*
 TREČIA DALIS:
@@ -103,6 +103,8 @@ studentForm.addEventListener('submit', event => {
     const email = form.email.value;
     const ITknowledge = form.ITknowledge.value;
     const group = form.group.value;
+    // Checkbox'u reiksmiu issirinkimas pagal 'name' ir kurie yra uzcekinti:
+    const interests = form.querySelectorAll('[name="interests"]:checked');
 
     console.log(name);
     console.log(surname);
@@ -111,6 +113,7 @@ studentForm.addEventListener('submit', event => {
     console.log(email);
     console.log(ITknowledge);
     console.log(group);
+    console.log(interests);
 
     // paselektinamas students listas is HTML'o
     const studentsList = document.querySelector('#students-list');
@@ -144,9 +147,24 @@ studentForm.addEventListener('submit', event => {
     const groupElement = document.createElement('p');
     groupElement.innerHTML = `<b>Group:</b> ${group}`;
 
-    // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
-    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement);
+    // Sukuriamas elementas student interest pavadinimui:
+    const interestsElement = document.createElement('div');
+    const interestsTitlte = document.createElement('h2');
+    interestsTitlte.textContent = 'Student interests:';
 
+    // Sukuriamas interestsList elementas, i ji pridedamos checkboxo reiksmes ir isvedamos i ekrana:
+    const interestsList = document.createElement('ul');
+    interests.forEach(interest => {
+        const interestElement = document.createElement('li');
+        interestElement.textContent = interest.value;
+        interestsList.append(interestElement)
+    })
+
+    // interestsTitle pridedamas i interestsElementa, pridedamas interestsList'as ir isvedami i ekrana:
+    interestsElement.append(interestsTitlte, interestsList);
+
+    // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
+    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement);
 
     // Prependinu studentItem i students lista kas karta, kai submitinama forma.
     studentsList.prepend(studentItem);
