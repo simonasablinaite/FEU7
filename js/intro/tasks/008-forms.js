@@ -193,6 +193,11 @@ studentForm.addEventListener('submit', event => {
 
     // Prependinu studentItem i students lista kas karta, kai submitinama forma:
     studentsList.prepend(studentItem);
+
+    // Paselektinamas issokancios zinutes elementas:
+    const alertMessage = document.querySelector('#alert-message');
+    alertMessage.textContent = `Student ${name} was created successfully!`;
+
 })
 
 
