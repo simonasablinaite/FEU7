@@ -1,27 +1,54 @@
 form {
-  margin-bottom: 20px;
-}
-.form-control {
-  width: 50%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
   margin-top: 10px;
+  font-weight: 600;
+  width: 20%;
+}
+
+label {
+  margin-bottom: 5px;
 }
 
 .range-wrap {
   margin-top: 20px;
+  font-weight: 600;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 fieldset {
-  width: 400px;
+  width: 20%;
+  margin-top: 20px;
 }
 
-.select-form-control {
-  margin-top: 10px;
+button {
+  margin-top: 20px;
+  width: 250px;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
 }
 
 #alert-message {
   color: green;
   font-size: 30px;
   font-weight: 600;
+}
+
+.error-message {
+  color: red;
+}
+
+.input-error {
+  border-color: red;
 }

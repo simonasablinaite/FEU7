@@ -110,6 +110,49 @@ studentForm.addEventListener('submit', event => {
     // console.log(event);
     // console.log(event.target);
 
+    // Paselektinami klaidos pranesimai, kad veliau butu galima juos issivalyti:
+    const inputErrorMessages = document.querySelectorAll('.input-error');
+    console.log(inputErrorMessages);
+
+    // Klaidos pranesimai istraukiami po viena ir jie istrinami, kad kas karta nesikartotu:
+    inputErrorMessages.forEach(inputErrorMessage => inputErrorMessage.remove());
+
+    // Paselektinami 'required' atributa turintys inputai:
+    const requiredFields = document.querySelectorAll('input:required');
+
+    // Kintamasis formos tikrinimui (tolimesnio kodo paleidimui/sustabdymui)
+    let isValid = true;
+
+    requiredFields.forEach(requiredField => {
+        if (!requiredField.value) {
+            console.log('laukelis uzpildytas neteisingai');
+
+            console.log(requiredField);
+            requiredField.classList.add('input-error');
+
+            let errorMessage = document.createElement('span');
+            errorMessage.classList.add('error-message');
+            errorMessage.textContent = 'The field is filled incorrectly!'
+
+            requiredField.after(errorMessage);
+
+            const errorMessageText = 'Some fields are missing!';
+            renderAlertMessage(errorMessageText, 'red');
+
+            // Sugaudomas tuscias laukas
+            isValid = false;
+        }
+    })
+
+    // jei laukas tuscias, tada tolimesnis kodas sustabdomas
+    if (!isValid) {
+        return;
+    }
+
+    console.log('laukelis uzpildytas teisingai');
+
+
+
     const form = event.target;
 
     // surenkama visu inputu informacija i konsole:
@@ -141,7 +184,7 @@ studentForm.addEventListener('submit', event => {
 
     // I studentItem elementa pridedama studento informacija:
     const listTitle = document.createElement('h1');
-    listTitle.textContent = `New student ${name}`;
+    listTitle.textContent = `New student ${name} ${surname}`;
 
     const nameElement = document.createElement('p');
     nameElement.innerHTML = `<b>Name:</b> ${name}`;
@@ -181,7 +224,7 @@ studentForm.addEventListener('submit', event => {
     interestsElement.append(interestsTitlte, interestsList);
 
     // Sukuriamas showPrivateInfo mygtukas, kuri paspaudus, studento informacija pasikeicia i pilna info, o mygtukas patampa hidenInfo. Paspaudus mygtuka dar karta - vel rodoma zvaigzdutemis uzslepta info:
-    let privateInfoButton = document.createElement('button');
+    const privateInfoButton = document.createElement('button');
     privateInfoButton.textContent = 'Show private info';
 
     // Sukuriamas kintamasis mygtuko reiksmes keitimui:
@@ -212,10 +255,12 @@ studentForm.addEventListener('submit', event => {
     deleteStudentButton.addEventListener('click', () => {
         studentItem.remove();
 
+        // Sukuriama zinute studento istrynimo atveju
         const deleteStudentText = `Student ${name} ${surname} was deleted!`;
+
+        // Iskvieciama pranesimo zinutes f-ja ir paduodami parametrai, tekstas ir spalva
         renderAlertMessage(deleteStudentText, 'red');
     })
-
 
     // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
     studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement, privateInfoButton, deleteStudentButton);
@@ -234,6 +279,7 @@ studentForm.addEventListener('submit', event => {
     renderAlertMessage(createdStudentText, 'green');
 })
 
+// Susikuriama pranesimo zinutes f-ja, kuriai paduodami du parametrai: tekstas ir spalva
 function renderAlertMessage(text, color) {
     const alertMessage = document.querySelector('#alert-message');
     alertMessage.textContent = text;
