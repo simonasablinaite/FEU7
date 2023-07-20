@@ -104,35 +104,35 @@ function ITknowledgeChange() {
 ITknowledgeChange();
 
 // Tam, kad matyti visa formoje esancia informacija, eventas iskvieciamas formai, o ne mygtukui. Forma turi tureti papildoma eventa "submit":
-
 studentForm.addEventListener('submit', event => {
     event.preventDefault();
-    // console.log(event);
-    // console.log(event.target);
+
+    const form = event.target;
 
     // Paselektinami klaidos pranesimai, kad veliau butu galima juos issivalyti:
-    const inputErrorMessages = document.querySelectorAll('.input-error');
+    const inputErrorMessages = form.querySelectorAll('.input-error');
     console.log(inputErrorMessages);
 
     // Klaidos pranesimai istraukiami po viena ir jie istrinami, kad kas karta nesikartotu:
     inputErrorMessages.forEach(inputErrorMessage => inputErrorMessage.remove());
 
-    // Paselektinami 'required' atributa turintys inputai:
-    const requiredFields = document.querySelectorAll('input:required');
+    // Paselektinami 'required' atributa turintys inputai. Vietoje document, naudojamas form kintamasis tam, kad funkcionalumas veiktu tik sioje formoje. 
+    const requiredFields = form.querySelectorAll('input:required');
 
     // Kintamasis formos tikrinimui (tolimesnio kodo paleidimui/sustabdymui)
     let isValid = true;
 
+    // Paimami visi laukeliai turintys 'requared' atributa ir jiems sukuriamos validacijos:
     requiredFields.forEach(requiredField => {
-        if (!requiredField.value) {
-            console.log('laukelis uzpildytas neteisingai');
+        requiredField.classList.remove('input-error');
 
-            console.log(requiredField);
+        // Tikrinama ar laukeliai yra neužpildyti
+        if (!requiredField.value) {
             requiredField.classList.add('input-error');
 
             let errorMessage = document.createElement('span');
             errorMessage.classList.add('error-message');
-            errorMessage.textContent = 'The field is filled incorrectly!'
+            errorMessage.textContent = 'The field is empty!';
 
             requiredField.after(errorMessage);
 
@@ -141,6 +141,77 @@ studentForm.addEventListener('submit', event => {
 
             // Sugaudomas tuscias laukas
             isValid = false;
+
+        } else if (requiredField.name === 'name') {
+            if (requiredField.value.length < 3) {
+                requiredField.classList.add('input-error');
+
+                let errorMessage = document.createElement('span');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'Name must be 3 symbol at least!';
+
+                requiredField.after(errorMessage);
+
+                isValid = false;
+            }
+        } else if (requiredField.name === 'surname') {
+            if (requiredField.value.length < 3) {
+                requiredField.classList.add('input-error');
+
+                let errorMessage = document.createElement('span');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'Surname must be 3 symbol at least!';
+
+                requiredField.after(errorMessage);
+
+                isValid = false;
+            }
+        } else if (requiredField.name === 'age') {
+            if (requiredField.value < 0) {
+                requiredField.classList.add('input-error');
+
+                let errorMessage = document.createElement('span');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'Age must be positive number!';
+
+                requiredField.after(errorMessage);
+
+                isValid = false;
+            } else if (requiredField.value >= 120) {
+                requiredField.classList.add('input-error');
+
+                let errorMessage = document.createElement('span');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'Age is too high!';
+
+                requiredField.after(errorMessage);
+
+                isValid = false;
+            }
+        } else if (requiredField.name === 'phone') {
+            if (requiredField.value.length < 9 || requiredField.value.length > 12) {
+                requiredField.classList.add('input-error');
+
+                let errorMessage = document.createElement('span');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'The phone number is incorrect!';
+
+                requiredField.after(errorMessage);
+
+                isValid = false;
+            }
+        } else if (requiredField.name === 'email') {
+            if (requiredField.value.length < 8 || !requiredField.value.includes('@') || !requiredField.value.includes('.')) {
+                requiredField.classList.add('input-error');
+
+                let errorMessage = document.createElement('span');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'The email address is incorrect!';
+
+                requiredField.after(errorMessage);
+
+                isValid = false;
+            }
         }
     })
 
@@ -148,12 +219,6 @@ studentForm.addEventListener('submit', event => {
     if (!isValid) {
         return;
     }
-
-    console.log('laukelis uzpildytas teisingai');
-
-
-
-    const form = event.target;
 
     // surenkama visu inputu informacija i konsole:
     const name = form.name.value;
