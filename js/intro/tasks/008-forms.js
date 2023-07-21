@@ -85,98 +85,45 @@ SEPTINTA UŽDUOTIS:
 // Paselektinama forma ir jos elementai:
 const studentForm = document.querySelector('#student-form');
 
-// F-ja range inputo reiksmes keitimui:
-function ITknowledgeChange() {
-    // Paselektinami range input ir output elementai:
-    const ITknowledgeInput = document.querySelector('#ITknowledge');
-    const ITknowledgeOutput = document.querySelector('#ITknowledge-output');
+const initialData = [
+    {
+        name: 'Jonas',
+        surname: 'Jonaitis',
+        age: 44,
+        phone: '+37062662626',
+        email: 'jonas@jonas.com',
+        itKnowledge: 2,
+        group: 'feu-2',
+        interests: ['PHP']
+    },
+    {
+        name: 'Onute',
+        surname: 'Onaityte',
+        age: 24,
+        phone: '+37061111111',
+        email: 'onute@ona.com',
+        itKnowledge: 5,
+        group: 'feu-5',
+        interests: ['PHP', 'Javascript']
+    },
+    {
+        name: 'Petras',
+        surname: 'Petraitis',
+        age: 55,
+        phone: '+37062222222',
+        email: 'p@petras.com',
+        itKnowledge: 1,
+        group: 'feu-1',
+        interests: []
+    }
+]
 
-    // Kadangi pradzioje paimama pradine inputo reiksme, tai ji nurodoma:
-    ITknowledgeOutput.textContent = ITknowledgeInput.value;
+function renderInitialData(data) {
+    console.log(data);
+    data.forEach(item => {
+        console.log(item);
 
-    // Range inputo reiksmes atvaizdavimas:
-    ITknowledgeInput.addEventListener('input', event => {
-        // console.log(event.target.value);
-        ITknowledgeOutput.textContent = event.target.value;
-    })
-}
-
-ITknowledgeChange();
-
-// Tam, kad matyti visa formoje esancia informacija, eventas iskvieciamas formai, o ne mygtukui. Forma turi tureti papildoma eventa "submit":
-studentForm.addEventListener('submit', event => {
-    event.preventDefault();
-
-    const form = event.target;
-
-    // Paselektinami klaidos pranesimai, kad veliau butu galima juos issivalyti:
-    const inputErrorMessages = form.querySelectorAll('.input-error');
-    console.log(inputErrorMessages);
-
-    // Klaidos pranesimai istraukiami po viena ir jie istrinami, kad kas karta nesikartotu:
-    inputErrorMessages.forEach(inputErrorMessage => inputErrorMessage.remove());
-
-    // Paselektinami 'required' atributa turintys inputai. Vietoje document, naudojamas form kintamasis tam, kad funkcionalumas veiktu tik sioje formoje. 
-    const requiredFields = form.querySelectorAll('input:required');
-
-    // Kintamasis formos tikrinimui (tolimesnio kodo paleidimui/sustabdymui)
-    let isValid = true;
-
-    // Paimami visi laukeliai turintys 'requared' atributa ir jiems sukuriamos validacijos:
-    requiredFields.forEach(requiredField => {
-        requiredField.classList.remove('input-error');
-
-        // Tikrinama ar laukeliai yra neužpildyti
-        if (!requiredField.value) {
-            validateInputField(requiredField, 'The fiels is empty!')
-
-        } else {
-
-            // Tikrinimai pagal duotas uzduotis:
-            if (requiredField.name === 'name') {
-                if (requiredField.value.length < 3) {
-                    validateInputField(requiredField, 'Name must be 3 symbol at least!')
-                }
-
-            } else if (requiredField.name === 'surname') {
-                if (requiredField.value.length < 3) {
-                    validateInputField(requiredField, 'Surname must be 3 symbol at least!')
-                }
-
-            } else if (requiredField.name === 'age') {
-                if (requiredField.value < 0) {
-                    validateInputField(requiredField, 'Age must be positive number!')
-                } else if (requiredField.value >= 120) {
-                    validateInputField(requiredField, 'Age is too high!')
-                }
-
-            } else if (requiredField.name === 'phone') {
-                if (requiredField.value.length < 9 || requiredField.value.length > 12) {
-                    validateInputField(requiredField, 'The phone number is incorrect!')
-                }
-
-            } else if (requiredField.name === 'email') {
-                if (requiredField.value.length < 8 || !requiredField.value.includes('@') || !requiredField.value.includes('.')) {
-                    validateInputField(requiredField, 'The email address is incorrect!')
-                }
-            }
-        }
-
-        // jei laukas tuscias, tada tolimesnis kodas sustabdomas
-        if (!isValid) {
-            return;
-        }
-
-        // surenkama visu inputu informacija i konsole:
-        const name = form.name.value;
-        const surname = form.surname.value;
-        const age = form.age.value;
-        const phone = form.phone.value;
-        const email = form.email.value;
-        const ITknowledge = form.ITknowledge.value;
-        const group = form.group.value;
-        // Checkbox'u reiksmiu issirinkimas pagal 'name' ir kurie yra uzcekinti:
-        const interests = form.querySelectorAll('[name="interests"]:checked');
+        let { name, surname, age, phone, email, ITknowledge, group, interests } = item
 
         console.log(name);
         console.log(surname);
@@ -187,14 +134,13 @@ studentForm.addEventListener('submit', event => {
         console.log(group);
         console.log(interests);
 
-        // paselektinamas students listas is HTML'o
+        item.interests.map(interest => console.log(interest));
+
         const studentsList = document.querySelector('#students-list');
 
-        // Sukuriamas naujas div elementas ir jam priskiriama klase "student-item"
         const studentItem = document.createElement('div');
         studentItem.classList.add('student-item');
 
-        // I studentItem elementa pridedama studento informacija:
         const listTitle = document.createElement('h1');
         listTitle.textContent = `New student ${name} ${surname}`;
 
@@ -229,94 +175,269 @@ studentForm.addEventListener('submit', event => {
         interests.forEach(interest => {
             const interestElement = document.createElement('li');
             interestElement.textContent = interest.value;
+
             interestsList.append(interestElement)
         })
+        studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement);
 
-        // interestsTitle pridedamas i interestsElementa, pridedamas interestsList'as ir isvedami i ekrana:
-        interestsElement.append(interestsTitlte, interestsList);
-
-        // Sukuriamas showPrivateInfo mygtukas, kuri paspaudus, studento informacija pasikeicia i pilna info, o mygtukas patampa hidenInfo. Paspaudus mygtuka dar karta - vel rodoma zvaigzdutemis uzslepta info:
-        const privateInfoButton = document.createElement('button');
-        privateInfoButton.textContent = 'Show private info';
-
-        // Sukuriamas kintamasis mygtuko reiksmes keitimui:
-        let isPrivateInfoHiden = true;
-
-        privateInfoButton.addEventListener('click', () => {
-            // Kintamojo isPrivateInfo reiksmes 'true' keitimas i false ir atvirksciai
-            isPrivateInfoHiden = !isPrivateInfoHiden;
-
-            // Tikrinama reiksme: jei reikia slepti info ji slepiama, jei reikia rodyti - ji rodoma:
-            if (isPrivateInfoHiden) {
-                phoneElement.innerHTML = '<b>Phone number:</b> *********';
-                emailElement.innerHTML = '<b>Email address:</b> **********';
-                privateInfoButton.textContent = 'Show private info';
-
-            } else {
-                phoneElement.innerHTML = `<b>Phone number:</b> ${phone}`;
-                emailElement.innerHTML = `<b>Email address:</b> ${email}`;
-                privateInfoButton.textContent = 'Hide private info';
-            }
-        })
-
-        // Sukuriamas studento istrynimo mygtukas:
-        const deleteStudentButton = document.createElement('button');
-        deleteStudentButton.textContent = 'Delete student';
-
-        // Studento istrynimo funkcionalumas:
-        deleteStudentButton.addEventListener('click', () => {
-            studentItem.remove();
-
-            // Sukuriama zinute studento istrynimo atveju
-            const deleteStudentText = `Student ${name} ${surname} was deleted!`;
-
-            // Iskvieciama pranesimo zinutes f-ja ir paduodami parametrai, tekstas ir spalva
-            renderAlertMessage(deleteStudentText, 'red');
-        })
-
-        // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
-        studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement, privateInfoButton, deleteStudentButton);
-
-        // Prependinu studentItem i students lista kas karta, kai submitinama forma:
         studentsList.prepend(studentItem);
 
-        // Formos nuresetinimo po submito metodas:
-        form.reset();
+    });
 
-        // Nuresetinama ir range inputo reiksme:
-        ITknowledgeChange();
+}
 
-        // Paselektinamas issokancios zinutes elementas:
-        const createdStudentText = `Student ${name} ${surname} was created successfully!`;
-        renderAlertMessage(createdStudentText, 'green');
+renderInitialData(initialData);
+
+// F-ja range inputo reiksmes keitimui:
+function ITknowledgeChange() {
+    // Paselektinami range input ir output elementai:
+    const ITknowledgeInput = document.querySelector('#ITknowledge');
+    const ITknowledgeOutput = document.querySelector('#ITknowledge-output');
+
+    // Kadangi pradzioje paimama pradine inputo reiksme, tai ji nurodoma:
+    ITknowledgeOutput.textContent = ITknowledgeInput.value;
+
+    // Range inputo reiksmes atvaizdavimas:
+    ITknowledgeInput.addEventListener('input', event => {
+        // console.log(event.target.value);
+        ITknowledgeOutput.textContent = event.target.value;
+    })
+}
+
+ITknowledgeChange();
+
+function validateForm(form) {
+    // Paselektinami klaidos pranesimai, kad veliau butu galima juos issivalyti:
+    const inputErrorMessages = form.querySelectorAll('.input-error');
+
+    // Klaidos pranesimai istraukiami po viena ir jie istrinami, kad kas karta nesikartotu:
+    inputErrorMessages.forEach(inputErrorMessage => inputErrorMessage.remove());
+
+    // Paselektinami 'required' atributa turintys inputai. Vietoje document, naudojamas form kintamasis tam, kad funkcionalumas veiktu tik sioje formoje. 
+    const requiredFields = form.querySelectorAll('input:required');
+
+    // Kintamasis formos tikrinimui (tolimesnio kodo paleidimui/sustabdymui)
+    let isValid = true;
+
+    // Paimami visi laukeliai turintys 'requared' atributa ir jiems sukuriamos validacijos:
+    requiredFields.forEach(requiredField => {
+        // requiredField.classList.remove('input-error');
+
+        // Tikrinama ar laukeliai yra neužpildyti
+        if (!requiredField.value) {
+            validateInputField(requiredField, 'The field is empty!');
+
+        } else {
+
+            // Tikrinimai pagal duotas uzduotis:
+            if (requiredField.name === 'name') {
+                if (requiredField.value.length < 3) {
+                    validateInputField(requiredField, 'Name must be 3 symbol at least!');
+
+                    // Sugaudomas tuscias laukas:
+                    isValid = false;
+                }
+                return;
+            }
+            if (requiredField.name === 'surname') {
+                if (requiredField.value.length < 3) {
+                    validateInputField(requiredField, 'Surname must be 3 symbol at least!');
+                    isValid = false;
+                }
+                return;
+            }
+            if (requiredField.name === 'age') {
+                if (requiredField.value < 0) {
+                    validateInputField(requiredField, 'Age must be positive number!');
+                } else if (requiredField.value >= 120) {
+                    validateInputField(requiredField, 'Age is too high!');
+                    isValid = false;
+                }
+                return;
+            }
+            if (requiredField.name === 'phone') {
+                if (requiredField.value.length < 9 || requiredField.value.length > 12) {
+                    validateInputField(requiredField, 'The phone number is incorrect!');
+                    isValid = false;
+                }
+                return;
+            }
+            if (requiredField.name === 'email') {
+                if (requiredField.value.length < 8 || !requiredField.value.includes('@') || !requiredField.value.includes('.')) {
+                    validateInputField(requiredField, 'The email address is incorrect!');
+                    isValid = false;
+                }
+                return;
+            }
+        }
+    })
+    return isValid;
+}
+
+// Tam, kad matyti visa formoje esancia informacija, eventas iskvieciamas formai, o ne mygtukui. Forma turi tureti papildoma eventa "submit":
+studentForm.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const form = event.target;
+
+    validateForm(form);
+
+    // jei laukas tuscias, tada tolimesnis kodas sustabdomas
+    if (!isValid) {
+        const messageText = 'Some fields are missing';
+        renderAlertMessage(messageText, 'red');
+        return;
+    }
+
+    // surenkama visu inputu informacija i konsole:
+    const name = form.name.value;
+    const surname = form.surname.value;
+    const age = form.age.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const ITknowledge = form.ITknowledge.value;
+    const group = form.group.value;
+    // Checkbox'u reiksmiu issirinkimas pagal 'name' ir kurie yra uzcekinti:
+    const interests = form.querySelectorAll('[name="interests"]:checked');
+
+    console.log(name);
+    console.log(surname);
+    console.log(age);
+    console.log(phone);
+    console.log(email);
+    console.log(ITknowledge);
+    console.log(group);
+    console.log(interests);
+
+    // paselektinamas students listas is HTML'o
+    const studentsList = document.querySelector('#students-list');
+
+    // Sukuriamas naujas div elementas ir jam priskiriama klase "student-item"
+    const studentItem = document.createElement('div');
+    studentItem.classList.add('student-item');
+
+    // I studentItem elementa pridedama studento informacija:
+    const listTitle = document.createElement('h1');
+    listTitle.textContent = `New student ${name} ${surname}`;
+
+    const nameElement = document.createElement('p');
+    nameElement.innerHTML = `<b>Name:</b> ${name}`;
+
+    const surnameElement = document.createElement('p');
+    surnameElement.innerHTML = `<b>Surname:</b> ${surname}`;
+
+    const ageElement = document.createElement('p');
+    ageElement.innerHTML = `<b>Age:</b> ${age}`;
+
+    const phoneElement = document.createElement('p');
+    phoneElement.innerHTML = '<b>Phone number:</b> *********';
+
+    const emailElement = document.createElement('p');
+    emailElement.innerHTML = '<b>Email address:</b> **********';
+
+    const ITknowledgeElement = document.createElement('p');
+    ITknowledgeElement.innerHTML = `<b>IT knowledge:</b> ${ITknowledge}`;
+
+    const groupElement = document.createElement('p');
+    groupElement.innerHTML = `<b>Group:</b> ${group}`;
+
+    // Sukuriamas elementas student interest pavadinimui:
+    const interestsElement = document.createElement('div');
+    const interestsTitlte = document.createElement('h2');
+    interestsTitlte.textContent = 'Student interests:';
+
+    // Sukuriamas interestsList elementas, i ji pridedamos checkboxo reiksmes ir isvedamos i ekrana:
+    const interestsList = document.createElement('ul');
+    interests.forEach(interest => {
+        const interestElement = document.createElement('li');
+        interestElement.textContent = interest.value;
+        interestsList.append(interestElement)
     })
 
-    // Susikuriama pranesimo zinutes f-ja, kuriai paduodami du parametrai: tekstas ir spalva
-    function renderAlertMessage(text, color) {
-        const alertMessage = document.querySelector('#alert-message');
-        alertMessage.textContent = text;
+    // interestsTitle pridedamas i interestsElementa, pridedamas interestsList'as ir isvedami i ekrana:
+    interestsElement.append(interestsTitlte, interestsList);
 
-        alertMessage.style.color = color;
+    // Sukuriamas showPrivateInfo mygtukas, kuri paspaudus, studento informacija pasikeicia i pilna info, o mygtukas patampa hidenInfo. Paspaudus mygtuka dar karta - vel rodoma zvaigzdutemis uzslepta info:
+    const privateInfoButton = document.createElement('button');
+    privateInfoButton.textContent = 'Show private info';
 
-        // F-ja nurodanti, kad sekmes zinute bus matoma 3s:
-        setTimeout(() => {
-            alertMessage.textContent = '';
-        }, 3000)
-    }
+    // Sukuriamas kintamasis mygtuko reiksmes keitimui:
+    let isPrivateInfoHiden = true;
 
-    // Funkcija inputu validacijoms: laukeliui sukuria klase, sukuriamas papildomas span elementas pranesimui, jam pridedama klase, pridedamas klaidos tekstas, klaidos tekstas isvedamas i ekrana, uzbaigiamas vykdyti kodas, jei aptinkama klaida
-    function validateInputField(requiredField, errorText) {
-        requiredField.classList.add('input-error');
+    privateInfoButton.addEventListener('click', () => {
+        // Kintamojo isPrivateInfo reiksmes 'true' keitimas i false ir atvirksciai
+        isPrivateInfoHiden = !isPrivateInfoHiden;
 
-        let errorMessage = document.createElement('span');
-        errorMessage.classList.add('error-message');
-        errorMessage.textContent = errorText;
+        // Tikrinama reiksme: jei reikia slepti info ji slepiama, jei reikia rodyti - ji rodoma:
+        if (isPrivateInfoHiden) {
+            phoneElement.innerHTML = '<b>Phone number:</b> *********';
+            emailElement.innerHTML = '<b>Email address:</b> **********';
+            privateInfoButton.textContent = 'Show private info';
 
-        requiredField.after(errorMessage);
+        } else {
+            phoneElement.innerHTML = `<b>Phone number:</b> ${phone}`;
+            emailElement.innerHTML = `<b>Email address:</b> ${email}`;
+            privateInfoButton.textContent = 'Hide private info';
+        }
+    })
 
-        // Sugaudomas tuscias laukas:
-        isValid = false;
-    }
+    // Sukuriamas studento istrynimo mygtukas:
+    const deleteStudentButton = document.createElement('button');
+    deleteStudentButton.textContent = 'Delete student';
+
+    // Studento istrynimo funkcionalumas:
+    deleteStudentButton.addEventListener('click', () => {
+        studentItem.remove();
+
+        // Sukuriama zinute studento istrynimo atveju
+        const deleteStudentText = `Student ${name} ${surname} was deleted!`;
+
+        // Iskvieciama pranesimo zinutes f-ja ir paduodami parametrai, tekstas ir spalva
+        renderAlertMessage(deleteStudentText, 'red');
+    })
+
+    // Tam, kad info atsivaizduotu ekrane, apendinu info i studentItema:
+    studentItem.append(listTitle, nameElement, surnameElement, ageElement, phoneElement, emailElement, ITknowledgeElement, groupElement, interestsElement, privateInfoButton, deleteStudentButton);
+
+    // Prependinu studentItem i students lista kas karta, kai submitinama forma:
+    studentsList.prepend(studentItem);
+
+    // Formos nuresetinimo po submito metodas:
+    form.reset();
+
+    // Nuresetinama ir range inputo reiksme:
+    ITknowledgeChange();
+
+    // Paselektinamas issokancios zinutes elementas:
+    const createdStudentText = `Student ${name} ${surname} was created successfully!`;
+    renderAlertMessage(createdStudentText, 'green');
+
+})
+
+
+// Susikuriama pranesimo zinutes f-ja, kuriai paduodami du parametrai: tekstas ir spalva
+function renderAlertMessage(text, color) {
+    const alertMessage = document.querySelector('#alert-message');
+    alertMessage.textContent = text;
+
+    alertMessage.style.color = color;
+
+    // F-ja nurodanti, kad sekmes zinute bus matoma 3s:
+    setTimeout(() => {
+        alertMessage.textContent = '';
+    }, 3000)
+}
+
+// Funkcija inputu validacijoms: laukeliui sukuria klase, sukuriamas papildomas span elementas pranesimui, jam pridedama klase, pridedamas klaidos tekstas, klaidos tekstas isvedamas i ekrana, uzbaigiamas vykdyti kodas, jei aptinkama klaida
+function validateInputField(requiredField, errorText) {
+    requiredField.classList.add('input-error');
+
+    let errorMessage = document.createElement('span');
+    errorMessage.classList.add('error-message');
+    errorMessage.textContent = errorText;
+
+    requiredField.after(errorMessage);
+}
 
 /*
 KONSPEKTAI IR PAPILDOMA INFO:
